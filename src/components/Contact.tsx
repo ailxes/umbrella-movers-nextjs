@@ -80,9 +80,10 @@ const Contact = () => {
       setIsSubmitted(true);
       toast({ title: "Request received!", description: "Check your email for a confirmation." });
       setFormData({ firstName: "", phone: "", email: "", moveSize: "", moveDate: "", message: "", honeypot: "", smsOptIn: false });
-    } catch (error) {
-      console.error("Error submitting quote request:", error);
-      toast({ title: "Error", description: "Failed to submit quote request. Please try again or call us directly.", variant: "destructive" });
+    } catch (error: any) {
+      console.error("Quote submit error:", error?.message, error?.code, error?.details, error);
+      const desc = error?.message || error?.details || "Please try again or call us directly.";
+      toast({ title: "Error", description: desc, variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
