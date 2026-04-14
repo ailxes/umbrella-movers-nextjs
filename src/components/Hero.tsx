@@ -98,7 +98,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="bg-[#F5F0E8]/90 backdrop-blur-sm rounded-none shadow-lifted p-6 w-full max-w-sm">
+          <div className="bg-[#F5F0E8]/90 backdrop-blur-sm rounded-none shadow-lifted p-6 w-full max-w-sm mt-12">
             <h2 className="text-lg font-serif font-semibold text-foreground mb-1 text-center">Get a Quote <span className="text-accent italic">Now</span></h2>
             <div className="editorial-divider mx-auto mb-4"></div>
             <HeroQuoteForm compact />
