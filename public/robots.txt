@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /owner-intake-7f3a9c
+Disallow: /*?lightbox=
+
+Sitemap: https://www.umbrellamovers.com/sitemap.xml

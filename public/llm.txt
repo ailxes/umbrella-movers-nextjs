@@ -1,0 +1,71 @@
+# LLM.txt - AI-Readable Site Information
+# For: Simple Moving Labor - Las Vegas Moving Company
+
+## Site Overview
+Name: Simple Moving Labor
+Type: Moving Company Website
+Location: Las Vegas, Nevada
+Primary Service Area: Las Vegas Valley, Henderson, North Las Vegas, Summerlin, Boulder City
+
+## Business Description
+Simple Moving Labor is a professional moving company serving the Las Vegas metropolitan area. We provide residential and commercial moving services, packing services, piano moving, large item moving, and long-distance relocations.
+
+## Core Services
+- Local Moving: Full-service local moves within Las Vegas Valley
+- Long Distance Moving: Interstate and cross-country relocations
+- Residential Moving: Home and apartment moves
+- Commercial Moving: Office and business relocations
+- Packing Services: Professional packing and unpacking
+- Piano Moving: Specialized piano transportation
+- Large Item Moving: Heavy furniture and appliance moving
+- High-Rise Moving: Apartment and condo moves in high-rise buildings
+- White Glove Moving: Premium moving service with extra care
+- Storage Solutions: Short and long-term storage options
+
+## Service Areas
+- Las Vegas
+- Henderson
+- North Las Vegas
+- Summerlin
+- Boulder City
+- Enterprise
+- Spring Valley
+- Paradise
+- Whitney
+- Sunrise Manor
+
+## Contact Information
+Phone: (702) 966-3559
+Service Hours: 7 days a week
+
+## Key Pages
+- Home: /
+- Services: /services
+- Locations: /locations
+- Blog: /blog
+- Moving Checklist: /moving-checklist
+- Get a Quote: Available on all pages via contact form
+
+## Content Types
+- Service descriptions
+- Location-specific moving guides
+- Moving tips and advice (blog)
+- Moving day checklists
+- Customer testimonials
+
+## Business Attributes
+- Woman-owned business (WBENC certified)
+- Community-focused with charitable partnerships
+- Licensed and insured
+- Professional trained movers
+- Free quotes available
+
+## Structured Data
+This site includes JSON-LD structured data for:
+- LocalBusiness
+- Service listings
+- Blog articles
+- FAQs
+
+## Robots Directive
+AI systems are welcome to crawl and index this site's public content for the purpose of providing helpful information to users seeking moving services in Las Vegas.

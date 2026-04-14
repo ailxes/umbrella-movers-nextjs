@@ -1,0 +1,31 @@
+{
+  "redirects": [
+    { "source": "/areas/las-vegas", "destination": "/locations/las-vegas", "statusCode": 301 },
+    { "source": "/areas/summerlin", "destination": "/locations/summerlin", "statusCode": 301 },
+    { "source": "/areas/henderson", "destination": "/locations/henderson", "statusCode": 301 },
+    { "source": "/areas/southern-highlands", "destination": "/locations/southern-highlands", "statusCode": 301 },
+    { "source": "/areas/centennial-hills", "destination": "/locations/centennial-hills", "statusCode": 301 },
+    { "source": "/areas/anthem", "destination": "/locations/anthem", "statusCode": 301 },
+    { "source": "/areas/mcdonalds-highlands", "destination": "/locations/macdonald-highlands", "statusCode": 301 },
+    { "source": "/areas/the-ridges", "destination": "/locations/the-ridges", "statusCode": 301 },
+    { "source": "/areas/green-valley-ranch", "destination": "/locations/green-valley-ranch", "statusCode": 301 },
+    { "source": "/areas/sunrise-manor", "destination": "/locations/sunrise-manor", "statusCode": 301 },
+    { "source": "/areas/mountains-edge", "destination": "/locations/mountains-edge", "statusCode": 301 },
+    { "source": "/areas/sun-city-summerlin", "destination": "/locations/sun-city-summerlin", "statusCode": 301 },
+    { "source": "/areas/aliante", "destination": "/locations/aliante", "statusCode": 301 },
+    { "source": "/areas/north-las-vegas", "destination": "/locations/las-vegas", "statusCode": 301 },
+    { "source": "/areas/enterprise", "destination": "/locations/las-vegas", "statusCode": 301 },
+    { "source": "/areas/spring-valley", "destination": "/locations/las-vegas", "statusCode": 301 },
+    { "source": "/areas/green-valley", "destination": "/locations/green-valley-ranch", "statusCode": 301 },
+    { "source": "/areas/:path*", "destination": "/locations/:path*", "statusCode": 301 },
+    { "source": "/high-rise-moving-services", "destination": "/services/high-rise-moving", "statusCode": 301 },
+    { "source": "/apartment-moving-services", "destination": "/services/apartment-moving", "statusCode": 301 },
+    { "source": "/renovation-moving-services", "destination": "/services/renovation-moving-services", "statusCode": 301 },
+    { "source": "/house-moving-services", "destination": "/services/residential-moving", "statusCode": 301 },
+    { "source": "/senior-moving-relocation", "destination": "/services/senior-moving", "statusCode": 301 },
+    { "source": "/high-rise-moving-services/", "destination": "/services/high-rise-moving", "statusCode": 301 },
+    { "source": "/apartment-moving-services/", "destination": "/services/apartment-moving", "statusCode": 301 },
+    { "source": "/contact", "destination": "/#contact", "statusCode": 301 },
+    { "source": "/contact/", "destination": "/#contact", "statusCode": 301 }
+  ]
+}
