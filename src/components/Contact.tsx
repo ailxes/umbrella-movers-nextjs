@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Mail, Phone, Shield, CheckCircle2, Loader2 } from "lucide-react";
+import { MapPin, Mail, Phone, Shield, CheckCircle2, Loader2, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 import {
@@ -38,6 +38,7 @@ const Contact = () => {
   const { toast } = useToast();
   const fadeRef = useFadeIn();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "", phone: "", email: "", moveSize: "", moveDate: "", message: "", honeypot: "", smsOptIn: false,
   });
@@ -76,7 +77,8 @@ const Contact = () => {
       supabase.functions.invoke("notify-quote-request", { body: backendPayload }).then(({ error: notifyError }) => { if (notifyError) console.error("Zapier notification error:", notifyError); });
       supabase.functions.invoke("send-smartmoving-lead", { body: backendPayload }).then(({ error: smError }) => { if (smError) console.error("SmartMoving CRM error:", smError); });
 
-      toast({ title: "You're all set — we got your request." });
+      setIsSubmitted(true);
+      toast({ title: "Request received!", description: "Check your email for a confirmation." });
       setFormData({ firstName: "", phone: "", email: "", moveSize: "", moveDate: "", message: "", honeypot: "", smsOptIn: false });
     } catch (error) {
       console.error("Error submitting quote request:", error);
@@ -107,6 +109,37 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="bg-card rounded-sm p-6 md:p-10 border border-border shadow-lifted">
+            {isSubmitted ? (
+              <div className="flex flex-col items-center justify-center text-center py-8 h-full min-h-[400px]">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 border border-green-200 mb-6">
+                  <CheckCircle2 className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-serif text-foreground mb-3">We Got Your Request!</h3>
+                <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed">
+                  Thanks for reaching out. A confirmation email is on its way to you, and our team will follow up within 4 business hours.
+                </p>
+                <div className="space-y-3 text-left w-full max-w-xs">
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4 text-accent shrink-0" />
+                    Response within 4 business hours
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <Mail className="h-4 w-4 text-accent shrink-0" />
+                    Confirmation email sent to you
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <Phone className="h-4 w-4 text-accent shrink-0" />
+                    Need us sooner? <a href="tel:7025332853" className="text-foreground font-medium hover:text-accent transition-colors">702-533-2853</a>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="mt-8 text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+                >
+                  Submit another request
+                </button>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <label htmlFor="website">Website</label>
@@ -178,6 +211,7 @@ const Contact = () => {
                 </div>
               </div>
             </form>
+            )}
           </div>
 
           {/* Contact Info */}
