@@ -1,4 +1,10 @@
 {
+  "crons": [
+    {
+      "path": "/api/outreach/cron",
+      "schedule": "0 16 * * *"
+    }
+  ],
   "redirects": [
     { "source": "/areas/las-vegas", "destination": "/locations/las-vegas", "statusCode": 301 },
     { "source": "/areas/summerlin", "destination": "/locations/summerlin", "statusCode": 301 },
