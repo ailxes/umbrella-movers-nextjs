@@ -95,6 +95,7 @@ export default function OutreachAdmin() {
   const [enrollments, setEnrollments]   = useState<Enrollment[]>([]);
   const [blockList, setBlockList]       = useState<BlockedEmail[]>([]);
   const [loading, setLoading]           = useState(true);
+  const [loadError, setLoadError]       = useState<string | null>(null);
   const [busy, setBusy]                 = useState<string | null>(null);
   const [toast, setToast]               = useState<{ msg: string; ok: boolean } | null>(null);
   const [activeTab, setActiveTab]       = useState<"campaigns"|"contacts"|"add"|"unsubscribe"|"upload">("campaigns");
@@ -126,13 +127,20 @@ export default function OutreachAdmin() {
 
   const load = useCallback(async () => {
     setLoading(true);
-    const [campsRes, statsRes] = await Promise.all([
-      fetch("/api/outreach/admin?section=campaigns"),
-      fetch("/api/outreach/admin?section=stats"),
-    ]);
-    const [campsData, statsData] = await Promise.all([campsRes.json(), statsRes.json()]);
-    setCampaigns(Array.isArray(campsData) ? campsData : []);
-    setGlobalStats(statsData?.totalContacts !== undefined ? statsData : null);
+    setLoadError(null);
+    try {
+      const [campsRes, statsRes] = await Promise.all([
+        fetch("/api/outreach/admin?section=campaigns"),
+        fetch("/api/outreach/admin?section=stats"),
+      ]);
+      const [campsData, statsData] = await Promise.all([campsRes.json(), statsRes.json()]);
+      if (!campsRes.ok) throw new Error(`Campaigns API ${campsRes.status}: ${JSON.stringify(campsData)}`);
+      if (!statsRes.ok) throw new Error(`Stats API ${statsRes.status}: ${JSON.stringify(statsData)}`);
+      setCampaigns(Array.isArray(campsData) ? campsData : []);
+      setGlobalStats(statsData?.totalContacts !== undefined ? statsData : null);
+    } catch (err: unknown) {
+      setLoadError(err instanceof Error ? err.message : String(err));
+    }
     setLoading(false);
   }, []);
 
@@ -261,6 +269,16 @@ export default function OutreachAdmin() {
   if (loading) return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center">
       <div className="text-slate-400 text-sm">Loading...</div>
+    </div>
+  );
+
+  if (loadError) return (
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-8">
+      <div className="max-w-lg w-full bg-white border border-red-200 rounded-xl p-6 space-y-3">
+        <h2 className="text-red-700 font-semibold">Failed to load admin dashboard</h2>
+        <pre className="text-xs text-red-600 bg-red-50 rounded p-3 overflow-auto whitespace-pre-wrap">{loadError}</pre>
+        <button onClick={load} className="text-sm text-slate-600 underline">Try again</button>
+      </div>
     </div>
   );
 
