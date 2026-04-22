@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function OutreachAdmin() {
   const [status, setStatus] = useState("loading");
-  const [data, setData] = useState<unknown>(null);
+  const [data, setData] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function OutreachAdmin() {
         const text = await res.text();
         try {
           const json = JSON.parse(text);
-          setData(json);
+          setData(JSON.stringify(json, null, 2));
           setStatus(res.ok ? "ok" : `error-${res.status}`);
         } catch {
           setStatus("json-parse-error");
@@ -31,7 +31,7 @@ export default function OutreachAdmin() {
       <h1 style={{ marginBottom: 20 }}>Outreach Admin — Debug</h1>
       <p><strong>Status:</strong> {status}</p>
       {error && <pre style={{ color: "red", background: "#fee", padding: 12, borderRadius: 6 }}>{error}</pre>}
-      {data && <pre style={{ background: "#f5f5f5", padding: 12, borderRadius: 6 }}>{JSON.stringify(data, null, 2)}</pre>}
+      {data && <pre style={{ background: "#f5f5f5", padding: 12, borderRadius: 6 }}>{data}</pre>}
     </div>
   );
 }
