@@ -91,7 +91,7 @@ export async function GET(req: NextRequest) {
 
     // Filter client-side for search/type (simpler than complex joins)
     let results = (enrollments ?? []).filter((e) => {
-      const c = e.outreach_contacts as Record<string, string> | null;
+      const c = e.outreach_contacts as unknown as Record<string, string> | null;
       if (!c) return false;
       if (type && c.contact_type !== type) return false;
       if (search) {
