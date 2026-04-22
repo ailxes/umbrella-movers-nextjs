@@ -1,16 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
 
-const CRON_SECRET = process.env.CRON_SECRET;
-
-function auth(req: NextRequest) {
-  const header = req.headers.get('authorization');
-  return !CRON_SECRET || header === `Bearer ${CRON_SECRET}`;
-}
-
 // GET /api/outreach/admin?section=stats|campaigns|contacts
 export async function GET(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   const section = req.nextUrl.searchParams.get('section') ?? 'all';
   const db = createServerClient();
@@ -117,7 +109,6 @@ export async function GET(req: NextRequest) {
 
 // POST /api/outreach/admin — campaign status + enrollment actions
 export async function POST(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   const body = await req.json();
   const { action, campaign_id, status, daily_limit } = body;

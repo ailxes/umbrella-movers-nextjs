@@ -131,8 +131,8 @@ export default function OutreachAdmin() {
       fetch("/api/outreach/admin?section=stats"),
     ]);
     const [campsData, statsData] = await Promise.all([campsRes.json(), statsRes.json()]);
-    setCampaigns(campsData ?? []);
-    setGlobalStats(statsData);
+    setCampaigns(Array.isArray(campsData) ? campsData : []);
+    setGlobalStats(statsData?.totalContacts !== undefined ? statsData : null);
     setLoading(false);
   }, []);
 
