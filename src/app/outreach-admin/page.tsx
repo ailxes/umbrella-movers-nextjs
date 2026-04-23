@@ -347,6 +347,16 @@ export default function AdminClient() {
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={load} disabled={!!busy}>Refresh</Button>
+            <Button variant="outline" size="sm" disabled={!!busy} onClick={async () => {
+              setBusy("regen");
+              const res = await fetch("/api/outreach/admin", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "regen_html" }) });
+              const d = await res.json();
+              setStepsCache({});
+              setBusy(null);
+              notify(`Email design refreshed — ${d.updated} steps updated ✓`);
+            }}>
+              {busy === "regen" ? "Refreshing…" : "↻ Refresh Email Design"}
+            </Button>
             <Button size="sm" className="bg-slate-900 text-white hover:bg-slate-700" onClick={runDailySend} disabled={!!busy}>
               {busy === "cron" ? "Sending…" : "▶ Run Today's Send"}
             </Button>

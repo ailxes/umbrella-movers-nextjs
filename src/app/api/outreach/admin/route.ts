@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
+import { baseLayout, PAST_CUSTOMER_CAMPAIGN, REALTOR_CAMPAIGN } from '@/lib/email-templates';
 
 // GET /api/outreach/admin?section=stats|campaigns|contacts
 export async function GET(req: NextRequest) {
@@ -211,35 +212,41 @@ export async function POST(req: NextRequest) {
     const { step_id, subject, body_text } = body;
     if (!step_id) return NextResponse.json({ error: 'step_id required' }, { status: 400 });
 
-    // Convert plain text to simple HTML using the brand layout
-    const BRAND_COLOR = '#1e3a5f';
-    const ACCENT_COLOR = '#2563eb';
     const paragraphs = (body_text as string)
       .split(/\n\n+/)
       .filter((p: string) => p.trim())
-      .map((p: string) => `<p style="margin:0 0 16px;font-size:15px;color:#334155;line-height:1.7;">${p.replace(/\n/g, '<br/>')}</p>`)
+      .map((p: string) => `<p style="margin:0 0 16px;font-size:15px;color:#1a1a1a;line-height:1.8;">${p.replace(/\n/g, '<br/>')}</p>`)
       .join('\n');
 
-    const body_html = `<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/></head>
-<body style="margin:0;padding:0;background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f9;padding:32px 16px;"><tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);">
-<tr><td style="background:${BRAND_COLOR};padding:28px 40px;text-align:center;">
-  <span style="font-size:28px;">☂️</span>
-  <div style="color:#fff;font-size:20px;font-weight:700;margin-top:8px;">Umbrella Movers</div>
-  <div style="color:#93c5fd;font-size:12px;margin-top:2px;">Las Vegas's Trusted Woman-Owned Mover · Since 2009</div>
-</td></tr>
-<tr><td style="padding:40px 40px 32px;">${paragraphs}</td></tr>
-<tr><td style="background:#f8fafc;padding:24px 40px;border-top:1px solid #e2e8f0;text-align:center;">
-  <p style="margin:0;font-size:12px;color:#94a3b8;">Umbrella Movers · 3111 So. Valley View Blvd., Suite E-109, Las Vegas, NV 89102<br/>
-  📞 (702) 533-2853 · <a href="https://umbrellamovers.com" style="color:${ACCENT_COLOR};">umbrellamovers.com</a></p>
-</td></tr>
-</table></td></tr></table>
-</body></html>`;
-
+    const body_html = baseLayout(paragraphs);
     await db.from('sequence_steps').update({ subject, body_html, body_text }).eq('id', step_id);
     return NextResponse.json({ success: true, body_html });
+  }
+
+  // Regenerate HTML for all steps in both campaigns using the latest template
+  if (action === 'regen_html') {
+    const allSteps = [...PAST_CUSTOMER_CAMPAIGN.steps, ...REALTOR_CAMPAIGN.steps];
+    const { data: campaigns } = await db.from('outreach_campaigns').select('id, name');
+    let updated = 0;
+    for (const camp of campaigns ?? []) {
+      const source = camp.name.includes('Realtor') ? REALTOR_CAMPAIGN : PAST_CUSTOMER_CAMPAIGN;
+      for (const step of source.steps) {
+        const { data: existing } = await db
+          .from('sequence_steps')
+          .select('id')
+          .eq('campaign_id', camp.id)
+          .eq('step_number', step.step_number)
+          .single();
+        if (existing) {
+          await db.from('sequence_steps')
+            .update({ body_html: step.body_html, subject: step.subject, body_text: step.body_text })
+            .eq('id', existing.id);
+          updated++;
+        }
+      }
+    }
+    void allSteps; // suppress unused warning
+    return NextResponse.json({ updated });
   }
 
   return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
