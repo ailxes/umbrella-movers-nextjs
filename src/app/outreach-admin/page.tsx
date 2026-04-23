@@ -30,6 +30,10 @@ interface GlobalStats {
   totalUnsubscribed: number; sentToday: number;
 }
 interface BlockedEmail { email: string; reason: string; unsubscribed_at: string; }
+interface Step {
+  id: string; step_number: number; delay_days: number;
+  subject: string; body_html: string; body_text: string;
+}
 
 const STATUS_COLORS: Record<string, string> = {
   draft: "bg-slate-100 text-slate-600", warming: "bg-amber-100 text-amber-700",
@@ -98,6 +102,14 @@ export default function AdminClient() {
   const [newContact, setNewContact] = useState({ first_name: "", last_name: "", email: "", contact_type: "past_customer", campaign_id: "" });
   const [unsubEmail, setUnsubEmail] = useState("");
 
+  // Email steps / preview / edit
+  const [expandedCampaign, setExpandedCampaign] = useState<string | null>(null);
+  const [stepsCache, setStepsCache]             = useState<Record<string, Step[]>>({});
+  const [previewStep, setPreviewStep]           = useState<Step | null>(null);
+  const [editingStep, setEditingStep]           = useState<Step | null>(null);
+  const [editSubject, setEditSubject]           = useState("");
+  const [editBody, setEditBody]                 = useState("");
+
   const fileRef = useRef<HTMLInputElement>(null);
   const [csvRows, setCsvRows]             = useState<Record<string, string>[]>([]);
   const [csvFileName, setCsvFileName]     = useState("");
@@ -147,6 +159,53 @@ export default function AdminClient() {
   useEffect(() => { load(); }, [load]);
   useEffect(() => { if (activeTab === "contacts") loadContacts(); }, [activeTab, loadContacts]);
   useEffect(() => { if (activeTab === "unsubscribe") loadBlockList(); }, [activeTab, loadBlockList]);
+
+  async function loadSteps(campaign_id: string) {
+    if (stepsCache[campaign_id]) return;
+    const res = await fetch(`/api/outreach/admin?section=steps&campaign_id=${campaign_id}`);
+    const data = await res.json();
+    setStepsCache(prev => ({ ...prev, [campaign_id]: data }));
+  }
+
+  function openExpanded(campaign_id: string) {
+    if (expandedCampaign === campaign_id) { setExpandedCampaign(null); return; }
+    setExpandedCampaign(campaign_id);
+    loadSteps(campaign_id);
+  }
+
+  function openEdit(step: Step) {
+    setEditingStep(step);
+    setEditSubject(step.subject);
+    setEditBody(step.body_text);
+  }
+
+  async function saveStep() {
+    if (!editingStep) return;
+    setBusy("save-step");
+    const res = await fetch("/api/outreach/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "update_step", step_id: editingStep.id, subject: editSubject, body_text: editBody }),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      // Update cache with new HTML
+      setStepsCache(prev => {
+        const updated = Object.fromEntries(
+          Object.entries(prev).map(([cid, steps]) => [
+            cid,
+            steps.map(s => s.id === editingStep.id ? { ...s, subject: editSubject, body_text: editBody, body_html: data.body_html } : s)
+          ])
+        );
+        return updated;
+      });
+      setEditingStep(null);
+      notify("Email saved ✓");
+    } else {
+      notify("Save failed", false);
+    }
+    setBusy(null);
+  }
 
   async function campaignAction(campaign_id: string, action: string, extra?: Record<string, unknown>) {
     setBusy(campaign_id + action);
@@ -380,7 +439,35 @@ export default function AdminClient() {
                           onClick={() => campaignAction(c.id, "update_status", { status: "active" })}>
                           ▶ Resume Campaign
                         </Button>}
+                      <Button size="sm" variant="outline" onClick={() => openExpanded(c.id)}>
+                        {expandedCampaign === c.id ? "Hide Emails ▲" : "✉ View / Edit Emails ▼"}
+                      </Button>
                     </div>
+
+                    {/* ── Email steps panel ── */}
+                    {expandedCampaign === c.id && (
+                      <div className="border-t border-slate-100 pt-4 space-y-3">
+                        <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Email Sequence</p>
+                        {(stepsCache[c.id] ?? []).length === 0 && (
+                          <p className="text-slate-400 text-sm">Loading…</p>
+                        )}
+                        {(stepsCache[c.id] ?? []).map(step => (
+                          <div key={step.id} className="bg-slate-50 rounded-lg p-4 space-y-2">
+                            <div className="flex items-start justify-between gap-2 flex-wrap">
+                              <div>
+                                <span className="text-xs font-semibold text-slate-400 uppercase">Email {step.step_number} · Day {step.delay_days}</span>
+                                <p className="text-sm font-medium text-slate-800 mt-0.5">{step.subject}</p>
+                              </div>
+                              <div className="flex gap-2">
+                                <Button size="sm" variant="outline" onClick={() => setPreviewStep(step)}>Preview</Button>
+                                <Button size="sm" variant="outline" onClick={() => openEdit(step)}>Edit</Button>
+                              </div>
+                            </div>
+                            <p className="text-xs text-slate-400 line-clamp-2">{step.body_text}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               );
@@ -605,6 +692,66 @@ export default function AdminClient() {
           </div>
         )}
       </div>
+
+      {/* ── Preview modal ── */}
+      {previewStep && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
+          onClick={() => setPreviewStep(null)}>
+          <div className="bg-white rounded-xl w-full max-w-2xl flex flex-col shadow-2xl"
+            style={{ maxHeight: "90vh" }} onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-slate-200 shrink-0">
+              <div>
+                <p className="text-xs text-slate-400 font-medium">Email {previewStep.step_number} · Day {previewStep.delay_days}</p>
+                <p className="text-sm font-semibold text-slate-800">{previewStep.subject}</p>
+              </div>
+              <button onClick={() => setPreviewStep(null)}
+                className="text-slate-400 hover:text-slate-700 text-xl leading-none px-2">✕</button>
+            </div>
+            <iframe srcDoc={previewStep.body_html} className="flex-1 w-full rounded-b-xl"
+              style={{ minHeight: 500 }} title="Email preview" sandbox="allow-same-origin" />
+          </div>
+        </div>
+      )}
+
+      {/* ── Edit modal ── */}
+      {editingStep && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
+          onClick={() => setEditingStep(null)}>
+          <div className="bg-white rounded-xl w-full max-w-xl shadow-2xl"
+            onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-slate-200">
+              <p className="font-semibold text-slate-800">Edit Email {editingStep.step_number}</p>
+              <button onClick={() => setEditingStep(null)}
+                className="text-slate-400 hover:text-slate-700 text-xl leading-none px-2">✕</button>
+            </div>
+            <div className="p-5 space-y-4">
+              <div className="space-y-1">
+                <Label>Subject Line</Label>
+                <Input value={editSubject} onChange={e => setEditSubject(e.target.value)} />
+              </div>
+              <div className="space-y-1">
+                <Label>Email Body</Label>
+                <p className="text-xs text-slate-400">Paste your email text here. Separate paragraphs with a blank line. The Umbrella Movers header and footer are added automatically.</p>
+                <textarea
+                  value={editBody}
+                  onChange={e => setEditBody(e.target.value)}
+                  rows={12}
+                  className="w-full border border-slate-200 rounded-md px-3 py-2 text-sm font-mono resize-y"
+                  placeholder={"Hi {{first_name}},\n\nParagraph one here...\n\nParagraph two here..."}
+                />
+                <p className="text-xs text-slate-400">Tip: use <code className="bg-slate-100 px-1 rounded">{"{{first_name}}"}</code> to personalize with the recipient&apos;s first name.</p>
+              </div>
+              <div className="flex gap-2 justify-end">
+                <Button variant="outline" onClick={() => setEditingStep(null)}>Cancel</Button>
+                <Button className="bg-slate-900 text-white hover:bg-slate-700"
+                  disabled={busy === "save-step"} onClick={saveStep}>
+                  {busy === "save-step" ? "Saving…" : "Save & Preview"}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
