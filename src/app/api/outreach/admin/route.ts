@@ -10,13 +10,7 @@ export async function GET(req: NextRequest) {
 
   // ── Global stats ──────────────────────────────────────────────────────────
   if (section === 'stats' || section === 'all') {
-    const [
-      { count: totalContacts },
-      { count: totalSent },
-      { count: totalOpened },
-      { count: totalUnsubscribed },
-      { count: sentToday },
-    ] = await Promise.all([
+    const [r1, r2, r3, r4, r5] = await Promise.all([
       db.from('outreach_contacts').select('*', { count: 'exact', head: true }),
       db.from('email_sends').select('*', { count: 'exact', head: true }),
       db.from('email_sends').select('*', { count: 'exact', head: true }).not('opened_at', 'is', null),
@@ -24,8 +18,16 @@ export async function GET(req: NextRequest) {
       db.from('email_sends').select('*', { count: 'exact', head: true }).gte('sent_at', today.toISOString()),
     ]);
 
+    if (r1.error) console.error('stats r1 error:', r1.error);
+
+    const totalContacts    = r1.count ?? 0;
+    const totalSent        = r2.count ?? 0;
+    const totalOpened      = r3.count ?? 0;
+    const totalUnsubscribed = r4.count ?? 0;
+    const sentToday        = r5.count ?? 0;
+
     if (section === 'stats') {
-      return NextResponse.json({ totalContacts, totalSent, totalOpened, totalUnsubscribed, sentToday });
+      return NextResponse.json({ totalContacts, totalSent, totalOpened, totalUnsubscribed, sentToday, _debug: { r1error: r1.error?.message } });
     }
   }
 
