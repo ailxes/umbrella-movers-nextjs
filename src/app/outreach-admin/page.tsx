@@ -133,6 +133,7 @@ export default function AdminClient() {
       const [campsData, statsData] = await Promise.all([campsRes.json(), statsRes.json()]);
       if (!campsRes.ok) throw new Error(`Campaigns API ${campsRes.status}: ${JSON.stringify(campsData)}`);
       if (!statsRes.ok) throw new Error(`Stats API ${statsRes.status}: ${JSON.stringify(statsData)}`);
+      if (campsData?._debug) throw new Error(`DB config issue — ${JSON.stringify(campsData._debug)}`);
       setCampaigns(Array.isArray(campsData) ? campsData : []);
       setGlobalStats(statsData?.totalContacts !== undefined ? statsData : null);
     } catch (err: unknown) {

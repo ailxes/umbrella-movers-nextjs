@@ -33,7 +33,13 @@ export async function GET(req: NextRequest) {
 
   // ── Campaigns + per-campaign stats ────────────────────────────────────────
   if (section === 'campaigns' || section === 'all') {
-    const { data: camps } = await db.from('outreach_campaigns').select('*').order('created_at', { ascending: false });
+    const { data: camps, error: campsError } = await db.from('outreach_campaigns').select('*').order('created_at', { ascending: false });
+    if (campsError) console.error('campaigns error:', campsError);
+    if (!camps?.length) {
+      const url = process.env.OUTREACH_SUPABASE_URL ?? 'NOT SET';
+      console.error('No campaigns found. OUTREACH_SUPABASE_URL project:', url.split('.')[0].split('//')[1]);
+      if (section === 'campaigns') return NextResponse.json({ _debug: { url: url.slice(0, 40), error: campsError?.message }, campaigns: [] });
+    }
 
     const campaigns = await Promise.all((camps ?? []).map(async (c) => {
       const [
