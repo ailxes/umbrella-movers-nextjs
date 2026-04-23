@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     const sentToday        = r5.count ?? 0;
 
     if (section === 'stats') {
-      return NextResponse.json({ totalContacts, totalSent, totalOpened, totalUnsubscribed, sentToday, _debug: { r1error: r1.error?.message } });
+      return NextResponse.json({ totalContacts, totalSent, totalOpened, totalUnsubscribed, sentToday });
     }
   }
 
