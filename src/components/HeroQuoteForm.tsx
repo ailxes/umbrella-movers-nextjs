@@ -155,17 +155,19 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
         </div>
         
         {/* Move Date */}
-        <div>
-          <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
-            Estimated Move Date <span className="text-accent">*</span>
-          </label>
-          <Input
-            type="date"
-            name="moveDate"
-            value={formData.moveDate}
-            onChange={handleChange}
-            className="h-11 border-border w-full min-w-0 box-border"
-          />
+        <div className="flex flex-col items-center">
+          <div className="w-[88%]">
+            <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
+              Estimated Move Date <span className="text-accent">*</span>
+            </label>
+            <Input
+              type="date"
+              name="moveDate"
+              value={formData.moveDate}
+              onChange={handleChange}
+              className="h-11 border-border w-full min-w-0 box-border"
+            />
+          </div>
         </div>
 
         {/* Move Size */}
