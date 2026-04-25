@@ -246,7 +246,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
 
         {/* Row 1: Date and Move Type */}
         <div className="grid grid-cols-2 gap-3">
-          <div>
+          <div className="min-w-0">
             <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
               Move Date <span className="text-accent">*</span>
             </label>
@@ -255,7 +255,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
               name="moveDate"
               value={formData.moveDate}
               onChange={handleChange}
-              className="h-10 border-border text-sm"
+              className="h-10 border-border text-sm w-full min-w-0"
             />
           </div>
           <div>
