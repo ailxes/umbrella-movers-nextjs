@@ -209,18 +209,46 @@ export async function POST(req: NextRequest) {
   }
 
   if (action === 'update_step') {
-    const { step_id, subject, body_text } = body;
+    const { step_id, subject, body_text, body_html: rawHtml, format } = body;
     if (!step_id) return NextResponse.json({ error: 'step_id required' }, { status: 400 });
 
-    const paragraphs = (body_text as string)
-      .split(/\n\n+/)
-      .filter((p: string) => p.trim())
-      .map((p: string) => `<p style="margin:0 0 16px;font-size:15px;color:#1a1a1a;line-height:1.8;">${p.replace(/\n/g, '<br/>')}</p>`)
-      .join('\n');
+    let body_html: string;
+    let stored_text: string;
 
-    const body_html = baseLayout(paragraphs);
-    await db.from('sequence_steps').update({ subject, body_html, body_text }).eq('id', step_id);
-    return NextResponse.json({ success: true, body_html });
+    if (format === 'html' && typeof rawHtml === 'string' && rawHtml.trim()) {
+      // Custom HTML mode — store as-is. If the paste is body fragment (no <html>),
+      // wrap it in baseLayout so header/footer/trust-bar still render.
+      body_html = /<html[\s>]/i.test(rawHtml) ? rawHtml : baseLayout(rawHtml);
+      // Derive a plain-text fallback by stripping tags
+      stored_text = (typeof body_text === 'string' && body_text.trim())
+        ? body_text
+        : rawHtml
+            .replace(/<style[\s\S]*?<\/style>/gi, '')
+            .replace(/<script[\s\S]*?<\/script>/gi, '')
+            .replace(/<br\s*\/?>/gi, '\n')
+            .replace(/<\/p>/gi, '\n\n')
+            .replace(/<[^>]+>/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .replace(/\n{3,}/g, '\n\n')
+            .trim();
+    } else {
+      // Plain-text mode — wrap each paragraph then run through baseLayout
+      const paragraphs = (body_text as string)
+        .split(/\n\n+/)
+        .filter((p: string) => p.trim())
+        .map((p: string) => `<p style="margin:0 0 16px;font-size:15px;color:#1a1a1a;line-height:1.8;">${p.replace(/\n/g, '<br/>')}</p>`)
+        .join('\n');
+      body_html = baseLayout(paragraphs);
+      stored_text = body_text as string;
+    }
+
+    await db.from('sequence_steps').update({ subject, body_html, body_text: stored_text }).eq('id', step_id);
+    return NextResponse.json({ success: true, body_html, body_text: stored_text });
   }
 
   // Regenerate HTML for all steps in both campaigns using the latest template

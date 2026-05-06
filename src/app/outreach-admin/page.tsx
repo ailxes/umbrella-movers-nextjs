@@ -109,6 +109,9 @@ export default function AdminClient() {
   const [editingStep, setEditingStep]           = useState<Step | null>(null);
   const [editSubject, setEditSubject]           = useState("");
   const [editBody, setEditBody]                 = useState("");
+  const [editFormat, setEditFormat]             = useState<"text" | "html">("text");
+  const [editHtml, setEditHtml]                 = useState("");
+  const [showPreview, setShowPreview]           = useState(true);
 
   const fileRef = useRef<HTMLInputElement>(null);
   const [csvRows, setCsvRows]             = useState<Record<string, string>[]>([]);
@@ -178,24 +181,35 @@ export default function AdminClient() {
     setEditingStep(step);
     setEditSubject(step.subject);
     setEditBody(step.body_text);
+    setEditHtml(step.body_html ?? "");
+    // Default to HTML mode if the step has body_html that doesn't look like the auto-wrapped one
+    setEditFormat("text");
   }
 
   async function saveStep() {
     if (!editingStep) return;
     setBusy("save-step");
+    const payload = editFormat === "html"
+      ? { action: "update_step", step_id: editingStep.id, subject: editSubject, format: "html", body_html: editHtml }
+      : { action: "update_step", step_id: editingStep.id, subject: editSubject, format: "text", body_text: editBody };
     const res = await fetch("/api/outreach/admin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "update_step", step_id: editingStep.id, subject: editSubject, body_text: editBody }),
+      body: JSON.stringify(payload),
     });
     const data = await res.json();
     if (res.ok) {
-      // Update cache with new HTML
+      // Update cache with new HTML + text
       setStepsCache(prev => {
         const updated = Object.fromEntries(
           Object.entries(prev).map(([cid, steps]) => [
             cid,
-            steps.map(s => s.id === editingStep.id ? { ...s, subject: editSubject, body_text: editBody, body_html: data.body_html } : s)
+            steps.map(s => s.id === editingStep.id ? {
+              ...s,
+              subject: editSubject,
+              body_text: data.body_text ?? (editFormat === "text" ? editBody : s.body_text),
+              body_html: data.body_html,
+            } : s)
           ])
         );
         return updated;
@@ -728,31 +742,84 @@ export default function AdminClient() {
       {editingStep && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
           onClick={() => setEditingStep(null)}>
-          <div className="bg-white rounded-xl w-full max-w-xl shadow-2xl"
+          <div className={`bg-white rounded-xl w-full ${editFormat === "html" && showPreview ? "max-w-6xl" : "max-w-2xl"} shadow-2xl max-h-[90vh] flex flex-col`}
             onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between px-5 py-3 border-b border-slate-200">
               <p className="font-semibold text-slate-800">Edit Email {editingStep.step_number}</p>
               <button onClick={() => setEditingStep(null)}
                 className="text-slate-400 hover:text-slate-700 text-xl leading-none px-2">✕</button>
             </div>
-            <div className="p-5 space-y-4">
+            <div className="p-5 space-y-4 overflow-y-auto">
               <div className="space-y-1">
                 <Label>Subject Line</Label>
                 <Input value={editSubject} onChange={e => setEditSubject(e.target.value)} />
               </div>
-              <div className="space-y-1">
-                <Label>Email Body</Label>
-                <p className="text-xs text-slate-400">Paste your email text here. Separate paragraphs with a blank line. The Umbrella Movers header and footer are added automatically.</p>
-                <textarea
-                  value={editBody}
-                  onChange={e => setEditBody(e.target.value)}
-                  rows={12}
-                  className="w-full border border-slate-200 rounded-md px-3 py-2 text-sm font-mono resize-y"
-                  placeholder={"Hi {{first_name}},\n\nParagraph one here...\n\nParagraph two here..."}
-                />
-                <p className="text-xs text-slate-400">Tip: use <code className="bg-slate-100 px-1 rounded">{"{{first_name}}"}</code> to personalize with the recipient&apos;s first name.</p>
+
+              {/* Format toggle */}
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-slate-500 mr-1">Format:</span>
+                <button
+                  type="button"
+                  onClick={() => setEditFormat("text")}
+                  className={`px-3 py-1 rounded-md border text-xs ${editFormat === "text" ? "bg-slate-900 text-white border-slate-900" : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"}`}
+                >Plain text</button>
+                <button
+                  type="button"
+                  onClick={() => setEditFormat("html")}
+                  className={`px-3 py-1 rounded-md border text-xs ${editFormat === "html" ? "bg-slate-900 text-white border-slate-900" : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"}`}
+                >HTML</button>
+                {editFormat === "html" && (
+                  <button
+                    type="button"
+                    onClick={() => setShowPreview(s => !s)}
+                    className="ml-auto px-3 py-1 rounded-md border text-xs bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+                  >{showPreview ? "Hide preview" : "Show preview"}</button>
+                )}
               </div>
-              <div className="flex gap-2 justify-end">
+
+              {editFormat === "text" ? (
+                <div className="space-y-1">
+                  <Label>Email Body</Label>
+                  <p className="text-xs text-slate-400">Paste your email text here. Separate paragraphs with a blank line. The Umbrella Movers header and footer are added automatically.</p>
+                  <textarea
+                    value={editBody}
+                    onChange={e => setEditBody(e.target.value)}
+                    rows={12}
+                    className="w-full border border-slate-200 rounded-md px-3 py-2 text-sm font-mono resize-y"
+                    placeholder={"Hi {{first_name}},\n\nParagraph one here...\n\nParagraph two here..."}
+                  />
+                  <p className="text-xs text-slate-400">Tip: use <code className="bg-slate-100 px-1 rounded">{"{{first_name}}"}</code> to personalize with the recipient&apos;s first name.</p>
+                </div>
+              ) : (
+                <div className={`grid gap-4 ${showPreview ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"}`}>
+                  <div className="space-y-1">
+                    <Label>HTML Source</Label>
+                    <p className="text-xs text-slate-400">Paste a complete HTML email (with <code className="bg-slate-100 px-1 rounded">&lt;html&gt;</code>) or just the body fragment — fragments will be wrapped in the Umbrella header/footer/trust-bar automatically. Use <code className="bg-slate-100 px-1 rounded">{"{{first_name}}"}</code> to personalize.</p>
+                    <textarea
+                      value={editHtml}
+                      onChange={e => setEditHtml(e.target.value)}
+                      rows={20}
+                      className="w-full border border-slate-200 rounded-md px-3 py-2 text-xs font-mono resize-y"
+                      placeholder={"<p>Hi {{first_name}},</p>\n<p>Your message here...</p>"}
+                    />
+                  </div>
+                  {showPreview && (
+                    <div className="space-y-1">
+                      <Label>Live Preview</Label>
+                      <p className="text-xs text-slate-400">Renders as it will arrive in the inbox. <code className="bg-slate-100 px-1 rounded">{"{{first_name}}"}</code> is shown literally.</p>
+                      <iframe
+                        title="Email preview"
+                        srcDoc={editHtml || "<p style='font-family:sans-serif;color:#999;padding:24px;'>Paste HTML to preview…</p>"}
+                        sandbox=""
+                        className="w-full border border-slate-200 rounded-md bg-white"
+                        style={{ height: "500px" }}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="flex gap-2 justify-end pt-2 border-t border-slate-100">
                 <Button variant="outline" onClick={() => setEditingStep(null)}>Cancel</Button>
                 <Button className="bg-slate-900 text-white hover:bg-slate-700"
                   disabled={busy === "save-step"} onClick={saveStep}>
