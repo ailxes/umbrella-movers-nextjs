@@ -286,7 +286,10 @@ export default function AdminClient() {
     setBusy("add-contact");
     const res = await fetch("/api/outreach/contacts", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET ?? ""}`,
+      },
       body: JSON.stringify({ ...newContact, campaign_id: newContact.campaign_id || undefined }),
     });
     const data = await res.json();
@@ -305,7 +308,10 @@ export default function AdminClient() {
     setBusy("unsub");
     const res = await fetch("/api/outreach/contacts", {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET ?? ""}`,
+      },
       body: JSON.stringify({ email: unsubEmail }),
     });
     setBusy(null);
