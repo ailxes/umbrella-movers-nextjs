@@ -15,6 +15,7 @@ interface Campaign {
   id: string; name: string; status: string; campaign_type: string;
   contact_type: string; from_email: string; daily_limit: number;
   warmup_start: string | null; warmed_at: string | null; stats: CampaignStats;
+  max_steps?: number;
 }
 interface Enrollment {
   id: string; status: string; current_step: number;
@@ -216,6 +217,41 @@ export default function AdminClient() {
       });
       setEditingStep(null);
       notify("Email saved ✓");
+    } else {
+      notify("Save failed", false);
+    }
+    setBusy(null);
+  }
+
+  async function updateStepDelay(campaign_id: string, step_id: string, delay_days: number) {
+    setBusy(`delay-${step_id}`);
+    const res = await fetch("/api/outreach/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "update_step_meta", step_id, delay_days }),
+    });
+    if (res.ok) {
+      setStepsCache(prev => ({
+        ...prev,
+        [campaign_id]: (prev[campaign_id] ?? []).map(s => s.id === step_id ? { ...s, delay_days } : s),
+      }));
+      notify(`Delay updated → ${delay_days} day${delay_days === 1 ? "" : "s"} ✓`);
+    } else {
+      notify("Save failed", false);
+    }
+    setBusy(null);
+  }
+
+  async function updateMaxSteps(campaign_id: string, max_steps: number) {
+    setBusy(`maxsteps-${campaign_id}`);
+    const res = await fetch("/api/outreach/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "update_campaign_meta", campaign_id, max_steps }),
+    });
+    if (res.ok) {
+      setCampaigns(prev => prev.map(c => c.id === campaign_id ? { ...c, max_steps } : c));
+      notify(`Sequence length set to ${max_steps} email${max_steps === 1 ? "" : "s"} ✓`);
     } else {
       notify("Save failed", false);
     }
@@ -472,25 +508,67 @@ export default function AdminClient() {
                     {/* ── Email steps panel ── */}
                     {expandedCampaign === c.id && (
                       <div className="border-t border-slate-100 pt-4 space-y-3">
-                        <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Email Sequence</p>
+                        <div className="flex items-center justify-between flex-wrap gap-2">
+                          <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Email Sequence</p>
+                          <div className="flex items-center gap-2 text-xs text-slate-500">
+                            <span>Send</span>
+                            {[1, 2, 3].map(n => {
+                              const active = (c.max_steps ?? 3) === n;
+                              return (
+                                <button
+                                  key={n}
+                                  type="button"
+                                  disabled={busy === `maxsteps-${c.id}`}
+                                  onClick={() => updateMaxSteps(c.id, n)}
+                                  className={`px-2.5 py-1 rounded-md border transition ${active ? "bg-slate-900 text-white border-slate-900" : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"}`}
+                                >{n}</button>
+                              );
+                            })}
+                            <span>email{(c.max_steps ?? 3) === 1 ? "" : "s"}</span>
+                          </div>
+                        </div>
                         {(stepsCache[c.id] ?? []).length === 0 && (
                           <p className="text-slate-400 text-sm">Loading…</p>
                         )}
-                        {(stepsCache[c.id] ?? []).map(step => (
-                          <div key={step.id} className="bg-slate-50 rounded-lg p-4 space-y-2">
-                            <div className="flex items-start justify-between gap-2 flex-wrap">
-                              <div>
-                                <span className="text-xs font-semibold text-slate-400 uppercase">Email {step.step_number} · Day {step.delay_days}</span>
-                                <p className="text-sm font-medium text-slate-800 mt-0.5">{step.subject}</p>
+                        {(stepsCache[c.id] ?? []).map(step => {
+                          const inactive = step.step_number > (c.max_steps ?? 3);
+                          return (
+                            <div key={step.id} className={`rounded-lg p-4 space-y-2 ${inactive ? "bg-slate-50/50 border border-dashed border-slate-200 opacity-60" : "bg-slate-50"}`}>
+                              <div className="flex items-start justify-between gap-2 flex-wrap">
+                                <div className="flex items-center gap-3 flex-wrap">
+                                  <span className="text-xs font-semibold text-slate-400 uppercase">Email {step.step_number}</span>
+                                  {step.step_number === 1 ? (
+                                    <span className="text-xs text-slate-400">sends on enrollment</span>
+                                  ) : (
+                                    <span className="inline-flex items-center gap-1.5 text-xs text-slate-500">
+                                      <span>send</span>
+                                      <input
+                                        type="number"
+                                        min={0}
+                                        max={365}
+                                        defaultValue={step.delay_days}
+                                        onBlur={(e) => {
+                                          const v = parseInt(e.target.value, 10);
+                                          if (!Number.isNaN(v) && v !== step.delay_days) updateStepDelay(c.id, step.id, v);
+                                        }}
+                                        onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }}
+                                        className="w-14 border border-slate-200 rounded px-2 py-0.5 text-xs text-center focus:outline-none focus:border-slate-400"
+                                      />
+                                      <span>day{step.delay_days === 1 ? "" : "s"} after previous</span>
+                                    </span>
+                                  )}
+                                  {inactive && <span className="text-[10px] uppercase tracking-wide text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded">paused</span>}
+                                </div>
+                                <div className="flex gap-2">
+                                  <Button size="sm" variant="outline" onClick={() => setPreviewStep(step)}>Preview</Button>
+                                  <Button size="sm" variant="outline" onClick={() => openEdit(step)}>Edit</Button>
+                                </div>
                               </div>
-                              <div className="flex gap-2">
-                                <Button size="sm" variant="outline" onClick={() => setPreviewStep(step)}>Preview</Button>
-                                <Button size="sm" variant="outline" onClick={() => openEdit(step)}>Edit</Button>
-                              </div>
+                              <p className="text-sm font-medium text-slate-800">{step.subject}</p>
+                              <p className="text-xs text-slate-400 line-clamp-2">{step.body_text}</p>
                             </div>
-                            <p className="text-xs text-slate-400 line-clamp-2">{step.body_text}</p>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     )}
                   </CardContent>

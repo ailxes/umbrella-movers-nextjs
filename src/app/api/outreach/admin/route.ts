@@ -251,6 +251,32 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, body_html, body_text: stored_text });
   }
 
+  // Update step metadata (currently: delay_days)
+  if (action === 'update_step_meta') {
+    const { step_id, delay_days } = body;
+    if (!step_id) return NextResponse.json({ error: 'step_id required' }, { status: 400 });
+    const updates: Record<string, unknown> = {};
+    if (typeof delay_days === 'number' && delay_days >= 0 && delay_days <= 365) {
+      updates.delay_days = Math.floor(delay_days);
+    }
+    if (!Object.keys(updates).length) return NextResponse.json({ error: 'no valid fields' }, { status: 400 });
+    await db.from('sequence_steps').update(updates).eq('id', step_id);
+    return NextResponse.json({ success: true, ...updates });
+  }
+
+  // Update campaign metadata (currently: max_steps — sequence length 1/2/3)
+  if (action === 'update_campaign_meta') {
+    const { max_steps } = body;
+    if (!campaign_id) return NextResponse.json({ error: 'campaign_id required' }, { status: 400 });
+    const updates: Record<string, unknown> = {};
+    if (max_steps === 1 || max_steps === 2 || max_steps === 3) {
+      updates.max_steps = max_steps;
+    }
+    if (!Object.keys(updates).length) return NextResponse.json({ error: 'no valid fields' }, { status: 400 });
+    await db.from('outreach_campaigns').update(updates).eq('id', campaign_id);
+    return NextResponse.json({ success: true, ...updates });
+  }
+
   // Regenerate HTML for all steps in both campaigns using the latest template
   if (action === 'regen_html') {
     const allSteps = [...PAST_CUSTOMER_CAMPAIGN.steps, ...REALTOR_CAMPAIGN.steps];

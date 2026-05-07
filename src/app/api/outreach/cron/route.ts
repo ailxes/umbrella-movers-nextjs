@@ -100,12 +100,16 @@ async function processCampaign(
     return 0;
   }
 
-  // ── 4. Get sequence steps for this campaign ─────────────────────────────────
-  const { data: steps } = await db
+  // ── 4. Get sequence steps for this campaign (respect campaign.max_steps cap) ─
+  const maxStepsCap = (campaign.max_steps as number | null | undefined) ?? 3;
+
+  const { data: allSteps } = await db
     .from('sequence_steps')
     .select('*')
     .eq('campaign_id', campaignId)
     .order('step_number', { ascending: true });
+
+  const steps = (allSteps ?? []).filter(s => (s.step_number as number) <= maxStepsCap);
 
   if (!steps || steps.length === 0) {
     log.push(`[${campaignName}] No sequence steps configured`);
