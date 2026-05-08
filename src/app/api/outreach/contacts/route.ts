@@ -2,14 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
 
 // POST /api/outreach/contacts
-// Add a single contact and optionally enroll them in a campaign
+// Add a single contact and optionally enroll them in a campaign.
+// Auth enforced by src/middleware.ts (session cookie).
 export async function POST(req: NextRequest) {
-  const CRON_SECRET = process.env.CRON_SECRET;
-  const auth = req.headers.get('authorization');
-  if (CRON_SECRET && auth !== `Bearer ${CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   const body = await req.json();
   const { first_name, last_name, email, contact_type = 'past_customer', tier, office_name, campaign_id } = body;
 
@@ -74,13 +69,8 @@ export async function POST(req: NextRequest) {
 }
 
 // DELETE /api/outreach/contacts  (add to unsubscribe list)
+// Auth enforced by src/middleware.ts (session cookie).
 export async function DELETE(req: NextRequest) {
-  const CRON_SECRET = process.env.CRON_SECRET;
-  const auth = req.headers.get('authorization');
-  if (CRON_SECRET && auth !== `Bearer ${CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   const { email } = await req.json();
   if (!email) return NextResponse.json({ error: 'Email required' }, { status: 400 });
 

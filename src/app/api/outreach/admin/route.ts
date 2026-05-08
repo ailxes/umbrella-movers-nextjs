@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
 import { baseLayout, PAST_CUSTOMER_CAMPAIGN, REALTOR_CAMPAIGN } from '@/lib/email-templates';
+import { runOutreachCron } from '@/lib/outreach-cron';
 
 // GET /api/outreach/admin?section=stats|campaigns|contacts
 export async function GET(req: NextRequest) {
@@ -249,6 +250,21 @@ export async function POST(req: NextRequest) {
 
     await db.from('sequence_steps').update({ subject, body_html, body_text: stored_text }).eq('id', step_id);
     return NextResponse.json({ success: true, body_html, body_text: stored_text });
+  }
+
+  // Server-side proxy for the daily cron, callable from the dashboard.
+  // The middleware enforces session-cookie auth on this route, so no
+  // CRON_SECRET needs to ship to the browser.
+  if (action === 'trigger_cron') {
+    try {
+      const result = await runOutreachCron();
+      return NextResponse.json(result);
+    } catch (err) {
+      return NextResponse.json(
+        { error: err instanceof Error ? err.message : 'Unknown error' },
+        { status: 500 },
+      );
+    }
   }
 
   // Update step metadata (currently: delay_days)

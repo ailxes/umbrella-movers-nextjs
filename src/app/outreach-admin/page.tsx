@@ -272,8 +272,10 @@ export default function AdminClient() {
 
   async function runDailySend() {
     setBusy("cron");
-    const res = await fetch("/api/outreach/cron", {
-      headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET ?? ""}` },
+    const res = await fetch("/api/outreach/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "trigger_cron" }),
     });
     const data = await res.json();
     await load();
@@ -281,15 +283,17 @@ export default function AdminClient() {
     notify(`Sent ${data.totalSent ?? 0} emails ✓`);
   }
 
+  async function signOut() {
+    await fetch("/api/outreach/auth/logout", { method: "POST" });
+    window.location.href = "/outreach-admin/login";
+  }
+
   async function addContact(e: React.FormEvent) {
     e.preventDefault();
     setBusy("add-contact");
     const res = await fetch("/api/outreach/contacts", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET ?? ""}`,
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...newContact, campaign_id: newContact.campaign_id || undefined }),
     });
     const data = await res.json();
@@ -308,10 +312,7 @@ export default function AdminClient() {
     setBusy("unsub");
     const res = await fetch("/api/outreach/contacts", {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET ?? ""}`,
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: unsubEmail }),
     });
     setBusy(null);
@@ -416,6 +417,7 @@ export default function AdminClient() {
             <Button size="sm" className="bg-slate-900 text-white hover:bg-slate-700" onClick={runDailySend} disabled={!!busy}>
               {busy === "cron" ? "Sending…" : "▶ Run Today's Send"}
             </Button>
+            <Button variant="outline" size="sm" onClick={signOut} disabled={!!busy}>Sign out</Button>
           </div>
         </div>
 

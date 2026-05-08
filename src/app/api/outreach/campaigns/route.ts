@@ -3,12 +3,6 @@ import { createServerClient } from '@/lib/supabase-server';
 
 // POST /api/outreach/campaigns  — enroll all matching contacts into a campaign
 export async function POST(req: NextRequest) {
-  const CRON_SECRET = process.env.CRON_SECRET;
-  const auth = req.headers.get('authorization');
-  if (CRON_SECRET && auth !== `Bearer ${CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   const { campaign_id, action } = await req.json();
   if (!campaign_id) return NextResponse.json({ error: 'campaign_id required' }, { status: 400 });
 
@@ -64,12 +58,6 @@ export async function POST(req: NextRequest) {
 
 // PATCH /api/outreach/campaigns — update campaign status
 export async function PATCH(req: NextRequest) {
-  const CRON_SECRET = process.env.CRON_SECRET;
-  const auth = req.headers.get('authorization');
-  if (CRON_SECRET && auth !== `Bearer ${CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   const { campaign_id, status, daily_limit } = await req.json();
   if (!campaign_id) return NextResponse.json({ error: 'campaign_id required' }, { status: 400 });
 
@@ -92,12 +80,6 @@ export async function PATCH(req: NextRequest) {
 
 // GET /api/outreach/campaigns — per-campaign stats
 export async function GET(req: NextRequest) {
-  const CRON_SECRET = process.env.CRON_SECRET;
-  const auth = req.headers.get('authorization');
-  if (CRON_SECRET && auth !== `Bearer ${CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   const db = createServerClient();
   const { data: campaigns } = await db.from('outreach_campaigns').select('id, name');
 
