@@ -1,7 +1,7 @@
 // Resend email sender
 
 interface SendEmailOptions {
-  to: string;
+  to: string | string[];
   from: string;       // e.g. "Umbrella Movers <hello@yourdomain.com>"
   replyTo: string;
   subject: string;
@@ -29,7 +29,7 @@ export async function sendEmail(opts: SendEmailOptions): Promise<SendEmailResult
       },
       body: JSON.stringify({
         from: opts.from,
-        to: [opts.to],
+        to: Array.isArray(opts.to) ? opts.to : [opts.to],
         reply_to: opts.replyTo,
         subject: opts.subject,
         html: opts.html,
