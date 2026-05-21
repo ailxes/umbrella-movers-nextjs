@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
 import { baseLayout, PAST_CUSTOMER_CAMPAIGN, REALTOR_CAMPAIGN } from '@/lib/email-templates';
 import { runOutreachCron } from '@/lib/outreach-cron';
+import { sendEmail } from '@/lib/email';
+
+const DEFAULT_TEST_EMAIL = 'umbrellamovers@gmail.com';
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // GET /api/outreach/admin?section=stats|campaigns|contacts
 export async function GET(req: NextRequest) {
@@ -317,6 +321,50 @@ export async function POST(req: NextRequest) {
     }
     void allSteps; // suppress unused warning
     return NextResponse.json({ updated });
+  }
+
+  // Send a one-off test of a single step to an inbox. Renders the saved
+  // step body (with {{first_name}} filled), bypasses the campaign entirely —
+  // nothing is logged in email_sends and counts/warming are untouched.
+  if (action === 'send_test') {
+    const { step_id, test_email } = body;
+    if (!step_id) return NextResponse.json({ error: 'step_id required' }, { status: 400 });
+
+    const to = (typeof test_email === 'string' && test_email.trim()) ? test_email.trim() : DEFAULT_TEST_EMAIL;
+    if (!EMAIL_RE.test(to)) return NextResponse.json({ error: 'Invalid test email' }, { status: 400 });
+
+    const { data: step } = await db
+      .from('sequence_steps')
+      .select('subject, body_html, campaign_id')
+      .eq('id', step_id)
+      .single();
+    if (!step) return NextResponse.json({ error: 'Step not found' }, { status: 404 });
+
+    const { data: campaign } = await db
+      .from('outreach_campaigns')
+      .select('from_name, from_email, reply_to')
+      .eq('id', step.campaign_id)
+      .single();
+
+    const name = 'there';
+    const subject = '[TEST] ' + (step.subject as string).replace(/\{\{first_name\}\}/g, name);
+    const html = (step.body_html as string).replace(/\{\{first_name\}\}/g, name);
+
+    const fromName = campaign?.from_name ?? 'Umbrella Movers';
+    const fromEmail = campaign?.from_email ?? 'hello@umbrella-movers.com';
+
+    const result = await sendEmail({
+      to,
+      from: `${fromName} <${fromEmail}>`,
+      replyTo: campaign?.reply_to ?? fromEmail,
+      subject,
+      html,
+    });
+
+    if (result.error) {
+      return NextResponse.json({ error: result.error }, { status: 500 });
+    }
+    return NextResponse.json({ success: true, sentTo: to });
   }
 
   return NextResponse.json({ error: 'Unknown action' }, { status: 400 });

@@ -258,6 +258,24 @@ export default function AdminClient() {
     setBusy(null);
   }
 
+  async function sendTest(step_id: string) {
+    const test_email = window.prompt("Send a test of this email to:", "umbrellamovers@gmail.com");
+    if (!test_email) return;
+    setBusy(`test-${step_id}`);
+    const res = await fetch("/api/outreach/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "send_test", step_id, test_email }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      notify(`Test sent to ${data.sentTo} ✓`);
+    } else {
+      notify("Test send failed", false);
+    }
+    setBusy(null);
+  }
+
   async function campaignAction(campaign_id: string, action: string, extra?: Record<string, unknown>) {
     setBusy(campaign_id + action);
     await fetch("/api/outreach/admin", {
@@ -570,6 +588,9 @@ export default function AdminClient() {
                                 <div className="flex gap-2">
                                   <Button size="sm" variant="outline" onClick={() => setPreviewStep(step)}>Preview</Button>
                                   <Button size="sm" variant="outline" onClick={() => openEdit(step)}>Edit</Button>
+                                  <Button size="sm" variant="outline" disabled={busy === `test-${step.id}`} onClick={() => sendTest(step.id)}>
+                                    {busy === `test-${step.id}` ? "Sending…" : "Send test"}
+                                  </Button>
                                 </div>
                               </div>
                               <p className="text-sm font-medium text-slate-800">{step.subject}</p>
