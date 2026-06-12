@@ -116,6 +116,13 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
       supabase.functions.invoke("send-quote-email", { body: backendPayload });
       supabase.functions.invoke("notify-quote-request", { body: backendPayload });
       supabase.functions.invoke("send-smartmoving-lead", { body: backendPayload });
+      fetch("/api/notify-quote-sms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(backendPayload),
+      }).catch((smsError) => {
+        console.error("SMS notification error:", smsError);
+      });
 
       toast({
         title: "You're all set — we got your request.",

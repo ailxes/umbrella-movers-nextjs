@@ -168,6 +168,14 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
           }
         });
 
+      // Send SMS alert in the background
+      fetch("/api/notify-quote-sms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(backendPayload),
+      }).catch((smsError) => {
+        console.error("SMS notification error:", smsError);
+      });
 
       toast({
         title: "You're all set — we got your request.",
