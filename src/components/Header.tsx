@@ -147,6 +147,12 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
+                <a href="/destinations" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 whitespace-nowrap tracking-wide">
+                  Destinations
+                </a>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 tracking-wide">
                   Testimonials
                 </button>
@@ -247,6 +253,9 @@ const Header = () => {
 
               <a href="/recent-moves" className="text-left py-3 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors tracking-wide">
                 Recent Moves
+              </a>
+              <a href="/destinations" className="text-left py-3 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors tracking-wide">
+                Destinations
               </a>
               <button onClick={() => scrollToSection("testimonials")} className="text-left py-3 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors tracking-wide">
                 Testimonials

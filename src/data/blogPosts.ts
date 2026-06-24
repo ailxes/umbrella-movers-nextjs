@@ -2016,5 +2016,61 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "4 Factors That Affect Moving Costs | Umbrella Movers Las Vegas",
     metaDescription: "Learn the 4 key factors that determine moving costs: size, distance, timing, and services. Get accurate estimates from Las Vegas' top woman-owned moving company.",
     keywords: ["moving costs", "how much does moving cost", "moving estimate", "Las Vegas movers", "woman-owned moving company", "moving price factors", "cost of movers", "moving budget"]
+  },
+  {
+    slug: "who-we-are-las-vegas-out-of-state-movers",
+    title: "Who We Are: Las Vegas Movers Who Move People Out of State Regularly",
+    excerpt: "Meet Umbrella Movers—a woman-owned Las Vegas moving company with an experienced, in-house team. No contractors, every mover background-checked, and a dedicated point of contact for every move.",
+    content: `
+      <h2>Who Is Umbrella Movers?</h2>
+      <p>Umbrella Movers is a woman-owned, licensed, and insured moving company based in Las Vegas (CPCN 3364). We've earned 300+ 5-star reviews by treating every move—whether it's across town or across the country—like it's our own. We're not a national van line that hands your belongings off to whichever truck is closest. We're a local company with our own people, our own standards, and our own name on the line.</p>
+
+      <p>This page is the straightforward version of who we are and how we work. If you're trying to decide who to trust with everything you own, you deserve clear answers, not marketing.</p>
+
+      <h2>What Do We Do?</h2>
+      <p>We handle residential and commercial moves of every size: studio apartments, full family homes, luxury estates, senior downsizing, office relocations, and specialty items like pianos and antiques. We pack, load, transport, unload, and—if you want—unpack. And we do it with a crew that's trained to protect your home and your belongings at every step.</p>
+
+      <h2>We Move People Out of State Regularly</h2>
+      <p>Long-distance, interstate moves aren't a side service we dabble in—they're a regular part of what we do. Throughout the year we're loading homes in Las Vegas bound for Phoenix, Salt Lake City, Denver, Dallas, Austin, San Diego, Seattle, Boise, and beyond.</p>
+
+      <p>That matters, because out-of-state moves are a different animal than a cross-town job. They involve interstate routing, multi-day driving, mountain passes and weather, firm delivery windows, and federal regulations. Because we run these moves constantly, we've built the logistics, the timing, and the paperwork into a process that just works. You're not our first cross-country move—you're one of many, handled by a team that does this all the time. (See our <a href="/destinations">destination guides</a> for cost comparisons and drive times to specific cities.)</p>
+
+      <h2>What Makes Us Different</h2>
+
+      <h3>Experienced, In-House Staff</h3>
+      <p>Our movers aren't strangers who showed up that morning. They're experienced professionals who work for Umbrella Movers, trained by us to our standards. They know how to wrap a dresser, navigate a tight staircase, load a truck so nothing shifts over 1,200 miles, and treat your home with respect.</p>
+
+      <h3>We Do Not Use Contractors</h3>
+      <p>This is one of the most important things to understand about how we operate—and one of the biggest differences between us and a lot of the industry. Many moving "companies" are actually brokers: they book your move, then sell it to whatever third-party contractor or day-labor crew is available. You have no idea who's actually showing up.</p>
+
+      <p>We don't do that. The crew that loads your home works for us. We never subcontract your move out to a third party, and on long-distance jobs the same team that loads in Las Vegas is accountable for your shipment all the way to the destination. One company, start to finish.</p>
+
+      <h3>Every Mover Is Background-Checked</h3>
+      <p>Before anyone joins our team and steps into your home, they pass a background check. You're letting people into your house and trusting them with your most valuable possessions—you should know they've been vetted. With Umbrella Movers, they have been.</p>
+
+      <h3>A Dedicated Point of Contact</h3>
+      <p>When you move with us, you get one person who knows your move and is reachable before, during, and after the truck rolls. No call-center roulette. No repeating your address and inventory to a different stranger every time you call. One contact who owns your move and answers your questions—especially valuable when your belongings are somewhere on the highway between Nevada and your new state.</p>
+
+      <h2>Licensed, Insured, and Accountable</h2>
+      <p>Umbrella Movers is fully licensed (CPCN 3364) and insured. We're woman-owned and WBENC certified. And our 300+ 5-star reviews come from the same kind of local and long-distance customers you'll be: people who needed their move done right.</p>
+
+      <ul>
+        <li><strong>Licensed &amp; insured:</strong> CPCN 3364, for your protection</li>
+        <li><strong>In-house crew:</strong> Our employees, never contractors</li>
+        <li><strong>Background-checked movers:</strong> Vetted before they enter your home</li>
+        <li><strong>Dedicated point of contact:</strong> One person who knows your move</li>
+        <li><strong>Out-of-state expertise:</strong> Regular interstate moves</li>
+        <li><strong>300+ 5-star reviews:</strong> Woman-owned and locally trusted</li>
+      </ul>
+
+      <h2>Ready to Move?</h2>
+      <p>Whether you're staying in the Las Vegas valley or heading out of state, you'll get the same experienced team, the same standards, and the same single point of contact. <a href="/#contact">Get your free, no-obligation quote today</a> and see why Las Vegas families trust Umbrella Movers.</p>
+    `,
+    image: "/assets/blog-choosing-company.jpg",
+    imageAlt: "Umbrella Movers' experienced in-house Las Vegas moving crew loading a truck",
+    publishedDate: "2025-02-01",
+    metaTitle: "Who We Are | Las Vegas Out-of-State Movers | Umbrella Movers",
+    metaDescription: "Umbrella Movers is a woman-owned Las Vegas moving company that moves people out of state regularly. Experienced in-house staff, no contractors, background-checked movers, and a dedicated point of contact.",
+    keywords: ["las vegas movers", "out of state movers las vegas", "who we are umbrella movers", "no contractor movers", "background checked movers", "woman-owned moving company", "long distance movers las vegas", "dedicated point of contact movers"]
   }
 ];

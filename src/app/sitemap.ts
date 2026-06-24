@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { locationPagesData } from "@/data/locationPages";
 import { servicesData } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
+import { destinationsData } from "@/data/destinations";
 
 const BASE_URL = "https://www.umbrellamovers.com";
 
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 1.0 },
     { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE_URL}/locations`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${BASE_URL}/destinations`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${BASE_URL}/why-choose-us`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${BASE_URL}/moving-checklist`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
@@ -40,5 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...locationPages, ...servicePages, ...blogPages];
+  const destinationPages = Object.keys(destinationsData).map((slug) => ({
+    url: `${BASE_URL}/destinations/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...locationPages, ...servicePages, ...blogPages, ...destinationPages];
 }
