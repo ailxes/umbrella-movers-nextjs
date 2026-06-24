@@ -76,6 +76,20 @@ const Footer = () => {
                   </button>
                 </li>
               ))}
+              {[
+                { label: "Service Areas", href: "/locations" },
+                { label: "Out-of-State Destinations", href: "/destinations" },
+                { label: "Moving Blog", href: "/blog" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-background/60 hover:text-accent transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
