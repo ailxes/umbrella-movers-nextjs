@@ -119,7 +119,7 @@ const Footer = () => {
             <a href="/privacy" className="text-background/60 hover:text-accent transition-colors">Privacy Policy</a>
             <a href="/terms" className="text-background/60 hover:text-accent transition-colors">Terms of Service</a>
           </div>
-          <p>© Copyright 2024 Umbrella Movers, LLC. All Rights Reserved.</p>
+          <p>© Copyright {new Date().getFullYear()} Umbrella Movers, LLC. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

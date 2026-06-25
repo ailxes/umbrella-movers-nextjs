@@ -10,7 +10,7 @@ import RecentMovesSection from "@/components/RecentMovesSection";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import { generateOrganizationSchema, siteUrl, socialImage } from "@/lib/seo";
+import { siteUrl, socialImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Licensed Las Vegas Movers | Woman-Owned | Umbrella Movers",
@@ -32,7 +32,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const organizationSchema = generateOrganizationSchema();
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -45,10 +44,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}

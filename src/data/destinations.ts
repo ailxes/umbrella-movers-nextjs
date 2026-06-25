@@ -175,7 +175,7 @@ export const destinationsData: Record<string, DestinationData> = {
     distanceMiles: 1225,
     driveTimeRange: "≈ 21–24 hours",
     tripDuration: "2–3 days",
-    route: "I-15 N → I-40 E → US-287 / I-20 → I-35 S into Austin",
+    route: "US-93 S / I-11 → I-40 E → US-287 S → I-35 S into Austin",
     driveNotes:
       "Google Maps will tell you Las Vegas to Austin is about 18 hours — but that's for a passenger car. A loaded 26-foot moving truck travels slower, so plan on roughly 21–24 hours of real driving. On top of that, federal FMCSA rules cap a driver at 11 hours of driving per day, so once daily limits and rest are factored in this haul runs two to three days. We build that into the schedule and give you a delivery window with room for traffic, weather, and fuel stops, so a hiccup on the road doesn't blow up your move-in day.",
     heroTitle: "Moving from Las Vegas to Austin, TX",
@@ -215,7 +215,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Our own background-checked Las Vegas crew loads your home and stays with the shipment. We don't hand your belongings off to local day-labor or third-party contractors at either end.",
       },
     ],
-    metaTitle: "Las Vegas to Austin Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Austin Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Austin, TX? ~1,225 mi, a 21–24 hour, 2–3 day haul by truck. Movers vs PODS benefits and red flags to avoid. Licensed, insured, woman-owned movers.",
     keywords: [
@@ -276,7 +276,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Usually, yes. With an early start the same crew that loads in Las Vegas can unload in the Phoenix metro the same day, depending on home size and access.",
       },
     ],
-    metaTitle: "Las Vegas to Phoenix Movers | Same-Day Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Phoenix Movers | Same-Day Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Phoenix, AZ? ~300 mi, a 5–6 hour truck drive, often same-day. Movers vs container benefits and red flags to avoid. Licensed, insured movers.",
     keywords: [
@@ -332,7 +332,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "A container costs less upfront if you handle all the loading and unloading yourself. For a long mountain route, most people prefer hiring movers, who handle the heavy lifting and the driving so a full home arrives on a firm delivery window.",
       },
     ],
-    metaTitle: "Las Vegas to Denver Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Denver Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Denver, CO? ~748 mi over the Rockies, a 13–15 hour / 2-day truck haul. Movers vs PODS benefits and red flags. Licensed, insured, woman-owned movers.",
     keywords: [
@@ -353,7 +353,7 @@ export const destinationsData: Record<string, DestinationData> = {
     distanceMiles: 1225,
     driveTimeRange: "≈ 21–24 hours",
     tripDuration: "2–3 days",
-    route: "I-15 N → I-40 E → US-287 S into the Dallas–Fort Worth metroplex",
+    route: "US-93 S / I-11 → I-40 E → US-287 S into the Dallas–Fort Worth metroplex",
     driveNotes:
       "Google Maps shows about 18 hours for a car, but a loaded 26-foot truck is slower — plan on roughly 21–24 hours of real driving. Federal FMCSA rules limit a driver to 11 hours per day, so once daily limits and rest are factored in this haul into the DFW metroplex runs two to three days. We coordinate fuel, rest, and a firm delivery window with buffer for traffic and weather so a long run stays predictable.",
     heroTitle: "Moving from Las Vegas to Dallas, TX",
@@ -393,7 +393,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Your shipment stays with our own background-checked team. We don't subcontract the Texas side to local day-labor, so the people who packed your home are accountable for it on delivery.",
       },
     ],
-    metaTitle: "Las Vegas to Dallas Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Dallas Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Dallas, TX? ~1,225 mi, a 21–24 hour, 2–3 day truck haul. Movers vs PODS benefits and red flags to avoid. Licensed, insured, woman-owned movers.",
     keywords: [
@@ -454,7 +454,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Often, yes. With an early start, the same crew that loads in Las Vegas can reach Salt Lake City and unload the same day, depending on home size and access.",
       },
     ],
-    metaTitle: "Las Vegas to Salt Lake City Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Salt Lake City Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Salt Lake City, UT? ~421 mi up I-15, a 7–9 hour truck drive, often same-day. Movers vs container benefits. Licensed, insured, woman-owned movers.",
     keywords: [
@@ -515,7 +515,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "No. Our own background-checked crew stays with the shipment and unloads it in Idaho — the same team start to finish.",
       },
     ],
-    metaTitle: "Las Vegas to Boise Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Boise Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Boise, ID? ~622 mi, an 11–13 hour truck haul (1–2 days). Movers vs PODS benefits and red flags to avoid. Licensed, insured, woman-owned movers.",
     keywords: [
@@ -536,7 +536,7 @@ export const destinationsData: Record<string, DestinationData> = {
     distanceMiles: 1205,
     driveTimeRange: "≈ 21–24 hours",
     tripDuration: "2–3 days",
-    route: "I-15 N → I-40 E → US-287 S into Fort Worth",
+    route: "US-93 S / I-11 → I-40 E → US-287 S into Fort Worth",
     driveNotes:
       "Google Maps shows about 17.5 hours for a car, but a loaded 26-foot truck is slower — plan on roughly 21–24 hours of real driving. Federal FMCSA rules cap a driver at 11 hours per day, so once daily limits and rest are factored in this haul into the western side of the DFW metroplex runs two to three days. We plan it around a firm delivery date with buffer for traffic and weather.",
     heroTitle: "Moving from Las Vegas to Fort Worth, TX",
@@ -576,7 +576,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "The routes are nearly identical and the distances are within a few miles. We serve the whole DFW metroplex, including the western suburbs around Fort Worth.",
       },
     ],
-    metaTitle: "Las Vegas to Fort Worth Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Fort Worth Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Fort Worth, TX? ~1,205 mi, a 21–24 hour, 2–3 day truck haul. Movers vs PODS benefits and red flags. Licensed, insured, woman-owned movers.",
     keywords: [
@@ -637,7 +637,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Usually, yes. With an early start to beat traffic, the same crew can load in Las Vegas and unload in Orange County the same day, depending on home size and building access.",
       },
     ],
-    metaTitle: "Las Vegas to Orange County Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Orange County Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Orange County, CA? ~270 mi, a 5–7 hour truck drive, often same-day. Movers vs PODS benefits and red flags. Licensed, insured movers.",
     keywords: [
@@ -698,7 +698,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Often, yes. With an early start the same crew that loads in Las Vegas can unload in San Diego the same day, depending on home size and access.",
       },
     ],
-    metaTitle: "Las Vegas to San Diego Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to San Diego Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to San Diego, CA? ~332 mi down I-15, a 6–8 hour truck drive, often same-day. Movers vs PODS benefits and red flags. Licensed, insured movers.",
     keywords: [
@@ -759,7 +759,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Yes. Our crew handles the access challenges of Seattle's older neighborhoods, and your dedicated point of contact coordinates timing so the truck isn't fighting parking and permits blind.",
       },
     ],
-    metaTitle: "Las Vegas to Seattle Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Seattle Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Seattle, WA? ~1,118 mi over the Cascades, a 20–23 hour, 2–3 day truck haul. Movers vs PODS benefits and red flags. Licensed, insured movers.",
     keywords: [
@@ -820,7 +820,7 @@ export const destinationsData: Record<string, DestinationData> = {
           "Yes. We deliver throughout Northern Colorado's Front Range, including Loveland, Windsor, and Timnath around Fort Collins.",
       },
     ],
-    metaTitle: "Las Vegas to Fort Collins Movers | Drive Time & Tips (2025)",
+    metaTitle: "Las Vegas to Fort Collins Movers | Drive Time & Tips",
     metaDescription:
       "Moving from Las Vegas to Fort Collins, CO? ~813 mi over the Rockies, a 14–16 hour / 2-day truck haul. Movers vs PODS benefits and red flags. Licensed, insured movers.",
     keywords: [

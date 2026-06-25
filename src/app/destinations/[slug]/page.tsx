@@ -16,21 +16,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const data = getDestinationData(slug);
   if (!data) return {};
+  // Append the current year dynamically so the title never goes stale.
+  const fullTitle = `${data.metaTitle} (${new Date().getFullYear()})`;
   return {
-    title: data.metaTitle,
+    title: fullTitle,
     description: data.metaDescription,
     keywords: data.keywords.join(", "),
     alternates: { canonical: `/destinations/${data.slug}` },
     openGraph: {
       type: "website",
       url: `${siteUrl}/destinations/${data.slug}`,
-      title: data.metaTitle,
+      title: fullTitle,
       description: data.metaDescription,
       images: [{ url: socialImage }],
     },
     twitter: {
       card: "summary_large_image",
-      title: data.metaTitle,
+      title: fullTitle,
       description: data.metaDescription,
       images: [socialImage],
     },
