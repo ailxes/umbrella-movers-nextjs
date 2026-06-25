@@ -1,10 +1,13 @@
 import { BlogPost } from "@/types/blog";
 
+// Current year, computed at build time so dated titles never go stale.
+const YEAR = new Date().getFullYear();
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "california-to-las-vegas-checklist-2025",
-    title: "Moving from California to Las Vegas Checklist: DMV, Taxes & Utilities (2025)",
-    excerpt: "Complete 2025 checklist for relocating from California to Las Vegas. Learn DMV requirements, tax savings, utility setup, and expert tips from local movers.",
+    title: `Moving from California to Las Vegas Checklist: DMV, Taxes & Utilities (${YEAR})`,
+    excerpt: `Complete ${YEAR} checklist for relocating from California to Las Vegas. Learn DMV requirements, tax savings, utility setup, and expert tips from local movers.`,
     content: `
       <h2>Is Moving from California to Las Vegas the Right Decision for You?</h2>
       <p>Every month, thousands of Californians pack up their lives and make the move to Las Vegas, Nevada—and for good reason. With no state income tax, housing costs 40-60% lower than California markets, and 310 days of sunshine annually, it's no wonder Las Vegas has become California's top relocation destination. But the transition requires careful planning and attention to crucial details like DMV requirements, tax implications, and utility setup.</p>
@@ -222,8 +225,8 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-california-to-vegas.jpg",
     imageAlt: "Welcome to Las Vegas Nevada road sign with moving truck on desert highway",
     publishedDate: "2025-01-15",
-    metaTitle: "Moving from California to Las Vegas Checklist 2025 | DMV, Taxes & Utilities Guide",
-    metaDescription: "Complete checklist for moving from California to Las Vegas in 2025. Learn DMV requirements (30-day license change), tax savings, utility setup, and expert moving tips from woman-owned movers.",
+    metaTitle: `Moving from California to Las Vegas Checklist ${YEAR} | DMV, Taxes & Utilities Guide`,
+    metaDescription: `Complete checklist for moving from California to Las Vegas in ${YEAR}. Learn DMV requirements (30-day license change), tax savings, utility setup, and expert moving tips from woman-owned movers.`,
     keywords: [
       "moving from California to Las Vegas",
       "Las Vegas movers",
@@ -239,8 +242,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "moving-to-las-vegas-2025-guide",
-    title: "Moving to Las Vegas in 2025: Everything You Need to Know About Cost of Living, Jobs & Safety",
-    excerpt: "Complete 2025 guide to relocating to Las Vegas. Discover cost of living, job markets, safety, neighborhoods, and expert moving tips from local professionals.",
+    title: `Moving to Las Vegas in ${YEAR}: Everything You Need to Know About Cost of Living, Jobs & Safety`,
+    excerpt: `Complete ${YEAR} guide to relocating to Las Vegas. Discover cost of living, job markets, safety, neighborhoods, and expert moving tips from local professionals.`,
     content: `
       <h2>Is Las Vegas the Right City for Your 2025 Move?</h2>
       <p>Las Vegas is experiencing unprecedented growth in 2025, attracting families, young professionals, and retirees from across the country. But is it the right move for you? With over 15 years of helping people relocate to Las Vegas, Umbrella Movers has witnessed firsthand how the city has evolved into one of America's most dynamic metropolitan areas.</p>
@@ -487,14 +490,14 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-moving-to-vegas.jpg",
     imageAlt: "Welcome to Las Vegas sign with city skyline and mountains",
     publishedDate: "2025-01-25",
-    metaTitle: "Moving to Las Vegas in 2025: Complete Guide to Cost, Jobs & Safety",
-    metaDescription: "Everything you need to know about moving to Las Vegas in 2025—cost of living, job market, safety, neighborhoods. Expert guide from Umbrella Movers, woman-owned local movers.",
+    metaTitle: `Moving to Las Vegas in ${YEAR}: Complete Guide to Cost, Jobs & Safety`,
+    metaDescription: `Everything you need to know about moving to Las Vegas in ${YEAR}—cost of living, job market, safety, neighborhoods. Expert guide from Umbrella Movers, woman-owned local movers.`,
     keywords: ["moving to las vegas", "las vegas cost of living 2025", "las vegas movers", "woman-owned moving company", "relocating to las vegas", "las vegas jobs", "las vegas safety", "best neighborhoods las vegas", "moving to nevada"]
   },
   {
     slug: "richest-neighborhoods-las-vegas-2025",
-    title: "The 7 Richest Neighborhoods in Las Vegas: A 2025 Guide to Luxury Living",
-    excerpt: "Discover Las Vegas' most exclusive luxury neighborhoods in 2025. From Summerlin to MacDonald Highlands, explore where the city's elite call home.",
+    title: `The 7 Richest Neighborhoods in Las Vegas: A ${YEAR} Guide to Luxury Living`,
+    excerpt: `Discover Las Vegas' most exclusive luxury neighborhoods in ${YEAR}. From Summerlin to MacDonald Highlands, explore where the city's elite call home.`,
     content: `
       <h2>Where Do Las Vegas' Wealthiest Residents Live?</h2>
       <p>Las Vegas isn't just about the Strip—it's home to some of the most luxurious and exclusive residential communities in the United States. If you're considering moving to Las Vegas or relocating within the valley, understanding the city's wealthiest neighborhoods can help you make an informed decision about where to call home.</p>
@@ -634,13 +637,13 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-richest-neighborhoods.jpg",
     imageAlt: "Luxury mansion in Las Vegas with mountain views at sunset",
     publishedDate: "2025-01-20",
-    metaTitle: "7 Richest Neighborhoods in Las Vegas 2025 | Luxury Living Guide",
-    metaDescription: "Explore Las Vegas' 7 wealthiest neighborhoods in 2025—from The Ridges to MacDonald Highlands. Expert local insights from Umbrella Movers, woman-owned luxury movers.",
+    metaTitle: `7 Richest Neighborhoods in Las Vegas ${YEAR} | Luxury Living Guide`,
+    metaDescription: `Explore Las Vegas' 7 wealthiest neighborhoods in ${YEAR}—from The Ridges to MacDonald Highlands. Expert local insights from Umbrella Movers, woman-owned luxury movers.`,
     keywords: ["richest neighborhoods las vegas", "luxury homes las vegas", "moving to las vegas", "las vegas movers", "woman-owned moving company", "summerlin luxury homes", "henderson luxury real estate", "las vegas relocation guide 2025"]
   },
   {
     slug: "summerlin-vs-anthem-las-vegas-2025",
-    title: "Summerlin vs. Anthem: Which Las Vegas Community is Right for You in 2025?",
+    title: `Summerlin vs. Anthem: Which Las Vegas Community is Right for You in ${YEAR}?`,
     excerpt: "Compare Summerlin and Anthem—two of Las Vegas' premier master-planned communities. Expert local insights to help you choose the perfect neighborhood.",
     content: `
       <h2>Which Las Vegas Master-Planned Community Should You Choose?</h2>
@@ -891,7 +894,7 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-summerlin-anthem.jpg",
     imageAlt: "Aerial view of Las Vegas suburban community with mountain backdrop",
     publishedDate: "2025-01-22",
-    metaTitle: "Summerlin vs Anthem 2025: Which Las Vegas Community to Choose?",
+    metaTitle: `Summerlin vs Anthem ${YEAR}: Which Las Vegas Community to Choose?`,
     metaDescription: "Compare Summerlin vs. Anthem master-planned communities in Las Vegas. Expert local insights on homes, schools, lifestyle from Umbrella Movers, woman-owned movers.",
     keywords: ["summerlin vs anthem", "moving to las vegas", "las vegas movers", "woman-owned moving company", "summerlin nevada", "anthem henderson", "best neighborhoods las vegas", "master planned communities las vegas 2025"]
   },
@@ -923,7 +926,7 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-packing-tips.jpg",
     imageAlt: "Professional movers packing boxes carefully",
     publishedDate: "2025-01-15",
-    metaTitle: "10 Essential Packing Tips for a Stress-Free Move | Umbrella Movers",
+    metaTitle: "10 Essential Packing Tips for a Stress-Free Move",
     metaDescription: "Learn professional packing techniques from experienced Las Vegas movers. Get expert tips to protect your belongings and save time during your move.",
     keywords: ["packing tips", "moving tips", "las vegas moving", "packing services", "moving advice"]
   },
@@ -985,7 +988,7 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-summer-moving.jpg",
     imageAlt: "Moving truck in Las Vegas summer heat",
     publishedDate: "2025-01-05",
-    metaTitle: "Tips for Moving During Las Vegas Summer Heat | Umbrella Movers",
+    metaTitle: "Tips for Moving During Las Vegas Summer Heat",
     metaDescription: "Essential tips for safe summer moving in Las Vegas. Learn how to protect yourself and your belongings during extreme heat from experienced movers.",
     keywords: ["las vegas summer moving", "moving in heat", "summer moving tips", "las vegas movers", "heat safety"]
   },
@@ -1017,14 +1020,14 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-senior-downsizing.jpg",
     imageAlt: "Senior couple planning their move with compassionate movers",
     publishedDate: "2024-12-20",
-    metaTitle: "Downsizing Guide for Seniors Moving in Las Vegas | Umbrella Movers",
+    metaTitle: "Downsizing Guide for Seniors Moving in Las Vegas",
     metaDescription: "Compassionate downsizing tips for seniors in Las Vegas. Expert advice from a woman-owned moving company with over 15 years of experience.",
     keywords: ["senior moving", "downsizing tips", "senior relocation", "las vegas senior moving", "compassionate movers"]
   },
   {
     slug: "cost-of-living-las-vegas-vs-los-angeles-bay-area-2025",
-    title: "Cost of Living Calculator: Las Vegas vs. Los Angeles/Bay Area (2025 Edition)",
-    excerpt: "Comprehensive 2025 cost comparison between Las Vegas and California metros. Discover how much you'll save on housing, taxes, and everyday expenses.",
+    title: `Cost of Living Calculator: Las Vegas vs. Los Angeles/Bay Area (${YEAR} Edition)`,
+    excerpt: `Comprehensive ${YEAR} cost comparison between Las Vegas and California metros. Discover how much you'll save on housing, taxes, and everyday expenses.`,
     content: `
       <h2>Is It Cheaper to Live in Las Vegas or Los Angeles in 2025?</h2>
       <p>If you're considering relocating from California to Nevada, the cost of living difference is nothing short of dramatic. Las Vegas offers 35-50% lower overall living costs compared to Los Angeles and a staggering 50-65% savings compared to the San Francisco Bay Area. For many California residents, the question isn't whether to move—it's how much money they'll save and how quickly they can make the transition.</p>
@@ -1386,13 +1389,13 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-vegas-la-cost.jpg",
     imageAlt: "Luxury home comparison between Las Vegas and California lifestyle",
     publishedDate: "2025-01-15",
-    metaTitle: "Cost of Living: Las Vegas vs Los Angeles & Bay Area (2025 Calculator) | Umbrella Movers",
-    metaDescription: "Comprehensive 2025 cost comparison: Las Vegas vs California metros. Discover tax savings, housing costs, and lifestyle expenses. Expert analysis from top-rated Las Vegas movers.",
+    metaTitle: `Cost of Living: Las Vegas vs Los Angeles & Bay Area (${YEAR} Calculator)`,
+    metaDescription: `Comprehensive ${YEAR} cost comparison: Las Vegas vs California metros. Discover tax savings, housing costs, and lifestyle expenses. Expert analysis from top-rated Las Vegas movers.`,
     keywords: ["cost of living Las Vegas", "Las Vegas vs Los Angeles", "Las Vegas vs Bay Area", "moving to Las Vegas", "Las Vegas movers", "woman-owned moving company", "Nevada tax savings", "California to Nevada moving"]
   },
   {
     slug: "how-to-move-grand-piano-las-vegas-2025",
-    title: "How to Move a Grand Piano in Las Vegas (Without Scratching Your Floors) - 2025 Guide",
+    title: `How to Move a Grand Piano in Las Vegas (Without Scratching Your Floors) - ${YEAR} Guide`,
     excerpt: "Expert guide to moving grand pianos in Las Vegas without damaging floors. Learn costs, techniques, and why professional movers with specialized equipment matter.",
     content: `
       <h2>Can You Really Move a Grand Piano Without Damaging Your Hardwood Floors?</h2>
@@ -1764,13 +1767,13 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-piano-moving.jpg",
     imageAlt: "Professional movers carefully transporting grand piano in luxury Las Vegas home with protected floors",
     publishedDate: "2025-01-18",
-    metaTitle: "How to Move a Grand Piano in Las Vegas Without Floor Damage (2025 Guide) | Umbrella Movers",
+    metaTitle: `How to Move a Grand Piano in Las Vegas Without Floor Damage (${YEAR} Guide)`,
     metaDescription: "Expert guide to moving grand pianos in Las Vegas. Learn costs ($450-$1,500+), professional techniques, equipment needs, and why DIY piano moves cause $20K+ damage. Woman-owned movers.",
     keywords: ["piano moving Las Vegas", "grand piano movers", "Las Vegas movers", "woman-owned moving company", "luxury movers Las Vegas", "piano transport cost", "professional piano moving", "Steinway movers"]
   },
   {
     slug: "6-reasons-las-vegas-great-place-live",
-    title: "6 Reasons Las Vegas Is a Great Place to Live in 2025",
+    title: `6 Reasons Las Vegas Is a Great Place to Live in ${YEAR}`,
     excerpt: "Discover why thousands are relocating to Las Vegas. From no state income tax to world-class entertainment, here are 6 compelling reasons to call Vegas home.",
     content: `
       <h2>Why Las Vegas Is More Than Just a Vacation Destination</h2>
@@ -1865,8 +1868,8 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-moving-to-vegas.jpg",
     imageAlt: "Beautiful Las Vegas skyline with mountains in background representing quality of life",
     publishedDate: "2025-01-20",
-    metaTitle: "6 Reasons Las Vegas Is a Great Place to Live (2025) | Umbrella Movers",
-    metaDescription: "Discover 6 compelling reasons to move to Las Vegas in 2025. No state income tax, affordable housing, 310 sunny days, and world-class entertainment. Woman-owned movers.",
+    metaTitle: `6 Reasons Las Vegas Is a Great Place to Live (${YEAR})`,
+    metaDescription: `Discover 6 compelling reasons to move to Las Vegas in ${YEAR}. No state income tax, affordable housing, 310 sunny days, and world-class entertainment. Woman-owned movers.`,
     keywords: ["reasons to move to Las Vegas", "living in Las Vegas", "Las Vegas quality of life", "move to Vegas", "Las Vegas movers", "woman-owned moving company", "relocate to Las Vegas", "Las Vegas benefits"]
   },
   {
@@ -2013,7 +2016,7 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-choosing-company.jpg",
     imageAlt: "Professional movers loading furniture into truck representing moving cost factors",
     publishedDate: "2025-01-21",
-    metaTitle: "4 Factors That Affect Moving Costs | Umbrella Movers Las Vegas",
+    metaTitle: "4 Factors That Affect Moving Costs",
     metaDescription: "Learn the 4 key factors that determine moving costs: size, distance, timing, and services. Get accurate estimates from Las Vegas' top woman-owned moving company.",
     keywords: ["moving costs", "how much does moving cost", "moving estimate", "Las Vegas movers", "woman-owned moving company", "moving price factors", "cost of movers", "moving budget"]
   },
@@ -2069,7 +2072,7 @@ export const blogPosts: BlogPost[] = [
     image: "/assets/blog-choosing-company.jpg",
     imageAlt: "Umbrella Movers' experienced in-house Las Vegas moving crew loading a truck",
     publishedDate: "2025-02-01",
-    metaTitle: "Who We Are | Las Vegas Out-of-State Movers | Umbrella Movers",
+    metaTitle: "Who We Are | Las Vegas Out-of-State Movers",
     metaDescription: "Umbrella Movers is a woman-owned Las Vegas moving company that moves people out of state regularly. Experienced in-house staff, no contractors, background-checked movers, and a dedicated point of contact.",
     keywords: ["las vegas movers", "out of state movers las vegas", "who we are umbrella movers", "no contractor movers", "background checked movers", "woman-owned moving company", "long distance movers las vegas", "dedicated point of contact movers"]
   }
