@@ -46,7 +46,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Full-service home moving with professional packing, careful handling, and the same trusted team from start to finish.",
     image: "/images/residential-moving.jpg",
     heroImage: "/images/residential-moving.jpg",
-    metaTitle: "Residential Moving Services Las Vegas | Umbrella Movers",
+    metaTitle: "Residential Moving Services Las Vegas",
     metaDescription: "Professional residential moving services in Las Vegas. Woman-owned, fully licensed & insured. Same team loads & unloads. Get your free quote today!",
     content: {
       intro: "Moving to a new home should be exciting, not stressful. At Umbrella Movers, our residential moving services are designed to give you peace of mind from the moment we arrive until the last box is placed in your new home. As a WBENC-certified woman-owned business with over 15 years of experience, we treat your belongings like our own.",
@@ -129,7 +129,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Minimize downtime with our efficient office and business relocation services. We work around your schedule.",
     image: "/images/commercial-moving.jpeg",
     heroImage: "/images/commercial-moving.jpeg",
-    metaTitle: "Commercial Moving Services Las Vegas | Office Relocation | Umbrella Movers",
+    metaTitle: "Commercial Moving Services Las Vegas | Office Relocation",
     metaDescription: "Expert commercial moving and office relocation in Las Vegas. Minimize downtime with our efficient business moving services. Woman-owned & fully insured.",
     content: {
       intro: "Business moves require precision, efficiency, and minimal disruption to your operations. Umbrella Movers understands that time is money, which is why our commercial moving services are designed to get you back to business as quickly as possible. We've helped businesses of all sizes relocate throughout Las Vegas.",
@@ -167,8 +167,8 @@ export const servicesData: Record<string, ServiceData> = {
     slug: "medical-equipment-movers-las-vegas",
     title: "Medical Equipment & Hospital Bed Moving",
     shortDescription: "Delivery, setup, and relocation of hospital beds and durable medical equipment for suppliers, hospices, home health agencies, and families across Las Vegas.",
-    image: "/images/move2-truck-equipment.jpg",
-    heroImage: "/images/move2-truck-equipment.jpg",
+    image: "/images/move3-summit-truck.jpeg",
+    heroImage: "/images/move3-summit-truck.jpeg",
     metaTitle: "Medical Equipment Movers Las Vegas",
     metaDescription: "Medical equipment movers in Las Vegas. Hospital bed delivery, setup & relocation of DME for suppliers, hospices & families. Insured, two-man crews. Call today!",
     content: {
@@ -502,7 +502,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Save money on interstate moves with our unique model. Your belongings stay in our care the entire journey.",
     image: "/images/long-distance-moving.jpeg",
     heroImage: "/images/long-distance-moving.jpeg",
-    metaTitle: "Long Distance Moving Las Vegas | Interstate Movers | Umbrella Movers",
+    metaTitle: "Long Distance Moving Las Vegas | Interstate Movers",
     metaDescription: "Affordable long distance moving from Las Vegas. Your items never leave our care. Scheduled delivery with no time windows. Woman-owned & fully licensed.",
     content: {
       intro: "Moving out of state doesn't have to break the bank or cause sleepless nights. Umbrella Movers offers a unique long-distance moving model that saves you money while ensuring your belongings are always in our care. Unlike other companies, we never hand off your items to third parties.",
@@ -581,7 +581,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Professional packing by trained experts. We use quality materials and proven techniques to protect your valuables.",
     image: "/images/packing-services.png",
     heroImage: "/images/packing-services.png",
-    metaTitle: "Professional Packing Services Las Vegas | Umbrella Movers",
+    metaTitle: "Professional Packing Services Las Vegas",
     metaDescription: "Expert packing services in Las Vegas. Quality materials, trained packers, and special handling for fragile items. Woman-owned moving company.",
     content: {
       intro: "Packing is often the most time-consuming and stressful part of any move. Let our professional packers handle it for you. We use high-quality materials and industry-best techniques to ensure your belongings arrive safely at your new home.",
@@ -621,7 +621,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Secure, climate-controlled storage facilities with 24/7 monitoring. Short and long-term options available.",
     image: "/images/storage-solutions.png",
     heroImage: "/images/storage-solutions.png",
-    metaTitle: "Storage Solutions Las Vegas | Climate-Controlled Storage | Umbrella Movers",
+    metaTitle: "Storage Solutions Las Vegas | Climate-Controlled Storage",
     metaDescription: "Secure, climate-controlled storage in Las Vegas. Short and long-term options with 24/7 monitoring. Woman-owned moving company with storage solutions.",
     content: {
       intro: "Sometimes your move doesn't happen all at once. Whether you need to store items during a home renovation, between moves, or for the long term, Umbrella Movers offers secure, climate-controlled storage solutions to keep your belongings safe.",
@@ -661,7 +661,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Expert handling for pianos, antiques, artwork, and other high-value or delicate items requiring special care.",
     image: "/images/specialty-moving.jpg",
     heroImage: "/images/specialty-moving.jpg",
-    metaTitle: "Specialty Moving Las Vegas | Piano & Antique Movers | Umbrella Movers",
+    metaTitle: "Specialty Moving Las Vegas | Piano & Antique Movers",
     metaDescription: "Expert specialty moving for pianos, antiques, artwork & fragile items in Las Vegas. Trained handlers with proper equipment. Woman-owned & insured.",
     content: {
       intro: "Some items require extra care, specialized equipment, and trained expertise. Umbrella Movers' specialty moving services are designed for pianos, antiques, fine art, and other valuable or delicate items that need more than standard moving procedures.",
@@ -701,7 +701,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Expert piano moving for uprights and grands. Specialized equipment and trained handlers ensure your instrument arrives safely.",
     image: "/images/piano-moving.jpg",
     heroImage: "/images/piano-moving.jpg",
-    metaTitle: "Piano Moving Las Vegas | Expert Piano Movers | Umbrella Movers",
+    metaTitle: "Piano Moving Las Vegas | Expert Piano Movers",
     metaDescription: "Professional piano moving services in Las Vegas. Specialized equipment for uprights and grands. Woman-owned, fully insured. Get your free quote!",
     content: {
       intro: "Moving a piano requires specialized knowledge, equipment, and experience. At Umbrella Movers, our piano moving team has safely relocated hundreds of pianos throughout Las Vegas, from antique uprights to concert grands.",
@@ -747,7 +747,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Premium moving service with extra care and attention. Perfect for high-value items, antiques, and luxury homes.",
     image: "/images/white-glove-moving.png",
     heroImage: "/images/white-glove-moving.png",
-    metaTitle: "White Glove Moving Las Vegas | Premium Movers | Umbrella Movers",
+    metaTitle: "White Glove Moving Las Vegas | Premium Movers",
     metaDescription: "Premium white glove moving services in Las Vegas. Extra care for luxury homes, antiques, and high-value items. Woman-owned & fully insured.",
     content: {
       intro: "Our white glove moving service provides the highest level of care and attention for your most valuable possessions. From luxury homes to priceless antiques, we treat every item as if it were our own.",
@@ -796,7 +796,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Specialized moving for oversized furniture, safes, hot tubs, and other heavy items requiring special equipment.",
     image: "/images/large-item-moving.jpg",
     heroImage: "/images/large-item-moving.jpg",
-    metaTitle: "Large Item Moving Las Vegas | Heavy Item Movers | Umbrella Movers",
+    metaTitle: "Large Item Moving Las Vegas | Heavy Item Movers",
     metaDescription: "Professional large item moving in Las Vegas. Safes, hot tubs, oversized furniture & more. Specialized equipment & trained crew. Free quotes!",
     content: {
       intro: "Some items are too large, heavy, or awkward for standard moving. Umbrella Movers has the specialized equipment and trained personnel to safely move your oversized possessions.",
@@ -824,7 +824,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Efficient apartment moves with elevator coordination, tight space navigation, and building rule compliance.",
     image: "/images/apartment-moving.jpeg",
     heroImage: "/images/apartment-moving.jpeg",
-    metaTitle: "Apartment Moving Las Vegas | Apartment Movers | Umbrella Movers",
+    metaTitle: "Apartment Moving Las Vegas | Apartment Movers",
     metaDescription: "Professional apartment moving services in Las Vegas. Elevator coordination, tight spaces, building compliance. Woman-owned & insured.",
     content: {
       intro: "Apartment moves come with unique challenges – elevators, narrow hallways, parking restrictions, and building rules. Umbrella Movers knows how to navigate them all efficiently.",
@@ -852,7 +852,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Specialized high-rise and condo moving with COI handling, freight elevator booking, and luxury building experience.",
     image: "/images/high-rise-moving.jpg",
     heroImage: "/images/high-rise-moving.jpg",
-    metaTitle: "High Rise Moving Las Vegas | Condo Movers | Umbrella Movers",
+    metaTitle: "High Rise Moving Las Vegas | Condo Movers",
     metaDescription: "Expert high-rise moving in Las Vegas. COI handling, freight elevators, luxury building experience. Woman-owned & fully insured.",
     content: {
       intro: "High-rise moves in Las Vegas require special expertise. From the Strip's luxury condos to downtown towers, Umbrella Movers understands the unique requirements of high-rise living.",
@@ -896,7 +896,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Fast, reliable local moves anywhere in the Las Vegas Valley. Same-day availability and transparent hourly rates.",
     image: "/images/local-moving.jpg",
     heroImage: "/images/local-moving.jpg",
-    metaTitle: "Local Moving Las Vegas | Same Day Movers | Umbrella Movers",
+    metaTitle: "Local Moving Las Vegas | Same Day Movers",
     metaDescription: "Fast, affordable local moving in Las Vegas. Transparent hourly rates, same-day availability. Woman-owned & fully licensed. Free quotes!",
     content: {
       intro: "Moving across town? Umbrella Movers offers fast, reliable local moving services throughout the Las Vegas Valley. Our transparent pricing and professional service make local moves easy.",
@@ -945,7 +945,7 @@ export const servicesData: Record<string, ServiceData> = {
     shortDescription: "Professional moving and storage during home renovations. We safely store your belongings while you remodel.",
     image: "/images/storage-solutions.png",
     heroImage: "/images/storage-solutions.png",
-    metaTitle: "Renovation Moving Services Las Vegas | Storage During Remodel | Umbrella Movers",
+    metaTitle: "Renovation Moving Services Las Vegas | Storage During Remodel",
     metaDescription: "Professional moving and storage during home renovations in Las Vegas. Protect your belongings while remodeling. Woman-owned, fully insured. Free quote!",
     content: {
       intro: "Home renovations can be exciting, but protecting your belongings during the process is essential. Umbrella Movers specializes in renovation moving services – we safely move your furniture and valuables out, store them securely, and return everything when your project is complete. Whether you're remodeling a kitchen, bathroom, or doing a whole-home renovation, we've got you covered.",
