@@ -88,7 +88,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent text-sm font-medium text-foreground/70 hover:text-foreground">
                   Services
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuContent forceMount className="data-[state=closed]:hidden">
                   <div className="w-[400px] p-5 bg-background border border-border rounded-sm shadow-lifted">
                     <div className="grid gap-2">
                       <a href="/services" className="block px-3 py-2 text-xs font-medium tracking-widest uppercase text-accent hover:text-accent-dark transition-colors">
@@ -116,7 +116,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent text-sm font-medium text-foreground/70 hover:text-foreground">
                   Service Areas
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuContent forceMount className="data-[state=closed]:hidden">
                   <div className="w-[350px] p-5 bg-background border border-border rounded-sm shadow-lifted">
                     <div className="grid gap-2">
                       <a href="/locations" className="block px-3 py-2 text-xs font-medium tracking-widest uppercase text-accent hover:text-accent-dark transition-colors">

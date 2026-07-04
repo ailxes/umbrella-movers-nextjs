@@ -1,6 +1,7 @@
 "use client";
 import { Umbrella, ExternalLink } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import { servicesList } from "@/data/services";
 
 const Footer = () => {
   const pathname = usePathname();
@@ -21,7 +22,7 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-16 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-6">
@@ -54,6 +55,28 @@ const Footer = () => {
                 <p><span className="text-background/70">MC:</span> 1198694</p>
               </div>
             </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-xs tracking-widest uppercase text-background/40 mb-6">Services</h3>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href="/services" className="text-accent hover:text-accent/80 transition-colors">
+                  All Services
+                </a>
+              </li>
+              {servicesList.map((service) => (
+                <li key={service.slug}>
+                  <a
+                    href={`/services/${service.slug}`}
+                    className="text-background/60 hover:text-accent transition-colors"
+                  >
+                    {service.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Quick Links */}
