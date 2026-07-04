@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
@@ -65,10 +65,26 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     areaServed: areasServed.map((area) => ({ "@type": "City", name: area })),
   };
 
+  const faqSchema =
+    service.content.faqs && service.content.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: service.content.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }
+      : null;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       <Header />
       <main>
         {/* Hero */}
@@ -88,7 +104,15 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </BreadcrumbList>
             </Breadcrumb>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">{service.title}</h1>
-            <p className="text-white/80 text-lg max-w-2xl">{service.shortDescription}</p>
+            <p className="text-white/80 text-lg max-w-2xl mb-6">{service.shortDescription}</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="tel:702-533-2853" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors">
+                <Phone className="h-4 w-4" /> Call 702-533-2853
+              </a>
+              <a href="#quote-form" className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-foreground transition-colors">
+                Get a Free Quote <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </section>
 
@@ -99,6 +123,20 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <div className="lg:col-span-2">
                 {/* Intro */}
                 <p className="text-muted-foreground leading-relaxed mb-8 text-lg">{service.content.intro}</p>
+
+                {/* Content Sections (keyword-rich subtopics) */}
+                {service.content.contentSections && service.content.contentSections.length > 0 && (
+                  <div className="mb-10 space-y-8">
+                    {service.content.contentSections.map((section, i) => (
+                      <div key={i}>
+                        <h2 className="text-2xl font-bold mb-3">{section.heading}</h2>
+                        {section.body.map((para, j) => (
+                          <p key={j} className="text-muted-foreground leading-relaxed mb-4 last:mb-0">{para}</p>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Features */}
                 {service.content.features.length > 0 && (
@@ -195,7 +233,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </div>
 
               <div className="lg:col-span-1">
-                <div className="sticky top-24">
+                <div id="quote-form" className="sticky top-24 scroll-mt-24">
                   <QuoteForm />
                   <div className="mt-6">
                     <Link href="/services" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
@@ -204,6 +242,22 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="py-16 bg-accent">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent-foreground mb-4">Get Your Free {service.title} Quote</h2>
+            <p className="text-lg text-accent-foreground/80 mb-8 max-w-2xl mx-auto">Licensed (CPCN 3364), insured, woman-owned. Serving Las Vegas, Henderson, North Las Vegas, and the surrounding valley. Same-week availability.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#quote-form" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors">
+                Get Free Quote <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="tel:702-533-2853" className="inline-flex items-center justify-center gap-2 border-2 border-accent-foreground text-accent-foreground px-8 py-3 rounded-md font-semibold hover:bg-accent-foreground hover:text-accent transition-colors">
+                <Phone className="h-4 w-4" /> Call 702-533-2853
+              </a>
             </div>
           </div>
         </section>

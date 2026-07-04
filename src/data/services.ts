@@ -32,6 +32,7 @@ export interface ServiceData {
     }[];
     additionalInfo?: string;
     additionalInfoLinks?: InternalLink[]; // Links to embed in additional info
+    contentSections?: { heading: string; body: string[] }[]; // Optional keyword-rich H2 sections (subtopics)
     faqs?: FAQItem[];
   };
   relatedContent?: RelatedContent;
@@ -161,6 +162,339 @@ export const servicesData: Record<string, ServiceData> = {
       ],
       additionalInfo: "From small offices to large corporate relocations, we have the experience and equipment to handle your commercial move professionally and efficiently."
     }
+  },
+  "medical-equipment-movers-las-vegas": {
+    slug: "medical-equipment-movers-las-vegas",
+    title: "Medical Equipment & Hospital Bed Moving",
+    shortDescription: "Delivery, setup, and relocation of hospital beds and durable medical equipment for suppliers, hospices, home health agencies, and families across Las Vegas.",
+    image: "/images/move2-truck-equipment.jpg",
+    heroImage: "/images/move2-truck-equipment.jpg",
+    metaTitle: "Medical Equipment Movers Las Vegas",
+    metaDescription: "Medical equipment movers in Las Vegas. Hospital bed delivery, setup & relocation of DME for suppliers, hospices & families. Insured, two-man crews. Call today!",
+    content: {
+      intro: "Umbrella Movers provides medical equipment moving and hospital bed delivery, setup, and relocation throughout Las Vegas, Henderson, and North Las Vegas. Our insured two-man crews use liftgate trucks to deliver, install, and pick up hospital beds, exam tables, mobility equipment, and other durable medical equipment (DME) for suppliers, hospices, home health agencies, mobile medical providers, and families, often with same-week availability.",
+      contentSections: [
+        {
+          heading: "Hospital Bed Delivery and Setup in Las Vegas",
+          body: [
+            "A hospital bed is heavy, awkward, and easy to damage when it is not handled correctly. Our crews deliver semi-electric and full-electric hospital beds, carry them into the room where they are needed, assemble the frame, attach the rails and motor, and position the bed so a patient or caregiver can use it right away. We remove all packaging and haul it away so nothing is left behind.",
+            "For families caring for a loved one at home, we can also relocate an existing hospital bed between residences or facilities, and pick up and remove a bed that is no longer needed. Every delivery is handled by two trained movers so beds and heavy equipment are never dragged, dropped, or forced through a doorway."
+          ]
+        },
+        {
+          heading: "DME Delivery and Setup for Suppliers and Home Health Agencies",
+          body: [
+            "We act as an overflow and on-call delivery crew for durable medical equipment (DME) suppliers, hospices, home health agencies, and mobile medical providers who need reliable setup on short notice. When your own drivers are booked or a delivery falls outside your normal coverage, our team can handle the last-mile delivery, in-home setup, and pickup on your behalf.",
+            "Recently we completed a hospital bed delivery and setup for Kelly Mobile Services, a Las Vegas mobile medical provider, via a referral from Level Fifteen Movers. If your organization needs dependable overflow capacity for DME delivery and setup around the valley, we can help."
+          ]
+        },
+        {
+          heading: "Medical Equipment We Move and Deliver",
+          body: [
+            "Beyond hospital beds, our crews regularly handle exam tables, treatment and procedure chairs, patient lifts and transfer equipment, wheelchairs, scooters, walkers, and other mobility aids, as well as bariatric equipment and large DME that requires a liftgate truck. If you are not sure whether we can move a specific piece of equipment, contact us with the details and we will let you know."
+          ]
+        }
+      ],
+      features: [
+        "Delivery, setup, and pickup of semi-electric and full-electric hospital beds",
+        "Two-man crews trained to handle and position medical equipment",
+        "Liftgate trucks for safe loading of heavy DME",
+        "Exam tables, treatment chairs, and patient lifts",
+        "Wheelchairs, scooters, walkers, and mobility equipment",
+        "Fully licensed (CPCN 3364) and insured",
+        "Same-week availability and on-call overflow capacity for DME suppliers"
+      ],
+      process: [
+        {
+          title: "Schedule Your Delivery",
+          description: "Tell us the equipment, the pickup point, and the destination. We confirm a delivery window that fits your timeline, including same-week and short-notice requests."
+        },
+        {
+          title: "Pickup or Warehouse Load",
+          description: "We collect the equipment from your supplier, warehouse, or facility and load it safely using liftgate trucks and proper equipment."
+        },
+        {
+          title: "Delivery and Professional Setup",
+          description: "Our two-man crew delivers the equipment, assembles and installs it in the room where it will be used, and removes all packaging."
+        },
+        {
+          title: "Placement and Walkthrough",
+          description: "We position the bed or equipment, confirm it operates correctly, and answer any questions before we leave the site."
+        }
+      ],
+      additionalInfo: "We serve DME suppliers, medical offices, hospices, and families across Las Vegas, Henderson, North Las Vegas, Summerlin, Paradise, Spring Valley, and Boulder City, including providers and warehouses along the I-15 corridor. As a licensed (CPCN 3364) and insured moving company, we bring the same care to medical equipment that we bring to every move.",
+      faqs: [
+        {
+          question: "How much does it cost to move a hospital bed in Las Vegas?",
+          answer: "Hospital bed delivery and setup is priced by the job based on the equipment, the distance, the number of stairs or access challenges, and whether setup and removal are required. Contact us with the details for a free, no-obligation quote."
+        },
+        {
+          question: "Do you deliver and set up hospital beds for home use?",
+          answer: "Yes. We deliver hospital beds to private homes, carry them to the room where they are needed, fully assemble and position the bed, remove all packaging, and confirm it operates correctly before we leave."
+        },
+        {
+          question: "Can you provide overflow delivery capacity for DME suppliers?",
+          answer: "Yes. We regularly act as an on-call and overflow crew for durable medical equipment suppliers, handling last-mile delivery, in-home setup, and pickup when your own drivers are booked or a delivery falls outside your normal coverage."
+        },
+        {
+          question: "Do you move medical equipment for hospices and home health agencies?",
+          answer: "We do. We work with hospices, home health agencies, and mobile medical providers to deliver, set up, relocate, and pick up hospital beds and other DME on their behalf throughout the Las Vegas valley."
+        },
+        {
+          question: "What types of medical equipment do you move?",
+          answer: "We move hospital beds, exam tables, treatment and procedure chairs, patient lifts, wheelchairs, scooters, walkers, bariatric equipment, and other durable medical equipment. If you have a specific item, contact us and we will confirm we can handle it."
+        },
+        {
+          question: "How quickly can you deliver medical equipment in Las Vegas?",
+          answer: "We often have same-week availability and can accommodate short-notice and on-call requests. Reach out with your timeline and we will do our best to fit you in."
+        },
+        {
+          question: "Do you remove or haul away old medical equipment?",
+          answer: "Yes. We can pick up and remove hospital beds and equipment that are no longer needed at the same time we deliver a replacement, or as a standalone pickup."
+        }
+      ]
+    },
+    relatedContent: {
+      services: [
+        { title: "Specialty Moving", slug: "specialty-moving" },
+        { title: "Large Item Moving", slug: "large-item-moving" },
+        { title: "Loading & Unloading Labor", slug: "loading-unloading-labor-las-vegas" }
+      ],
+      locations: [
+        { title: "Henderson", slug: "henderson" },
+        { title: "Summerlin", slug: "summerlin" }
+      ]
+    },
+    proofLinks: [
+      { text: "verified reviews", url: "/#testimonials", context: "Read our" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
+  },
+  "office-movers-las-vegas": {
+    slug: "office-movers-las-vegas",
+    title: "Office Moving & FF&E Installation",
+    shortDescription: "Full office relocations, cubicle teardown and reinstall, FF&E installation, and after-hours moves that keep your business running with minimal downtime.",
+    image: "/images/move2-truck-storefront.jpg",
+    heroImage: "/images/move2-truck-storefront.jpg",
+    metaTitle: "Office & Commercial Movers Las Vegas",
+    metaDescription: "Office movers in Las Vegas for full relocations, cubicle teardown & reinstall, FF&E installation & after-hours moves that minimize downtime. Free quote today!",
+    content: {
+      intro: "Umbrella Movers handles office moving and commercial relocations throughout Las Vegas, Henderson, North Las Vegas, and Summerlin. We manage full office moves, cubicle and systems-furniture teardown and reinstallation, FF&E (furniture, fixtures, and equipment) delivery and installation, and office decommissioning, scheduling after-hours and weekend work so your business keeps running with minimal downtime. We coordinate directly with office managers, facility managers, property managers, and furniture dealers.",
+      contentSections: [
+        {
+          heading: "Office Relocation with Minimal Downtime",
+          body: [
+            "Every hour your office is closed costs money, so we plan commercial moves around your schedule instead of ours. After a walkthrough of both locations, we build a move plan and timeline, label and inventory workstations, and can phase the move over evenings or a weekend so your team walks into a working office on the next business day.",
+            "Our crews handle desks, filing systems, conference furniture, IT and server equipment, and secure documents, protecting floors, elevators, and doorways at both ends so your old and new spaces stay in good condition."
+          ]
+        },
+        {
+          heading: "FF&E Delivery and Installation",
+          body: [
+            "We deliver and install furniture, fixtures, and equipment for offices, suites, and tenant improvements. That includes receiving FF&E from dealers and warehouses, transporting it to your site, and assembling and placing it according to your floor plan, whether it is a handful of new workstations or an entire floor of systems furniture.",
+            "Furniture dealers and general contractors use our crews as installation labor on build-outs and tenant improvements, so new furniture arrives, gets assembled, and is set in place on schedule. We can stage deliveries to match your construction timeline and handle the debris and packaging cleanup when the install is complete."
+          ]
+        },
+        {
+          heading: "Office Decommissioning and Furniture Teardown",
+          body: [
+            "When you are exiting a lease, we handle office decommissioning: disassembling cubicles and systems furniture, removing furniture and equipment, and clearing the space so you can return it to the property manager. We can coordinate with facility managers and building staff on access, freight elevators, and after-hours timing."
+          ]
+        },
+        {
+          heading: "Medical and Dental Office Moves",
+          body: [
+            "We also relocate medical and dental offices, handling exam and treatment room furniture with care and coordinating around patient schedules. For clinics with hospital beds or durable medical equipment, our medical equipment movers can deliver, set up, and relocate that equipment as part of the same project."
+          ]
+        }
+      ],
+      features: [
+        "Full office and workplace relocations",
+        "Cubicle and systems-furniture teardown and reinstallation",
+        "FF&E delivery and installation",
+        "After-hours and weekend moves to minimize downtime",
+        "IT, server, and electronics handling",
+        "Office decommissioning and furniture removal",
+        "Coordination with property managers, facility managers, and furniture dealers"
+      ],
+      process: [
+        {
+          title: "Site Survey and Floor Plan",
+          description: "We walk both locations, review your floor plan, and identify access points, elevators, and any building rules that affect timing."
+        },
+        {
+          title: "Move Planning and Scheduling",
+          description: "We build a labeled inventory and a timeline, scheduling after-hours or weekend work and phasing the move if needed to protect your operations."
+        },
+        {
+          title: "After-Hours Execution",
+          description: "Our crew tears down furniture, moves everything to the new space, and works outside business hours whenever possible to minimize downtime."
+        },
+        {
+          title: "Reinstall and Setup",
+          description: "We reassemble cubicles and furniture, install FF&E per your plan, and verify everything is in place before your team returns."
+        }
+      ],
+      additionalInfo: "We work with businesses across Las Vegas, Henderson, North Las Vegas, Summerlin, Paradise, and Spring Valley, from single suites to full-floor relocations, including convention-adjacent offices and companies near the I-15 corridor. Licensed (CPCN 3364) and insured.",
+      faqs: [
+        {
+          question: "Can you move our office over a weekend?",
+          answer: "Yes. We schedule after-hours and weekend moves specifically so your business avoids downtime. We build the timeline around your operating hours and can phase the move if needed."
+        },
+        {
+          question: "Do you install office furniture and cubicles (FF&E)?",
+          answer: "We do. We disassemble and reassemble cubicles and systems furniture, and we receive, deliver, and install FF&E from dealers and warehouses according to your floor plan."
+        },
+        {
+          question: "How do you minimize downtime during an office move?",
+          answer: "We plan the move around your schedule, work evenings and weekends, label and inventory everything in advance, and can move your office in phases so your team returns to a fully set-up workspace."
+        },
+        {
+          question: "Do you handle office decommissioning?",
+          answer: "Yes. When you exit a lease we disassemble furniture, remove equipment, and clear the space so it can be returned to the property manager, coordinating with building staff on access and timing."
+        },
+        {
+          question: "Do you move medical and dental offices?",
+          answer: "Yes. We relocate medical and dental practices, handle exam and treatment room furniture, and can deliver and set up hospital beds and durable medical equipment through our medical equipment moving service."
+        },
+        {
+          question: "How is office moving priced in Las Vegas?",
+          answer: "Commercial moves are quoted based on the size of the office, the amount of furniture and equipment, access at both sites, and whether after-hours work and FF&E installation are involved. Contact us for a free quote."
+        },
+        {
+          question: "Do you work with property managers and furniture dealers?",
+          answer: "Regularly. We coordinate with property managers, facility managers, and furniture dealers on scheduling, building access, deliveries, and installation so projects run smoothly."
+        }
+      ]
+    },
+    relatedContent: {
+      services: [
+        { title: "Commercial Moving", slug: "commercial-moving" },
+        { title: "Loading & Unloading Labor", slug: "loading-unloading-labor-las-vegas" },
+        { title: "Medical Equipment & Hospital Bed Moving", slug: "medical-equipment-movers-las-vegas" }
+      ],
+      locations: [
+        { title: "Henderson", slug: "henderson" },
+        { title: "Summerlin", slug: "summerlin" }
+      ]
+    },
+    proofLinks: [
+      { text: "verified reviews", url: "/#testimonials", context: "Read our" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
+  },
+  "loading-unloading-labor-las-vegas": {
+    slug: "loading-unloading-labor-las-vegas",
+    title: "Loading & Unloading Labor",
+    shortDescription: "Labor-only crews to unload semi trailers, containers, PODs, and rental trucks for businesses, warehouses, 3PLs, and homeowners across Las Vegas.",
+    image: "/images/move1-stairmaster-loading.jpeg",
+    heroImage: "/images/move1-stairmaster-loading.jpeg",
+    metaTitle: "Loading & Unloading Help Las Vegas",
+    metaDescription: "Loading and unloading help in Las Vegas. Labor-only crews unload semi trailers, containers, PODs & rental trucks. Hourly or per-trailer rates. Call today!",
+    content: {
+      intro: "Umbrella Movers provides labor-only loading and unloading help throughout Las Vegas, Henderson, and North Las Vegas. Our crews unload semi trailers, shipping containers, PODs, and rental trucks for businesses, warehouses, 3PLs, and homeowners. Book by the hour or per trailer, with on-call availability for freight that arrives on short notice.",
+      contentSections: [
+        {
+          heading: "Semi Trailer and Freight Unloading (Lumper Service)",
+          body: [
+            "When a semi trailer shows up at your dock or job site, you need hands ready to unload it fast. Our crews provide lumper service for businesses and warehouses across the valley, hand-unloading floor-loaded freight, breaking down and re-stacking pallets, and staging product where you need it. We can be on call for scheduled deliveries or short-notice arrivals.",
+            "You provide the trailer and the destination; we provide the labor, so you are not paying for a truck you do not need."
+          ]
+        },
+        {
+          heading: "Container, POD, and Rental Truck Loading Help",
+          body: [
+            "We load and unload shipping containers, moving containers and PODs, and rental trucks such as U-Haul, Penske, and Budget. Whether you are loading a container for a long-distance move, unloading one that just arrived, or need help packing a rental truck tightly so nothing shifts in transit, our crews handle the heavy lifting and load items securely."
+          ]
+        },
+        {
+          heading: "Warehouse and Business Unloading Labor",
+          body: [
+            "Businesses, 3PLs, and warehouses use our crews as flexible, on-call unloading labor for busy periods, overflow, and one-off shipments. We can help unload inbound freight, move product within a facility, and stage inventory, all without the overhead of adding permanent staff.",
+            "Because we bill by the hour or per trailer, you only pay for the labor you actually use. That makes us a practical option for seasonal surges, a heavy delivery week, or a single large shipment that your regular team cannot absorb, and we can be on site on short notice when freight arrives ahead of schedule."
+          ]
+        },
+        {
+          heading: "Moving-Day and POD Labor for Homeowners",
+          body: [
+            "Homeowners handling their own move often just need an extra set of experienced hands. If you have rented a truck or a POD and want it loaded quickly and packed tightly so nothing shifts, or you have a container arriving that needs to be unloaded and carried inside, our crews provide the heavy lifting by the hour. You handle the driving and the truck; we handle the loading, unloading, and careful placement of your belongings."
+          ]
+        }
+      ],
+      features: [
+        "Labor-only crews: you provide the truck or trailer, we provide the muscle",
+        "Semi trailer and freight unloading (lumper service)",
+        "Shipping container loading and unloading",
+        "POD and moving-container loading help",
+        "Rental truck loading and unloading (U-Haul, Penske, Budget)",
+        "Warehouse and 3PL unloading support",
+        "Hourly or per-trailer rates with on-call availability"
+      ],
+      process: [
+        {
+          title: "Tell Us the Job",
+          description: "Let us know what needs loading or unloading, where, and when. We confirm crew size and whether hourly or per-trailer pricing fits best."
+        },
+        {
+          title: "Schedule Your Crew",
+          description: "We book a crew for your window, including short-notice and on-call requests for freight that arrives unexpectedly."
+        },
+        {
+          title: "Load or Unload",
+          description: "Our movers hand-unload trailers and containers or load your truck or POD tightly and safely, protecting your product and the equipment."
+        },
+        {
+          title: "Placed Where You Need It",
+          description: "We stage freight, stack pallets, or place items in the room or spot you specify, then confirm the job is done to your satisfaction."
+        }
+      ],
+      additionalInfo: "We provide loading and unloading labor across Las Vegas, Henderson, North Las Vegas, Summerlin, Paradise, and Spring Valley, including warehouses and businesses along the I-15 corridor. Licensed (CPCN 3364) and insured.",
+      faqs: [
+        {
+          question: "Do you unload semi trailers for businesses?",
+          answer: "Yes. Our crews provide lumper service, hand-unloading floor-loaded and palletized freight from semi trailers for warehouses, 3PLs, and businesses, on a scheduled or on-call basis."
+        },
+        {
+          question: "How much does loading and unloading help cost in Las Vegas?",
+          answer: "Labor-only work is quoted by the hour or per trailer, depending on the size of the crew, the amount of freight, and access at the site. Contact us with the details for a free quote."
+        },
+        {
+          question: "Can you load or unload a moving container or POD?",
+          answer: "Yes. We load and unload PODs and other moving containers, packing them tightly so items are secure in transit, and unloading and placing your belongings when a container arrives."
+        },
+        {
+          question: "Do you provide lumper service for freight?",
+          answer: "We do. We offer lumper service for businesses and warehouses, unloading trailers, breaking down or re-stacking pallets, and staging product where you need it."
+        },
+        {
+          question: "Do I need to provide the truck?",
+          answer: "For labor-only jobs, yes: you provide the truck, trailer, container, or POD, and we provide the crew and the muscle. If you also need transport, ask us about our full moving services."
+        },
+        {
+          question: "How quickly can you send a crew?",
+          answer: "We keep on-call availability for short-notice loading and unloading, so we can often accommodate same-week and urgent requests. Reach out with your timeline."
+        },
+        {
+          question: "Do you unload rental trucks like U-Haul or Penske?",
+          answer: "Yes. We regularly load and unload rental trucks including U-Haul, Penske, and Budget for homeowners and businesses handling their own transport."
+        }
+      ]
+    },
+    relatedContent: {
+      services: [
+        { title: "Office Moving & FF&E Installation", slug: "office-movers-las-vegas" },
+        { title: "Commercial Moving", slug: "commercial-moving" },
+        { title: "Storage Solutions", slug: "storage-solutions" }
+      ],
+      locations: [
+        { title: "Las Vegas", slug: "las-vegas" },
+        { title: "Henderson", slug: "henderson" }
+      ]
+    },
+    proofLinks: [
+      { text: "verified reviews", url: "/#testimonials", context: "Read our" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
   },
   "long-distance-moving": {
     slug: "long-distance-moving",
