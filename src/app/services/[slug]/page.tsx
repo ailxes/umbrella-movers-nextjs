@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const service = servicesData[slug];
   if (!service) return {};
-  const ogTitle = `${service.title} Las Vegas | Umbrella Movers`;
-  const ogDescription = `Professional ${service.title.toLowerCase()} in Las Vegas. Licensed, insured, woman-owned. 300+ 5-star reviews.`;
+  const ogTitle = service.metaTitle;
+  const ogDescription = service.metaDescription;
   return {
     title: service.metaTitle,
     description: service.metaDescription,
@@ -61,8 +61,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     name: service.title,
     description: service.content.intro,
     image: service.heroImage,
-    provider: { "@type": "LocalBusiness", "@id": `${siteUrl}/#organization`, name: "Umbrella Movers" },
-    areaServed: areasServed.map((area) => ({ "@type": "City", name: area })),
+    provider: { "@type": "MovingCompany", "@id": `${siteUrl}/#organization`, name: "Umbrella Movers" },
+    areaServed: service.schemaAreaServed
+      ? service.schemaAreaServed.map((area) => ({ "@type": area.type, name: area.name }))
+      : areasServed.map((area) => ({ "@type": "City", name: area.name })),
   };
 
   const faqSchema =
@@ -124,6 +126,21 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 {/* Intro */}
                 <p className="text-muted-foreground leading-relaxed mb-8 text-lg">{service.content.intro}</p>
 
+                {/* Intro Links for SEO */}
+                {service.content.introLinks && service.content.introLinks.length > 0 && (
+                  <p className="text-muted-foreground -mt-4 mb-8">
+                    {service.content.introLinks.map((link, index) => (
+                      <span key={index}>
+                        {link.context}{" "}
+                        <Link href={link.url} className="text-primary hover:underline font-medium">
+                          {link.text}
+                        </Link>
+                        {index < service.content.introLinks!.length - 1 ? ". " : "."}
+                      </span>
+                    ))}
+                  </p>
+                )}
+
                 {/* Content Sections (keyword-rich subtopics) */}
                 {service.content.contentSections && service.content.contentSections.length > 0 && (
                   <div className="mb-10 space-y-8">
@@ -177,6 +194,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 {service.content.additionalInfo && (
                   <div className="p-6 bg-accent/10 rounded-lg border border-accent/20 mb-10">
                     <p className="text-muted-foreground">{service.content.additionalInfo}</p>
+                    {service.content.additionalInfoLinks && service.content.additionalInfoLinks.length > 0 && (
+                      <p className="text-muted-foreground mt-4">
+                        {service.content.additionalInfoLinks.map((link, index) => (
+                          <span key={index}>
+                            {link.context}{" "}
+                            <Link href={link.url} className="text-primary hover:underline font-medium">
+                              {link.text}
+                            </Link>
+                            {index < service.content.additionalInfoLinks!.length - 1 ? ". " : "."}
+                          </span>
+                        ))}
+                      </p>
+                    )}
                   </div>
                 )}
 
@@ -249,7 +279,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Bottom CTA */}
         <section className="py-16 bg-accent">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent-foreground mb-4">Get Your Free {service.title} Quote</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent-foreground mb-4">{service.ctaHeading ?? `Get Your Free ${service.title} Quote`}</h2>
             <p className="text-lg text-accent-foreground/80 mb-8 max-w-2xl mx-auto">Licensed (CPCN 3364), insured, woman-owned. Serving Las Vegas, Henderson, North Las Vegas, and the surrounding valley. Same-week availability.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#quote-form" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors">

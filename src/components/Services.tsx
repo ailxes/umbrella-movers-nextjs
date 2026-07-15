@@ -45,6 +45,19 @@ const Services = () => {
             </Link>
           ))}
         </div>
+
+        <div className="mt-14 text-center">
+          <p className="text-muted-foreground text-sm md:text-base">
+            Moving TO Las Vegas from California or a nearby state?{" "}
+            <Link
+              href="/services/movers-that-fly-to-you"
+              className="text-accent hover:text-accent-dark font-medium transition-colors"
+            >
+              We fly our crew to you and move you here
+            </Link>
+            , often for less than hiring a local mover.
+          </p>
+        </div>
       </div>
     </section>
   );
