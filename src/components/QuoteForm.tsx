@@ -58,6 +58,7 @@ const quoteSchema = z.object({
   move_size: z.string().max(100, "Move size must be less than 100 characters").optional(),
   message: z.string().max(2000, "Message must be less than 2000 characters").optional(),
   zip_code: z.string().max(10, "Zip code must be less than 10 characters").regex(/^[0-9\-]*$/, "Please enter a valid zip code").optional().or(z.literal("")),
+  destination_zip_code: z.string().max(10, "Destination zip code must be less than 10 characters").regex(/^[0-9\-]*$/, "Please enter a valid destination zip code").optional().or(z.literal("")),
 });
 
 interface QuoteFormProps {
@@ -76,6 +77,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
     moveDate: "",
     moveSize: "",
     zipCode: "",
+    destinationZipCode: "",
     message: "",
     honeypot: "",
     smsOptIn: false,
@@ -94,6 +96,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
       move_date: formData.moveDate,
       move_size: formData.moveSize,
       zip_code: formData.zipCode,
+      destination_zip_code: formData.destinationZipCode,
       message: formData.message,
     });
 
@@ -111,10 +114,11 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
     setIsSubmitting(true);
 
     try {
-      // Include move_size and zip_code in message since we don't have dedicated columns
+      // Include move_size and zip codes in message since we don't have dedicated columns
       const extraInfo = [
         validatedData.move_size ? `Move Size: ${validatedData.move_size}` : null,
-        validatedData.zip_code ? `Zip Code: ${validatedData.zip_code}` : null,
+        validatedData.zip_code ? `Moving From Zip: ${validatedData.zip_code}` : null,
+        validatedData.destination_zip_code ? `Moving To Zip: ${validatedData.destination_zip_code}` : null,
       ].filter(Boolean).join("\n");
       const messageWithExtras = extraInfo
         ? `${extraInfo}\n\n${validatedData.message || ""}`
@@ -188,6 +192,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
         moveDate: "",
         moveSize: "",
         zipCode: "",
+        destinationZipCode: "",
         message: "",
         honeypot: "",
         smsOptIn: false,
@@ -265,14 +270,25 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
           maxLength={20}
           className={`bg-white border-0 ${inputHeight} text-foreground`}
         />
-        <Input 
-          name="zipCode"
-          placeholder="Zip Code" 
-          value={formData.zipCode}
-          onChange={handleChange}
-          maxLength={10}
-          className={`bg-white border-0 ${inputHeight} text-foreground`}
-        />
+        {/* Zip codes — optional, tells us where the move starts and ends */}
+        <div className="grid grid-cols-2 gap-2">
+          <Input
+            name="zipCode"
+            placeholder="Your Zip Code"
+            value={formData.zipCode}
+            onChange={handleChange}
+            maxLength={10}
+            className={`bg-white border-0 ${inputHeight} text-foreground`}
+          />
+          <Input
+            name="destinationZipCode"
+            placeholder="Destination Zip Code"
+            value={formData.destinationZipCode}
+            onChange={handleChange}
+            maxLength={10}
+            className={`bg-white border-0 ${inputHeight} text-foreground`}
+          />
+        </div>
         {!isHero && (
           <div className="relative">
             <label className="block text-sm font-medium text-primary-foreground mb-1">Move Size</label>

@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
     move_size?: unknown;
     move_type?: unknown;
     zip_code?: unknown;
+    destination_zip_code?: unknown;
     honeypot?: unknown;
   };
   try {
@@ -40,6 +41,8 @@ export async function POST(req: NextRequest) {
         ? body.move_type.trim()
         : '';
   const zipCode = typeof body.zip_code === 'string' ? body.zip_code.trim() : '';
+  const destinationZipCode =
+    typeof body.destination_zip_code === 'string' ? body.destination_zip_code.trim() : '';
 
   if (!name || !phone || !email) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -53,7 +56,8 @@ export async function POST(req: NextRequest) {
   ];
   if (moveSize) lines.push(`Size: ${moveSize}`);
   if (moveDate) lines.push(`Date: ${moveDate}`);
-  if (zipCode) lines.push(`Zip: ${zipCode}`);
+  if (zipCode) lines.push(`From Zip: ${zipCode}`);
+  if (destinationZipCode) lines.push(`To Zip: ${destinationZipCode}`);
 
   const result = await sendSms({ to: NOTIFY_PHONE, body: lines.join('\n') });
 

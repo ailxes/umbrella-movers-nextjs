@@ -47,6 +47,7 @@ const quoteSchema = z.object({
   move_date: z.string().optional(),
   move_type: z.string().optional(),
   zip_code: z.string().max(10, "Zip code must be less than 10 characters").regex(/^[0-9\-]*$/, "Please enter a valid zip code").optional().or(z.literal("")),
+  destination_zip_code: z.string().max(10, "Destination zip code must be less than 10 characters").regex(/^[0-9\-]*$/, "Please enter a valid destination zip code").optional().or(z.literal("")),
 });
 
 interface HeroQuoteFormProps {
@@ -63,6 +64,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
     moveDate: "",
     moveType: "",
     zipCode: "",
+    destinationZipCode: "",
     honeypot: "",
     smsOptIn: false,
   });
@@ -78,6 +80,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
       move_date: formData.moveDate,
       move_type: formData.moveType,
       zip_code: formData.zipCode,
+      destination_zip_code: formData.destinationZipCode,
     });
 
     if (!validationResult.success) {
@@ -94,7 +97,8 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
     try {
       const extraInfo = [
         formData.moveType ? `Move Type: ${formData.moveType}` : null,
-        formData.zipCode ? `Zip Code: ${formData.zipCode}` : null,
+        formData.zipCode ? `Moving From Zip: ${formData.zipCode}` : null,
+        formData.destinationZipCode ? `Moving To Zip: ${formData.destinationZipCode}` : null,
       ].filter(Boolean).join("\n");
       const messageContent = extraInfo || null;
 
@@ -135,6 +139,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
         moveDate: "",
         moveType: "",
         zipCode: "",
+        destinationZipCode: "",
         honeypot: "",
         smsOptIn: false,
       });
@@ -218,11 +223,20 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
           <Input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required className="h-11 border-border" />
         </div>
 
-        <div>
-          <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
-            Zip Code
-          </label>
-          <Input name="zipCode" placeholder="Zip Code" value={formData.zipCode} onChange={handleChange} maxLength={10} className="h-11 border-border" />
+        {/* Zip Codes — optional, helps us see where the move starts and ends */}
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
+              Your Zip Code
+            </label>
+            <Input name="zipCode" placeholder="Moving From" value={formData.zipCode} onChange={handleChange} maxLength={10} className="h-11 border-border" />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
+              Destination Zip
+            </label>
+            <Input name="destinationZipCode" placeholder="Moving To" value={formData.destinationZipCode} onChange={handleChange} maxLength={10} className="h-11 border-border" />
+          </div>
         </div>
 
         <label className="flex items-start gap-2 cursor-pointer">
@@ -315,30 +329,45 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
           </div>
         </div>
 
-        {/* Row 3: Email and Zip Code */}
+        {/* Row 3: Email */}
+        <div>
+          <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
+            Email <span className="text-accent">*</span>
+          </label>
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="h-10 border-border text-sm"
+          />
+        </div>
+
+        {/* Row 4: Zip Codes — optional, helps us see where the move starts and ends */}
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
-              Email <span className="text-accent">*</span>
+              Your Zip Code
             </label>
             <Input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
+              name="zipCode"
+              placeholder="Moving From"
+              value={formData.zipCode}
               onChange={handleChange}
-              required
+              maxLength={10}
               className="h-10 border-border text-sm"
             />
           </div>
           <div>
             <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wider font-sans">
-              Zip Code
+              Destination Zip
             </label>
             <Input
-              name="zipCode"
-              placeholder="Zip Code"
-              value={formData.zipCode}
+              name="destinationZipCode"
+              placeholder="Moving To"
+              value={formData.destinationZipCode}
               onChange={handleChange}
               maxLength={10}
               className="h-10 border-border text-sm"
