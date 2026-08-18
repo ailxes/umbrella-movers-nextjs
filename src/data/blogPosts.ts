@@ -1428,7 +1428,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Staircase Complexity:</strong> Each flight of stairs adds $100 - $200 due to additional labor, specialized stair-climbing equipment, and increased risk</li>
         <li><strong>Long Hallways or Tight Turns:</strong> Narrow corridors in older Las Vegas homes (pre-2000s construction) or sharp 90-degree turns add $75 - $150</li>
         <li><strong>Elevator Access:</strong> If available, reduces cost compared to stairs; reserve elevator time in advance for high-rises near The Strip or Summerlin</li>
-        <li><strong>Doorway Modifications:</strong> Removing doors, door frames, or railing (with reinstallation) adds $150 - $400</li>
+        <li><strong>Doorway Clearance:</strong> Tight doorways that require a qualified contractor to temporarily remove a door, frame, or railing add $150 - $400</li>
         <li><strong>Storage Requirements:</strong> Climate-controlled piano storage averages $150 - $250/month in Las Vegas</li>
         <li><strong>Piano Tuning Post-Move:</strong> Budget $150 - $300 for professional tuning 2-3 weeks after your move (essential for all pianos)</li>
         <li><strong>Insurance Coverage:</strong> Full-value protection for high-end instruments ($50,000+) costs 2-3% of declared value</li>

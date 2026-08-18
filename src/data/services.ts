@@ -1309,7 +1309,7 @@ export const servicesData: Record<string, ServiceData> = {
       features: [
         "Premium packing materials and techniques",
         "Extra care for high-value items",
-        "Antique and artwork handling expertise",
+        "Antique and artwork packing and transport expertise",
         "Full unpacking and setup service",
         "Furniture placement and arrangement",
         "Debris removal and cleanup",
@@ -1319,7 +1319,7 @@ export const servicesData: Record<string, ServiceData> = {
         { title: "Consultation", description: "A move coordinator visits your home to understand your specific needs and create a detailed plan." },
         { title: "Premium Packing", description: "Using the highest quality materials, we carefully pack every item with meticulous attention." },
         { title: "Careful Transport", description: "Our experienced team handles your belongings with the utmost care throughout the move." },
-        { title: "Full Setup", description: "We unpack, arrange furniture, hang artwork, and ensure everything is perfect before we leave." }
+        { title: "Full Setup", description: "We unpack, arrange furniture, and remove packing debris so your new home is ready to live in." }
       ],
       additionalInfo: "White glove service is ideal for luxury properties, estate moves, and anyone who wants a completely hands-off moving experience.",
       additionalInfoLinks: [
