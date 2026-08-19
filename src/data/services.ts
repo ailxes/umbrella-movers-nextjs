@@ -179,7 +179,7 @@ export const servicesData: Record<string, ServiceData> = {
     metaTitle: "Medical Equipment Movers Las Vegas",
     metaDescription: "Medical equipment movers in Las Vegas. Hospital bed delivery, setup & relocation of DME for suppliers, hospices & families. Insured, two-man crews. Call today!",
     content: {
-      intro: "Umbrella Movers provides medical equipment moving and hospital bed delivery, setup, and relocation throughout Las Vegas, Henderson, and North Las Vegas. Our insured two-man crews use liftgate trucks to deliver, install, and pick up hospital beds, exam tables, mobility equipment, and other durable medical equipment (DME) for suppliers, hospices, home health agencies, mobile medical providers, and families, often with same-week availability.",
+      intro: "Umbrella Movers provides medical equipment moving and hospital bed delivery, setup, and relocation throughout Las Vegas, Henderson, and North Las Vegas. Our insured two-man crews use liftgate trucks to deliver, set up, and pick up hospital beds, exam tables, mobility equipment, and other durable medical equipment (DME) for suppliers, hospices, home health agencies, mobile medical providers, and families, often with same-week availability.",
       contentSections: [
         {
           heading: "Hospital Bed Delivery and Setup in Las Vegas",
@@ -222,7 +222,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           title: "Delivery and Professional Setup",
-          description: "Our two-man crew delivers the equipment, assembles and installs it in the room where it will be used, and removes all packaging."
+          description: "Our two-man crew delivers the equipment, assembles and positions it in the room where it will be used, and removes all packaging."
         },
         {
           title: "Placement and Walkthrough",
@@ -279,14 +279,14 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "office-movers-las-vegas": {
     slug: "office-movers-las-vegas",
-    title: "Office Moving & FF&E Installation",
-    shortDescription: "Full office relocations, cubicle teardown and reinstall, FF&E installation, and after-hours moves that keep your business running with minimal downtime.",
+    title: "Office Moving & FF&E Setup",
+    shortDescription: "Full office relocations, cubicle teardown and reassembly, FF&E delivery and setup, and after-hours moves that keep your business running with minimal downtime.",
     image: "/images/move2-truck-storefront.jpg",
     heroImage: "/images/move2-truck-storefront.jpg",
     metaTitle: "Office & Commercial Movers Las Vegas",
-    metaDescription: "Office movers in Las Vegas for full relocations, cubicle teardown & reinstall, FF&E installation & after-hours moves that minimize downtime. Free quote today!",
+    metaDescription: "Office movers in Las Vegas for full relocations, cubicle teardown & reassembly, FF&E delivery & setup, and after-hours moves that minimize downtime. Free quote!",
     content: {
-      intro: "Umbrella Movers handles office moving and commercial relocations throughout Las Vegas, Henderson, North Las Vegas, and Summerlin. We manage full office moves, cubicle and systems-furniture teardown and reinstallation, FF&E (furniture, fixtures, and equipment) delivery and installation, and office decommissioning, scheduling after-hours and weekend work so your business keeps running with minimal downtime. We coordinate directly with office managers, facility managers, property managers, and furniture dealers.",
+      intro: "Umbrella Movers handles office moving and commercial relocations throughout Las Vegas, Henderson, North Las Vegas, and Summerlin. We manage full office moves, cubicle and systems-furniture teardown and reassembly, FF&E (furniture, fixtures, and equipment) delivery and setup, and office decommissioning, scheduling after-hours and weekend work so your business keeps running with minimal downtime. We coordinate directly with office managers, facility managers, property managers, and furniture dealers.",
       contentSections: [
         {
           heading: "Office Relocation with Minimal Downtime",
@@ -296,10 +296,10 @@ export const servicesData: Record<string, ServiceData> = {
           ]
         },
         {
-          heading: "FF&E Delivery and Installation",
+          heading: "FF&E Delivery and Setup",
           body: [
-            "We deliver and install furniture, fixtures, and equipment for offices, suites, and tenant improvements. That includes receiving FF&E from dealers and warehouses, transporting it to your site, and assembling and placing it according to your floor plan, whether it is a handful of new workstations or an entire floor of systems furniture.",
-            "Furniture dealers and general contractors use our crews as installation labor on build-outs and tenant improvements, so new furniture arrives, gets assembled, and is set in place on schedule. We can stage deliveries to match your construction timeline and handle the debris and packaging cleanup when the install is complete."
+            "We deliver, assemble, and place furniture, fixtures, and equipment for offices, suites, and tenant improvements. That includes receiving FF&E from dealers and warehouses, transporting it to your site, and assembling and placing it according to your floor plan, whether it is a handful of new workstations or an entire floor of systems furniture.",
+            "Furniture dealers and general contractors use our crews as assembly and placement labor on build-outs and tenant improvements, so new furniture arrives, gets assembled, and is set in place on schedule. We can stage deliveries to match your construction timeline and handle the debris and packaging cleanup when the work is complete."
           ]
         },
         {
@@ -317,8 +317,8 @@ export const servicesData: Record<string, ServiceData> = {
       ],
       features: [
         "Full office and workplace relocations",
-        "Cubicle and systems-furniture teardown and reinstallation",
-        "FF&E delivery and installation",
+        "Cubicle and systems-furniture teardown and reassembly",
+        "FF&E delivery, assembly, and placement",
         "After-hours and weekend moves to minimize downtime",
         "IT, server, and electronics handling",
         "Office decommissioning and furniture removal",
@@ -338,8 +338,8 @@ export const servicesData: Record<string, ServiceData> = {
           description: "Our crew tears down furniture, moves everything to the new space, and works outside business hours whenever possible to minimize downtime."
         },
         {
-          title: "Reinstall and Setup",
-          description: "We reassemble cubicles and furniture, install FF&E per your plan, and verify everything is in place before your team returns."
+          title: "Reassembly and Setup",
+          description: "We reassemble cubicles and furniture, place FF&E per your plan, and verify everything is in place before your team returns."
         }
       ],
       additionalInfo: "We work with businesses across Las Vegas, Henderson, North Las Vegas, Summerlin, Paradise, and Spring Valley, from single suites to full-floor relocations, including convention-adjacent offices and companies near the I-15 corridor. Licensed (CPCN 3364) and insured.",
@@ -349,8 +349,8 @@ export const servicesData: Record<string, ServiceData> = {
           answer: "Yes. We schedule after-hours and weekend moves specifically so your business avoids downtime. We build the timeline around your operating hours and can phase the move if needed."
         },
         {
-          question: "Do you install office furniture and cubicles (FF&E)?",
-          answer: "We do. We disassemble and reassemble cubicles and systems furniture, and we receive, deliver, and install FF&E from dealers and warehouses according to your floor plan."
+          question: "Do you assemble office furniture and cubicles (FF&E)?",
+          answer: "We do. We disassemble and reassemble cubicles and systems furniture, and we receive, deliver, assemble, and place FF&E from dealers and warehouses according to your floor plan."
         },
         {
           question: "How do you minimize downtime during an office move?",
@@ -366,11 +366,11 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           question: "How is office moving priced in Las Vegas?",
-          answer: "Commercial moves are quoted based on the size of the office, the amount of furniture and equipment, access at both sites, and whether after-hours work and FF&E installation are involved. Contact us for a free quote."
+          answer: "Commercial moves are quoted based on the size of the office, the amount of furniture and equipment, access at both sites, and whether after-hours work and FF&E setup are involved. Contact us for a free quote."
         },
         {
           question: "Do you work with property managers and furniture dealers?",
-          answer: "Regularly. We coordinate with property managers, facility managers, and furniture dealers on scheduling, building access, deliveries, and installation so projects run smoothly."
+          answer: "Regularly. We coordinate with property managers, facility managers, and furniture dealers on scheduling, building access, deliveries, and furniture setup so projects run smoothly."
         }
       ]
     },
@@ -489,7 +489,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     relatedContent: {
       services: [
-        { title: "Office Moving & FF&E Installation", slug: "office-movers-las-vegas" },
+        { title: "Office Moving & FF&E Setup", slug: "office-movers-las-vegas" },
         { title: "Commercial Moving", slug: "commercial-moving" },
         { title: "Storage Solutions", slug: "storage-solutions" }
       ],
@@ -1357,7 +1357,7 @@ export const servicesData: Record<string, ServiceData> = {
         "Oversized furniture handling",
         "Pool table disassembly and setup",
         "Exercise equipment moving",
-        "Appliance installation",
+        "Appliance moving",
         "Crane and rigging services available"
       ],
       process: [

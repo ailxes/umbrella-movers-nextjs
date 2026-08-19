@@ -1591,7 +1591,7 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li>Position piano in final location (consider acoustics, away from windows/vents)</li>
         <li>Reattach legs in correct positions using original hardware</li>
-        <li>Install lyre pedal assembly</li>
+        <li>Reattach lyre pedal assembly</li>
         <li>Remove padding and inspect for any damage</li>
       </ul>
 
@@ -1657,7 +1657,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>"What type of piano-specific equipment do you use?"</strong> Verify they own piano skid boards, specialized padding, and climate-controlled trucks.</li>
         <li><strong>"Are you licensed and insured specifically for piano moving?"</strong> Check CPCN license and $100,000+ liability coverage minimum.</li>
         <li><strong>"Will the same crew that loads my piano also unload it?"</strong> At Umbrella Movers, the same professional team handles your entire move—we never subcontract.</li>
-        <li><strong>"Do you remove and reinstall piano legs, or do you move it with legs attached?"</strong> Professional movers always remove legs; DIY amateurs leave them on.</li>
+        <li><strong>"Do you remove and reattach piano legs, or do you move it with legs attached?"</strong> Professional movers always remove legs; DIY amateurs leave them on.</li>
         <li><strong>"What floor protection do you use?"</strong> Double-layer runners are essential for hardwood, tile, and marble.</li>
         <li><strong>"Is your truck climate-controlled?"</strong> Critical for Las Vegas summers when temperatures exceed 110°F.</li>
       </ul>
