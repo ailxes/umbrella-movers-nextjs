@@ -20,9 +20,9 @@ export interface QuoteNotificationPayload {
 
 /**
  * Fires every notification channel for a new quote request: the customer
- * confirmation email, the internal notification, the SmartMoving CRM lead,
- * the internal email alert to both notification addresses, and the SMS
- * alert.
+ * confirmation email, the internal notification, the internal email alert
+ * to both notification addresses, and the SMS alert. (SmartMoving CRM is no
+ * longer used; leads are not sent there.)
  *
  * EVERY quote form on the site must call this after inserting the lead —
  * do not invoke the channels individually. They used to be copy-pasted into
@@ -44,12 +44,6 @@ export function notifyQuoteRequest(payload: QuoteNotificationPayload): void {
     .invoke("notify-quote-request", { body: payload })
     .then(({ error }) => {
       if (error) console.error("[quote] internal notification failed:", error);
-    });
-
-  supabase.functions
-    .invoke("send-smartmoving-lead", { body: payload })
-    .then(({ error }) => {
-      if (error) console.error("[quote] SmartMoving CRM lead failed:", error);
     });
 
   fetch("/api/notify-quote-email", {
