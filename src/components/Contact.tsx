@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Mail, Phone, Shield, CheckCircle2, Loader2, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyQuoteRequest } from "@/lib/notifyQuote";
 import { z } from "zod";
 import {
   Select,
@@ -73,14 +74,7 @@ const Contact = () => {
       if (error) throw error;
 
       const backendPayload = { ...validatedData, honeypot: formData.honeypot };
-      supabase.functions.invoke("send-quote-email", { body: backendPayload }).then(({ error: emailError }) => { if (emailError) console.error("Email notification error:", emailError); });
-      supabase.functions.invoke("notify-quote-request", { body: backendPayload }).then(({ error: notifyError }) => { if (notifyError) console.error("Quote notification error:", notifyError); });
-      supabase.functions.invoke("send-smartmoving-lead", { body: backendPayload }).then(({ error: smError }) => { if (smError) console.error("SmartMoving CRM error:", smError); });
-      fetch("/api/notify-quote-sms", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(backendPayload),
-      }).catch((smsError) => console.error("SMS notification error:", smsError));
+      notifyQuoteRequest(backendPayload);
 
       setIsSubmitted(true);
       toast({ title: "Request received!", description: "Check your email for a confirmation." });

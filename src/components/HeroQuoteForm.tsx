@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyQuoteRequest } from "@/lib/notifyQuote";
 import { z } from "zod";
 import {
   Select,
@@ -117,16 +118,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
         honeypot: formData.honeypot,
       };
 
-      supabase.functions.invoke("send-quote-email", { body: backendPayload });
-      supabase.functions.invoke("notify-quote-request", { body: backendPayload });
-      supabase.functions.invoke("send-smartmoving-lead", { body: backendPayload });
-      fetch("/api/notify-quote-sms", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(backendPayload),
-      }).catch((smsError) => {
-        console.error("SMS notification error:", smsError);
-      });
+      notifyQuoteRequest(backendPayload);
 
       toast({
         title: "You're all set — we got your request.",
