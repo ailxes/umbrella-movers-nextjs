@@ -1535,7 +1535,7 @@ const sunCitySummerlinData: LocationPageData = {
   moveHighlights: [
     {
       neighborhood: "Sun City Summerlin",
-      description: "Managed a downsizing move with careful sorting, donation coordination, and patient pacing."
+      description: "Managed a downsizing move with storage coordination and patient pacing."
     },
     {
       neighborhood: "Highland Falls",
@@ -1567,7 +1567,7 @@ const sunCitySummerlinData: LocationPageData = {
     title: "Sun City Summerlin Move Logistics We Handle",
     bullets: [
       "55+ community gate access and timing coordination",
-      "Downsizing moves with donation and storage coordination",
+      "Downsizing moves with storage coordination",
       "Antique and heirloom handling with specialized protection"
     ]
   },
