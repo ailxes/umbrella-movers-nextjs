@@ -3,7 +3,7 @@ import { sendSms } from '@/lib/twilio';
 
 // Sends an SMS alert when a customer submits any quote form (QuoteForm,
 // HeroQuoteForm, or the homepage Contact form). Fire-and-forget from the
-// client, alongside the email and SmartMoving notifications.
+// client, alongside the email notifications.
 
 const NOTIFY_PHONE = '+17025332853';
 
