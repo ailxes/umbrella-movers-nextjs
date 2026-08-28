@@ -74,8 +74,13 @@ const Contact = () => {
 
       const backendPayload = { ...validatedData, honeypot: formData.honeypot };
       supabase.functions.invoke("send-quote-email", { body: backendPayload }).then(({ error: emailError }) => { if (emailError) console.error("Email notification error:", emailError); });
-      supabase.functions.invoke("notify-quote-request", { body: backendPayload }).then(({ error: notifyError }) => { if (notifyError) console.error("Zapier notification error:", notifyError); });
+      supabase.functions.invoke("notify-quote-request", { body: backendPayload }).then(({ error: notifyError }) => { if (notifyError) console.error("Quote notification error:", notifyError); });
       supabase.functions.invoke("send-smartmoving-lead", { body: backendPayload }).then(({ error: smError }) => { if (smError) console.error("SmartMoving CRM error:", smError); });
+      fetch("/api/notify-quote-sms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(backendPayload),
+      }).catch((smsError) => console.error("SMS notification error:", smsError));
 
       setIsSubmitted(true);
       toast({ title: "Request received!", description: "Check your email for a confirmation." });

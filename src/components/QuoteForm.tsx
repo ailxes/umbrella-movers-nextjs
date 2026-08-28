@@ -150,14 +150,14 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
           }
         });
 
-      // Trigger Zapier notification in the background
+      // Trigger quote notification in the background
       supabase.functions
         .invoke("notify-quote-request", {
           body: backendPayload,
         })
         .then(({ error: notifyError }) => {
           if (notifyError) {
-            console.error("Zapier notification error:", notifyError);
+            console.error("Quote notification error:", notifyError);
           }
         });
 

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendSms } from '@/lib/twilio';
 
-// Sends an SMS alert when a customer submits the quote box (QuoteForm or
-// HeroQuoteForm). Fire-and-forget from the client, alongside the existing
-// email / Zapier / SmartMoving notifications.
+// Sends an SMS alert when a customer submits any quote form (QuoteForm,
+// HeroQuoteForm, or the homepage Contact form). Fire-and-forget from the
+// client, alongside the email and SmartMoving notifications.
 
 const NOTIFY_PHONE = '+17025332853';
 
