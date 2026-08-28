@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
+import { Loader2, Route } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { notifyQuoteRequest } from "@/lib/notifyQuote";
 import { z } from "zod";
@@ -42,6 +42,15 @@ const MOVE_SIZE_OPTIONS = [
   "10 x 20 Storage Unit",
 ];
 
+const PIANO_TYPE_OPTIONS = ["Upright", "Baby Grand", "Grand"];
+
+const STAIRS_OPTIONS = [
+  "No stairs at either location",
+  "Stairs at pickup only",
+  "Stairs at delivery only",
+  "Stairs at both locations",
+];
+
 // Input validation schema with stricter rules
 const quoteSchema = z.object({
   name: z.string().trim()
@@ -60,15 +69,22 @@ const quoteSchema = z.object({
   message: z.string().max(2000, "Message must be less than 2000 characters").optional(),
   zip_code: z.string().max(10, "Zip code must be less than 10 characters").regex(/^[0-9\-]*$/, "Please enter a valid zip code").optional().or(z.literal("")),
   destination_zip_code: z.string().max(10, "Destination zip code must be less than 10 characters").regex(/^[0-9\-]*$/, "Please enter a valid destination zip code").optional().or(z.literal("")),
+  piano_type: z.string().max(50).optional().or(z.literal("")),
+  stairs: z.string().max(100).optional().or(z.literal("")),
 });
 
 interface QuoteFormProps {
   variant?: "default" | "compact" | "sidebar" | "hero";
   title?: string;
+  submitLabel?: string;
+  /** Swaps the move-size field for a service-specific field set. */
+  mode?: "standard" | "piano";
+  /** Pre-identifies a known route (e.g. "Las Vegas, NV -> Phoenix, AZ") so the visitor doesn't restate it. */
+  routeLabel?: string;
   className?: string;
 }
 
-const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }: QuoteFormProps) => {
+const QuoteForm = ({ variant = "default", title = "Get Quote", submitLabel = "Get Free Quote", mode = "standard", routeLabel, className = "" }: QuoteFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -77,6 +93,8 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
     email: "",
     moveDate: "",
     moveSize: "",
+    pianoType: "",
+    stairs: "",
     zipCode: "",
     destinationZipCode: "",
     message: "",
@@ -96,6 +114,8 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
       email: formData.email,
       move_date: formData.moveDate,
       move_size: formData.moveSize,
+      piano_type: formData.pianoType,
+      stairs: formData.stairs,
       zip_code: formData.zipCode,
       destination_zip_code: formData.destinationZipCode,
       message: formData.message,
@@ -117,7 +137,10 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
     try {
       // Include move_size and zip codes in message since we don't have dedicated columns
       const extraInfo = [
+        routeLabel ? `Route: ${routeLabel}` : null,
         validatedData.move_size ? `Move Size: ${validatedData.move_size}` : null,
+        validatedData.piano_type ? `Piano Type: ${validatedData.piano_type}` : null,
+        validatedData.stairs ? `Stairs: ${validatedData.stairs}` : null,
         validatedData.zip_code ? `Moving From Zip: ${validatedData.zip_code}` : null,
         validatedData.destination_zip_code ? `Moving To Zip: ${validatedData.destination_zip_code}` : null,
       ].filter(Boolean).join("\n");
@@ -152,6 +175,8 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
         email: "",
         moveDate: "",
         moveSize: "",
+        pianoType: "",
+        stairs: "",
         zipCode: "",
         destinationZipCode: "",
         message: "",
@@ -179,6 +204,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
 
   const isCompact = variant === "compact" || variant === "sidebar" || variant === "hero";
   const isHero = variant === "hero";
+  const isPiano = mode === "piano";
   const inputHeight = isCompact ? "h-10" : "h-12";
   const spacing = isHero ? "space-y-2" : isCompact ? "space-y-3" : "space-y-4";
 
@@ -202,6 +228,12 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
           />
         </div>
 
+        {routeLabel && (
+          <div className="flex items-center gap-2 rounded-md bg-primary-foreground/10 px-3 py-2 text-primary-foreground">
+            <Route className="h-4 w-4 shrink-0 text-accent" />
+            <span className="text-sm font-medium">{routeLabel}</span>
+          </div>
+        )}
         <Input 
           name="name"
           placeholder="Full Name *" 
@@ -235,7 +267,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
         <div className="grid grid-cols-2 gap-2">
           <Input
             name="zipCode"
-            placeholder="Your Zip Code"
+            placeholder={isPiano ? "Pickup Zip Code" : "Your Zip Code"}
             value={formData.zipCode}
             onChange={handleChange}
             maxLength={10}
@@ -243,14 +275,14 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
           />
           <Input
             name="destinationZipCode"
-            placeholder="Destination Zip Code"
+            placeholder={isPiano ? "Delivery Zip Code" : "Destination Zip Code"}
             value={formData.destinationZipCode}
             onChange={handleChange}
             maxLength={10}
             className={`bg-white border-0 ${inputHeight} text-foreground`}
           />
         </div>
-        {!isHero && (
+        {!isHero && !isPiano && (
           <div className="relative">
             <label className="block text-sm font-medium text-primary-foreground mb-1">Move Size</label>
             <Select
@@ -270,9 +302,49 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
             </Select>
           </div>
         )}
+        {isPiano && (
+          <>
+            <div className="relative">
+              <label className="block text-sm font-medium text-primary-foreground mb-1">Piano Type</label>
+              <Select
+                value={formData.pianoType}
+                onValueChange={(value) => setFormData(prev => ({ ...prev, pianoType: value }))}
+              >
+                <SelectTrigger className={`bg-white border-0 ${inputHeight} text-foreground`}>
+                  <SelectValue placeholder="– Upright, Baby Grand or Grand –" />
+                </SelectTrigger>
+                <SelectContent className="bg-white z-50">
+                  {PIANO_TYPE_OPTIONS.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="relative">
+              <label className="block text-sm font-medium text-primary-foreground mb-1">Stairs</label>
+              <Select
+                value={formData.stairs}
+                onValueChange={(value) => setFormData(prev => ({ ...prev, stairs: value }))}
+              >
+                <SelectTrigger className={`bg-white border-0 ${inputHeight} text-foreground`}>
+                  <SelectValue placeholder="– Stairs at either location? –" />
+                </SelectTrigger>
+                <SelectContent className="bg-white z-50">
+                  {STAIRS_OPTIONS.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </>
+        )}
         {!isHero && (
           <div className="relative">
-            <label className="block text-sm font-medium text-primary-foreground mb-1">Move Date</label>
+            <label className="block text-sm font-medium text-primary-foreground mb-1">{isPiano ? "Preferred Date" : "Move Date"}</label>
             <Input 
               type="date"
               name="moveDate"
@@ -302,7 +374,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
         <Button 
           type="submit"
           disabled={isSubmitting}
-          className={`w-full ${inputHeight} bg-accent hover:bg-accent-dark text-accent-foreground font-semibold ${isCompact ? "" : "text-lg"}`}
+          className={`w-full ${isCompact ? "min-h-10" : "min-h-12"} h-auto py-3 bg-accent hover:bg-accent-dark text-accent-foreground font-semibold whitespace-normal leading-relaxed ${isCompact ? "" : "text-lg"}`}
         >
           {isSubmitting ? (
             <>
@@ -310,7 +382,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
               Sending...
             </>
           ) : (
-            "Get Free Quote"
+            submitLabel
           )}
         </Button>
       </form>

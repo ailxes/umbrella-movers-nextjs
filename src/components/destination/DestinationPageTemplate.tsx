@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Home,
   ChevronRight,
+  ArrowRight,
   MapPin,
   Clock,
   Route,
@@ -23,7 +24,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { GetQuoteButton } from "@/components/blog/GetQuoteButton";
+import QuoteForm from "@/components/QuoteForm";
 import {
   DestinationData,
   moverBenefits,
@@ -36,6 +37,13 @@ export default function DestinationPageTemplate({ data }: { data: DestinationDat
   // Hero photo of the destination city. Files live in /public/assets/destinations/
   // named after the city portion of the slug (e.g. "las-vegas-to-austin" -> "austin.jpg").
   const heroImage = `/assets/destinations/${data.slug.replace("las-vegas-to-", "")}.jpg`;
+
+  // The route is already known from the page itself, so the form states it
+  // rather than making the visitor describe the move a second time.
+  const routeLabel = `Las Vegas, NV → ${data.city}, ${data.stateAbbr}`;
+  const quoteLabel = `Get My Las Vegas–${data.city} Quote`;
+  const ctaButton =
+    "inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-accent-foreground font-bold rounded-md px-8 py-3 transition-colors whitespace-normal leading-relaxed";
 
   return (
     <>
@@ -93,9 +101,9 @@ export default function DestinationPageTemplate({ data }: { data: DestinationDat
             {data.heroTitle}
           </h1>
           <p className="text-xl text-white/85 max-w-2xl mx-auto mb-8">{data.heroSubhead}</p>
-          <GetQuoteButton className="bg-accent hover:bg-accent-dark text-accent-foreground font-bold">
-            Get Your Free Quote
-          </GetQuoteButton>
+          <a href="#quote-form" className={ctaButton}>
+            {quoteLabel} <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </section>
 
@@ -126,6 +134,20 @@ export default function DestinationPageTemplate({ data }: { data: DestinationDat
                 <div className="text-sm text-muted-foreground">Typical trip length</div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Inline CTA — caught while the route numbers are still on screen */}
+      <section className="py-8 bg-secondary/40 border-b">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <p className="text-lg font-semibold text-foreground">
+              Moving Las Vegas to {data.city}?
+            </p>
+            <a href="#quote-form" className={`${ctaButton} shrink-0`}>
+              Check Your Date and Get a Route-Specific Estimate <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -234,6 +256,15 @@ export default function DestinationPageTemplate({ data }: { data: DestinationDat
           <div className="p-6 bg-secondary rounded-lg border-l-4 border-primary">
             <p className="font-semibold text-foreground mb-1">The bottom line</p>
             <p className="text-foreground/80 leading-relaxed">{data.comparisonVerdict}</p>
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-lg bg-foreground text-background p-6 text-center sm:text-left">
+            <p className="text-lg font-semibold">
+              Skip the loading, driving and unloading —
+            </p>
+            <a href="#quote-form" className={`${ctaButton} shrink-0`}>
+              Get My Full-Service Price <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -346,9 +377,9 @@ export default function DestinationPageTemplate({ data }: { data: DestinationDat
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-foreground text-background">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
+      {/* CTA — the form itself, with the route already filled in */}
+      <section id="quote-form" className="py-16 bg-foreground text-background scroll-mt-20">
+        <div className="container mx-auto px-4 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready for your move to {data.city}?
           </h2>
@@ -356,9 +387,12 @@ export default function DestinationPageTemplate({ data }: { data: DestinationDat
             Get a free, no-pressure quote from Las Vegas&apos; highest-rated woman-owned moving
             company. Licensed (CPCN 3364), insured, and 300+ 5-star reviews.
           </p>
-          <GetQuoteButton className="bg-accent hover:bg-accent-dark text-accent-foreground font-bold">
-            Get Your Free Quote
-          </GetQuoteButton>
+          <QuoteForm
+            className="text-left"
+            title={`Your Las Vegas to ${data.city} Move`}
+            submitLabel={quoteLabel}
+            routeLabel={routeLabel}
+          />
         </div>
       </section>
 

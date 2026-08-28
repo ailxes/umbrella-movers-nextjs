@@ -29,6 +29,11 @@ export interface ServiceData {
   metaDescription: string;
   schemaAreaServed?: AreaServedItem[]; // Overrides the default Las Vegas-area list in the Service JSON-LD
   ctaHeading?: string; // Overrides the default "Get Your Free {title} Quote" bottom CTA heading
+  ctaLabel?: string; // Overrides the default "Get Free Quote" button text on hero, form, and bottom CTA
+  ctaSupport?: string; // Supporting line under the CTA explaining what the visitor actually receives
+  ctaSecondary?: string; // Optional second CTA button alongside the primary one
+  h1?: string; // Overrides the on-page H1 when it should be more geo-specific than the nav title
+  quoteFormMode?: "standard" | "piano"; // Swaps the sidebar form for a service-specific field set
   content: {
     intro: string;
     introLinks?: InternalLink[]; // Links to embed in intro paragraph
@@ -54,7 +59,9 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/residential-moving.jpg",
     heroImage: "/images/residential-moving.jpg",
     metaTitle: "Residential Moving Services Las Vegas",
-    metaDescription: "Professional residential moving services in Las Vegas. Woman-owned, fully licensed & insured. Same team loads & unloads. Get your free quote today!",
+    metaDescription: "Professional residential moving in Las Vegas. Woman-owned, fully licensed & insured. Same team loads & unloads. Get your home moving estimate.",
+    h1: "Residential Movers in Las Vegas",
+    ctaLabel: "Get My Home Moving Estimate",
     content: {
       intro: "Moving to a new home should be exciting, not stressful. At Umbrella Movers, our residential moving services are designed to give you peace of mind from the moment we arrive until the last box is placed in your new home. As a WBENC-certified woman-owned business with over 15 years of experience, we treat your belongings like our own.",
       introLinks: [
@@ -132,22 +139,34 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "commercial-moving": {
     slug: "commercial-moving",
-    title: "Commercial Moving",
-    shortDescription: "Minimize downtime with our efficient office and business relocation services. We work around your schedule.",
+    title: "Commercial Moving & Equipment Logistics",
+    shortDescription: "From retail stores and restaurants to hotels, offices, warehouses, and storage facilities, Umbrella Movers handles business relocations, equipment transfers, furniture moves, delivery, and assembly, with after-hours scheduling available to minimize downtime.",
     image: "/images/commercial-moving.jpeg",
     heroImage: "/images/commercial-moving.jpeg",
-    metaTitle: "Commercial Moving Services Las Vegas | Office Relocation",
-    metaDescription: "Expert commercial moving and office relocation in Las Vegas. Minimize downtime with our efficient business moving services. Woman-owned & fully insured.",
+    metaTitle: "Commercial Moving, FF&E & Equipment Logistics Las Vegas",
+    metaDescription: "Commercial moving, FF&E and equipment logistics in Las Vegas. Retail, restaurant, hotel, office and warehouse projects. Request a commercial project estimate.",
+    h1: "Commercial Moving, FF&E & Equipment Logistics in Las Vegas",
+    ctaSupport: "Receive a move plan, crew recommendation and timeline built around your operating hours.",
+    ctaLabel: "Request a Commercial Project Estimate",
+    ctaSecondary: "Schedule a Site Walkthrough",
     content: {
       intro: "Business moves require precision, efficiency, and minimal disruption to your operations. Umbrella Movers understands that time is money, which is why our commercial moving services are designed to get you back to business as quickly as possible. We've helped businesses of all sizes relocate throughout Las Vegas.",
       features: [
-        "After-hours and weekend moving available",
-        "Office furniture and equipment handling",
-        "IT equipment and electronics moving",
-        "Cubicle disassembly and reassembly",
-        "Asset tagging and inventory management",
-        "Secure document and file transport",
-        "Minimal business disruption guarantee"
+        "Retail store-to-store and store-to-storage relocations",
+        "Warehouse-to-retail delivery to the sales floor or stockroom",
+        "Displays, shelving, fixtures, and inventory",
+        "Restaurant tables, booths, and kitchen equipment",
+        "Espresso machines, claw machines, and other bulky equipment padded and transported",
+        "Hotel and restaurant buyout moves",
+        "FF&E delivery, assembly, and placement",
+        "Furniture moved out to your new space or to storage",
+        "Office furniture, IT equipment, and cubicle disassembly and reassembly",
+        "Freight and semi-trailer unloading",
+        "Storage-unit loading and delivery",
+        "After-hours, overnight, and phased projects",
+        "Coordination with property managers and loading docks",
+        "Floor, elevator, and doorway protection",
+        "Multi-truck and multi-crew projects"
       ],
       process: [
         {
@@ -167,7 +186,43 @@ export const servicesData: Record<string, ServiceData> = {
           description: "We set up your new space according to your floor plan and verify all inventory before completion."
         }
       ],
-      additionalInfo: "From small offices to large corporate relocations, we have the experience and equipment to handle your commercial move professionally and efficiently."
+      contentSections: [
+        {
+          heading: "Retail, restaurant, and hospitality projects",
+          body: [
+            "A large share of our commercial work is not office relocation. It is retail fixture and inventory moves, restaurant kitchens and dining rooms, hotel FF&E deliveries, and buyout moves, usually run overnight or in phases so the business keeps trading.",
+            "Each of those has its own page with the scope, the scheduling, and the limits spelled out: retail store moving and fixture relocation, restaurant equipment and furniture moving, hotel and hospitality FF&E, and office moving and FF&E setup."
+          ]
+        },
+        {
+          heading: "Equipment logistics beyond a single relocation",
+          body: [
+            "We also run standalone equipment logistics: warehouse-to-retail delivery, freight and semi-trailer unloading at your dock, storage-unit loading and delivery, and transfers between locations that are not tied to a full move.",
+            "These can be booked as one-off projects or on a recurring basis, sized by crew and truck count rather than by home size."
+          ]
+        },
+        {
+          heading: "Specialty and commercial equipment",
+          body: [
+            "We move, place, level, and assemble equipment and furniture.",
+            "We can pad and transport bulky items like espresso machines, claw machines, ranges, reach-ins, and other retail and restaurant equipment."
+          ]
+        }
+      ],
+      additionalInfo: "Commercial projects are quoted on scope, access at both locations, and the hours crews can work, not on residential move size. A walkthrough is the fastest way to get an accurate number."
+    },
+    relatedContent: {
+      services: [
+        { title: "Retail Store Moving & Fixture Relocation", slug: "retail-store-movers-las-vegas" },
+        { title: "Restaurant Equipment & Furniture Moving", slug: "restaurant-equipment-movers-las-vegas" },
+        { title: "Hotel & Hospitality FF&E Services", slug: "hotel-ffe-movers-las-vegas" },
+        { title: "Office Moving & FF&E Setup", slug: "office-movers-las-vegas" }
+      ],
+      locations: [
+        { title: "Las Vegas", slug: "las-vegas" },
+        { title: "Henderson", slug: "henderson" },
+        { title: "Summerlin", slug: "summerlin" }
+      ]
     }
   },
   "medical-equipment-movers-las-vegas": {
@@ -178,6 +233,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/move3-summit-truck.jpeg",
     metaTitle: "Medical Equipment Movers Las Vegas",
     metaDescription: "Medical equipment movers in Las Vegas. Hospital bed delivery, setup & relocation of DME for suppliers, hospices & families. Insured, two-man crews. Call today!",
+    h1: "Medical Equipment Movers in Las Vegas",
     content: {
       intro: "Umbrella Movers provides medical equipment moving and hospital bed delivery, setup, and relocation throughout Las Vegas, Henderson, and North Las Vegas. Our insured two-man crews use liftgate trucks to deliver, set up, and pick up hospital beds, exam tables, mobility equipment, and other durable medical equipment (DME) for suppliers, hospices, home health agencies, mobile medical providers, and families, often with same-week availability.",
       contentSections: [
@@ -233,7 +289,7 @@ export const servicesData: Record<string, ServiceData> = {
       faqs: [
         {
           question: "How much does it cost to move a hospital bed in Las Vegas?",
-          answer: "Hospital bed delivery and setup is priced by the job based on the equipment, the distance, the number of stairs or access challenges, and whether setup and removal are required. Contact us with the details for a free, no-obligation quote."
+          answer: "Hospital bed delivery and setup is priced by the job based on the equipment, the distance, the number of stairs or access challenges, and whether setup and transport of an existing bed are required. Contact us with the details for a free, no-obligation quote."
         },
         {
           question: "Do you deliver and set up hospital beds for home use?",
@@ -254,10 +310,6 @@ export const servicesData: Record<string, ServiceData> = {
         {
           question: "How quickly can you deliver medical equipment in Las Vegas?",
           answer: "We often have same-week availability and can accommodate short-notice and on-call requests. Reach out with your timeline and we will do our best to fit you in."
-        },
-        {
-          question: "Do you remove or haul away old medical equipment?",
-          answer: "Yes. We can pick up and remove hospital beds and equipment that are no longer needed at the same time we deliver a replacement, or as a standalone pickup."
         }
       ]
     },
@@ -284,9 +336,12 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/move2-truck-storefront.jpg",
     heroImage: "/images/move2-truck-storefront.jpg",
     metaTitle: "Office & Commercial Movers Las Vegas",
-    metaDescription: "Office movers in Las Vegas for full relocations, cubicle teardown & reassembly, FF&E delivery & setup, and after-hours moves that minimize downtime. Free quote!",
+    metaDescription: "Office movers in Las Vegas for full relocations, cubicle teardown & reassembly, FF&E setup, and after-hours moves. Schedule a free commercial walkthrough.",
+    h1: "Office Movers in Las Vegas",
+    ctaSupport: "Receive a move plan, crew recommendation and timeline built around your operating hours.",
+    ctaLabel: "Schedule a Free Commercial Walkthrough",
     content: {
-      intro: "Umbrella Movers handles office moving and commercial relocations throughout Las Vegas, Henderson, North Las Vegas, and Summerlin. We manage full office moves, cubicle and systems-furniture teardown and reassembly, FF&E (furniture, fixtures, and equipment) delivery and setup, and office decommissioning, scheduling after-hours and weekend work so your business keeps running with minimal downtime. We coordinate directly with office managers, facility managers, property managers, and furniture dealers.",
+      intro: "Umbrella Movers handles office moving and commercial relocations throughout Las Vegas, Henderson, North Las Vegas, and Summerlin. We manage full office moves, cubicle and systems-furniture teardown and reassembly, FF&E (furniture, fixtures, and equipment) delivery and setup, and full office move-outs at lease end, scheduling after-hours and weekend work so your business keeps running with minimal downtime. We coordinate directly with office managers, facility managers, property managers, and furniture dealers.",
       contentSections: [
         {
           heading: "Office Relocation with Minimal Downtime",
@@ -299,13 +354,13 @@ export const servicesData: Record<string, ServiceData> = {
           heading: "FF&E Delivery and Setup",
           body: [
             "We deliver, assemble, and place furniture, fixtures, and equipment for offices, suites, and tenant improvements. That includes receiving FF&E from dealers and warehouses, transporting it to your site, and assembling and placing it according to your floor plan, whether it is a handful of new workstations or an entire floor of systems furniture.",
-            "Furniture dealers and general contractors use our crews as assembly and placement labor on build-outs and tenant improvements, so new furniture arrives, gets assembled, and is set in place on schedule. We can stage deliveries to match your construction timeline and handle the debris and packaging cleanup when the work is complete."
+            "Furniture dealers and general contractors use our crews as assembly and placement labor on build-outs and tenant improvements, so new furniture arrives, gets assembled, and is set in place on schedule. We can stage deliveries to match your construction timeline and clear the packaging to the area you designate when the work is complete."
           ]
         },
         {
-          heading: "Office Decommissioning and Furniture Teardown",
+          heading: "Lease-End Move-Outs and Furniture Teardown",
           body: [
-            "When you are exiting a lease, we handle office decommissioning: disassembling cubicles and systems furniture, removing furniture and equipment, and clearing the space so you can return it to the property manager. We can coordinate with facility managers and building staff on access, freight elevators, and after-hours timing."
+            "When you are exiting a lease, we handle the move-out: disassembling cubicles and systems furniture and moving it out to your new space or into storage. We can coordinate with facility managers and building staff on access, freight elevators, and after-hours timing so the space is clear by your handover date."
           ]
         },
         {
@@ -321,7 +376,7 @@ export const servicesData: Record<string, ServiceData> = {
         "FF&E delivery, assembly, and placement",
         "After-hours and weekend moves to minimize downtime",
         "IT, server, and electronics handling",
-        "Office decommissioning and furniture removal",
+        "Lease-end move-outs and furniture teardown",
         "Coordination with property managers, facility managers, and furniture dealers"
       ],
       process: [
@@ -357,8 +412,8 @@ export const servicesData: Record<string, ServiceData> = {
           answer: "We plan the move around your schedule, work evenings and weekends, label and inventory everything in advance, and can move your office in phases so your team returns to a fully set-up workspace."
         },
         {
-          question: "Do you handle office decommissioning?",
-          answer: "Yes. When you exit a lease we disassemble furniture, remove equipment, and clear the space so it can be returned to the property manager, coordinating with building staff on access and timing."
+          question: "Do you handle lease-end office move-outs?",
+          answer: "Yes. We disassemble cubicles and systems furniture and move it out to your new space or into storage, coordinating with building staff on access, freight elevators, and after-hours timing so the space is clear by your handover date."
         },
         {
           question: "Do you move medical and dental offices?",
@@ -376,11 +431,327 @@ export const servicesData: Record<string, ServiceData> = {
     },
     relatedContent: {
       services: [
-        { title: "Commercial Moving", slug: "commercial-moving" },
-        { title: "Loading & Unloading Labor", slug: "loading-unloading-labor-las-vegas" },
-        { title: "Medical Equipment & Hospital Bed Moving", slug: "medical-equipment-movers-las-vegas" }
+        { title: "Commercial Moving & Equipment Logistics", slug: "commercial-moving" },
+        { title: "Hotel & Hospitality FF&E Services", slug: "hotel-ffe-movers-las-vegas" },
+        { title: "Retail Store Moving & Fixture Relocation", slug: "retail-store-movers-las-vegas" },
+        { title: "Loading & Unloading Labor", slug: "loading-unloading-labor-las-vegas" }
       ],
       locations: [
+        { title: "Henderson", slug: "henderson" },
+        { title: "Summerlin", slug: "summerlin" }
+      ]
+    },
+    proofLinks: [
+      { text: "verified reviews", url: "/#testimonials", context: "Read our" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
+  },
+  "retail-store-movers-las-vegas": {
+    slug: "retail-store-movers-las-vegas",
+    title: "Retail Store Moving & Fixture Relocation",
+    shortDescription: "Store-to-store and store-to-storage relocations, warehouse-to-retail delivery, and careful handling of displays, shelving, fixtures, and inventory.",
+    image: "/images/move2-loading-shelves.jpg",
+    heroImage: "/images/move2-loading-shelves.jpg",
+    metaTitle: "Retail Store Movers Las Vegas | Fixture Relocation",
+    metaDescription: "Retail store movers in Las Vegas. Store-to-store moves, warehouse-to-retail delivery, displays, shelving and inventory. Request a commercial project estimate.",
+    h1: "Retail Store Movers in Las Vegas",
+    ctaLabel: "Request a Commercial Project Estimate",
+    ctaSecondary: "Schedule a Site Walkthrough",
+    ctaSupport: "Receive a move plan, crew recommendation and timeline built around your store hours.",
+    content: {
+      intro: "A retail move is measured in hours the doors stay closed. Umbrella Movers relocates stores across the Las Vegas valley, moving displays, gondola shelving, racking, casework, and inventory between locations, out to storage, or from the warehouse to the sales floor. We are a WBENC-certified woman-owned company, licensed under CPCN 3364 and fully insured, and we schedule around your trading hours so the floor is ready when you unlock.",
+      introLinks: [
+        { text: "commercial moving services", url: "/services/commercial-moving", context: "Part of our broader" }
+      ],
+      features: [
+        "Store-to-store and store-to-storage relocations",
+        "Warehouse-to-retail delivery to the sales floor or stockroom",
+        "Display cases, gondola shelving, and racking padded and transported",
+        "Inventory boxed, labeled, and kept together by section",
+        "Freight and semi-trailer unloading at the dock",
+        "After-hours and overnight scheduling so you open on time",
+        "Coordination with property managers, docks, and mall access rules",
+        "Floor, elevator, and doorway protection at both ends"
+      ],
+      process: [
+        {
+          title: "Site Walkthrough",
+          description: "We walk both locations, measure the fixtures and the access, and confirm dock hours, elevator reservations, and any center or landlord requirements."
+        },
+        {
+          title: "Move Plan and Sequence",
+          description: "You get a written plan covering crew size, truck count, and the order fixtures and inventory move in, built around when your store can be closed."
+        },
+        {
+          title: "Protected Execution",
+          description: "Floors, doorways, and elevators are protected before anything moves. Fixtures are padded and shrink-wrapped, and inventory stays grouped by section so it can be merchandised quickly."
+        },
+        {
+          title: "Unload and Walkthrough",
+          description: "Fixtures and inventory are unloaded and carried to the sales floor or stockroom, packaging is cleared, and we walk the space with you before the crew releases."
+        }
+      ],
+      contentSections: [
+        {
+          heading: "What we move for retailers",
+          body: [
+            "Gondola shelving, wall standards once detached, display cases, slatwall panels, garment racks, cash wraps, mannequins, mirrors, signage, and back-of-house racking. Inventory moves in labeled cartons kept together by department so the reset is not a scavenger hunt.",
+            "We also run warehouse-to-retail delivery on an ongoing basis: fixtures and stock arrive at the dock, we unload the trailer, and carry it to the floor or stockroom rather than leaving it on the receiving pad."
+          ]
+        },
+        {
+          heading: "Fixture handling",
+          body: [
+            "We pad and transport freestanding fixtures, and we disassemble and reassemble modular shelving and racking so it travels safely.",
+            "Wall-mounted fixtures are detached so they travel safely."
+          ]
+        },
+        {
+          heading: "Working around your trading hours",
+          body: [
+            "Most of the retail work we do happens overnight or on a closed day. We can also phase a move across several nights so a store keeps trading through the transition, with the sales floor reset before each open.",
+            "Multi-truck and multi-crew projects are routine for us, which is what makes a single-night turnaround realistic on larger footprints."
+          ]
+        }
+      ],
+      faqs: [
+        {
+          question: "Can you move our store overnight so we don't lose a trading day?",
+          answer: "Yes. Overnight and closed-day scheduling is the norm for retail work. We size the crew and truck count to the window you give us, and we confirm dock and elevator access with the property manager before the night of the move."
+        },
+        {
+          question: "Do you handle inventory as well as fixtures?",
+          answer: "Yes. Inventory is boxed, labeled, and kept together by department or section so your team can merchandise quickly instead of sorting cartons. For larger resets we can stage inventory in the stockroom in the order you plan to put it out."
+        },
+        {
+          question: "Can you unload a freight trailer at our dock?",
+          answer: "Yes. We unload semi trailers, containers, and box trucks, and carry freight to the sales floor or stockroom rather than leaving it on the dock. That work can be booked on its own or as part of a larger relocation."
+        },
+        {
+          question: "Can you hold our fixtures between locations?",
+          answer: "Yes. Store-to-storage and storage-to-store moves are common when a lease ends before the new space is ready. We can move fixtures and stock into storage and bring them back out when your build-out finishes."
+        }
+      ],
+      additionalInfo: "Retail work is quoted on the size of the store, the fixture count, dock and elevator access at both ends, and the hours the crew can work. A walkthrough is the fastest way to get an accurate number."
+    },
+    relatedContent: {
+      services: [
+        { title: "Commercial Moving & Equipment Logistics", slug: "commercial-moving" },
+        { title: "Restaurant Equipment & Furniture Moving", slug: "restaurant-equipment-movers-las-vegas" },
+        { title: "Loading & Unloading Labor", slug: "loading-unloading-labor-las-vegas" },
+        { title: "Storage Solutions", slug: "storage-solutions" }
+      ],
+      locations: [
+        { title: "Las Vegas", slug: "las-vegas" },
+        { title: "Henderson", slug: "henderson" },
+        { title: "Summerlin", slug: "summerlin" }
+      ]
+    },
+    proofLinks: [
+      { text: "recent commercial moves", url: "/recent-moves", context: "See photos from our" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
+  },
+  "restaurant-equipment-movers-las-vegas": {
+    slug: "restaurant-equipment-movers-las-vegas",
+    title: "Restaurant Equipment & Furniture Moving",
+    shortDescription: "Dining furniture, booth seating, stainless prep tables, shelving, and industrial kitchen equipment padded, loaded, and transported, scheduled around service.",
+    image: "/images/move2-kitchen-equipment.jpg",
+    heroImage: "/images/move2-kitchen-equipment.jpg",
+    metaTitle: "Restaurant Equipment Movers Las Vegas | Kitchen & Furniture",
+    metaDescription: "Restaurant equipment movers in Las Vegas. Kitchen equipment, prep tables, booths, tables and shelving moved and placed. Request a commercial project estimate.",
+    h1: "Restaurant Equipment Movers in Las Vegas",
+    ctaLabel: "Request a Commercial Project Estimate",
+    ctaSecondary: "Schedule a Site Walkthrough",
+    ctaSupport: "Receive a move plan, crew recommendation and timeline built around your service hours.",
+    content: {
+      intro: "Restaurant moves are heavy, awkward, and time-boxed. We have done them: a 4,000 square foot Chinatown restaurant relocated with four movers and two trucks, including the dining room, metal shelving, and the full industrial kitchen. Umbrella Movers moves front-of-house furniture and back-of-house equipment across the Las Vegas valley, licensed under CPCN 3364 and fully insured, on a schedule built around your service hours.",
+      introLinks: [
+        { text: "photos from that restaurant move", url: "/recent-moves", context: "See" }
+      ],
+      features: [
+        "Dining tables, chairs, and booth seating",
+        "Stainless prep tables, work counters, and speed racks",
+        "Wire and metal shelving disassembled and reassembled",
+        "Industrial kitchen equipment padded and transported",
+        "Espresso machines, claw machines, and other bulky equipment padded and transported",
+        "Heavy appliances moved on proper equipment and stair gear",
+        "Closing-night, overnight, and phased scheduling",
+        "Floor, doorway, and corner protection at both locations"
+      ],
+      process: [
+        {
+          title: "Site Walkthrough",
+          description: "We walk the kitchen and dining room, measure the equipment against the doorways and the path out, and flag anything that has to be broken down or taken through a different opening."
+        },
+        {
+          title: "Timing Confirmed",
+          description: "We confirm your move window against everything else happening that day, so the crew arrives when the equipment is ready to come out and nobody is waiting around."
+        },
+        {
+          title: "Protected Move",
+          description: "Floors, doorways, and corners are protected first. Equipment is padded, wrapped, and secured, and dining furniture is grouped so the room can be reset quickly."
+        },
+        {
+          title: "Unloaded at the New Space",
+          description: "Equipment and dining furniture are unloaded and carried inside, so your team can set the line and the room the way you want it."
+        }
+      ],
+      contentSections: [
+        {
+          heading: "Front of house and back of house",
+          body: [
+            "Front of house covers dining tables, chairs, bar stools, booth seating, host stands, servers, and bar back shelving. Booths are the piece most often underestimated, and they usually need to come apart to clear a doorway.",
+            "Back of house covers stainless prep tables, work counters, speed racks, wire shelving, mixers, slicers, reach-ins, and freestanding cooking equipment. Wire and metal shelving comes apart and goes back together, which is faster and safer than trying to walk assembled units through a service corridor."
+          ]
+        },
+        {
+          heading: "Scheduling around service",
+          body: [
+            "Most restaurant work happens after close or on a dark day. We can also phase a move so one location keeps serving while the other is built out.",
+            "Multi-truck and multi-crew projects are routine, which is what makes a single overnight turnaround realistic on a full kitchen and dining room."
+          ]
+        }
+      ],
+      faqs: [
+        {
+          question: "Can you move an espresso machine?",
+          answer: "Yes. We can pad and transport bulky items like espresso machines, claw machines, and other retail and restaurant equipment, and carry them into the new space."
+        },
+        {
+          question: "Can you move our restaurant overnight?",
+          answer: "Yes. Closing-night and overnight moves are how most restaurant work gets done. We size the crew and truck count to the window you give us so the room is ready before your next service."
+        },
+        {
+          question: "Do booths and banquettes have to be taken apart?",
+          answer: "Usually yes. Booth seating is often wider than the doorway it has to clear, so we break it down, move it in sections, and reassemble it in the new dining room. We check this during the walkthrough so there are no surprises on the night."
+        },
+        {
+          question: "Have you actually moved a full restaurant before?",
+          answer: "Yes. One recent example is a 4,000 square foot restaurant in Chinatown moved with four movers and two trucks, covering the dining room tables and chairs, metal shelving, and the full industrial kitchen. Photos from that job are on our recent moves page."
+        }
+      ],
+      additionalInfo: "Restaurant projects are quoted on the equipment list, the access at both locations, and the hours the crew can work. A walkthrough is the fastest way to get an accurate number."
+    },
+    relatedContent: {
+      services: [
+        { title: "Commercial Moving & Equipment Logistics", slug: "commercial-moving" },
+        { title: "Retail Store Moving & Fixture Relocation", slug: "retail-store-movers-las-vegas" },
+        { title: "Hotel & Hospitality FF&E Services", slug: "hotel-ffe-movers-las-vegas" },
+        { title: "Large Item Moving", slug: "large-item-moving" }
+      ],
+      locations: [
+        { title: "Las Vegas", slug: "las-vegas" },
+        { title: "Henderson", slug: "henderson" },
+        { title: "Spring Valley", slug: "spring-valley" }
+      ]
+    },
+    proofLinks: [
+      { text: "our Chinatown restaurant move", url: "/recent-moves", context: "See photos from" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
+  },
+  "hotel-ffe-movers-las-vegas": {
+    slug: "hotel-ffe-movers-las-vegas",
+    title: "Hotel & Hospitality FF&E Services",
+    shortDescription: "FF&E delivery, assembly, and placement for hotels and hospitality, plus buyout moves, phased floor-by-floor scheduling, and packaging cleared as you go.",
+    image: "/images/move3-summit-truck.jpeg",
+    heroImage: "/images/move3-summit-truck.jpeg",
+    metaTitle: "Hotel FF&E Movers Las Vegas | Delivery & Assembly",
+    metaDescription: "Hotel and hospitality FF&E in Las Vegas. Delivery, assembly, placement, buyout moves and phased floor-by-floor work. Request a project estimate.",
+    h1: "Hotel & Hospitality FF&E Movers in Las Vegas",
+    ctaLabel: "Request a Commercial Project Estimate",
+    ctaSecondary: "Schedule a Site Walkthrough",
+    ctaSupport: "Receive a move plan, crew recommendation and phased timeline built around your occupancy.",
+    content: {
+      intro: "Hospitality FF&E work is a logistics problem before it is a moving problem: freight arrives on a schedule, service elevators are shared, and rooms have to come back online floor by floor. Umbrella Movers delivers, places, and sets hotel and restaurant furniture, fixtures, and equipment across the Las Vegas valley, and clears the old inventory on buyouts. WBENC-certified, licensed under CPCN 3364, and fully insured.",
+      introLinks: [
+        { text: "commercial moving services", url: "/services/commercial-moving", context: "Part of our broader" }
+      ],
+      features: [
+        "FF&E delivery, assembly, and placement",
+        "Guest room furniture sets delivered and set floor by floor",
+        "Hotel and restaurant buyout moves",
+        "Case goods uncartoned, assembled, and positioned",
+        "Phased scheduling that keeps floors in service",
+        "Service elevator, dock, and freight window coordination",
+        "Packaging cleared from completed floors as we go",
+        "Multi-truck and multi-crew capacity for volume deliveries"
+      ],
+      process: [
+        {
+          title: "Project Walkthrough",
+          description: "We review the FF&E schedule, the floors in scope, the dock and service elevator access, and the freight windows your property allows."
+        },
+        {
+          title: "Phased Plan",
+          description: "You get a written plan covering crew size, truck count, and the room or floor sequence, built so occupied floors keep operating through the project."
+        },
+        {
+          title: "Delivery and Placement",
+          description: "Protection goes down on corridors and elevators first. Case goods are uncartoned, assembled, and set to the room plan, and packaging is cleared as we go."
+        },
+        {
+          title: "Removal and Handover",
+          description: "On refurbishments and buyouts the outgoing furniture leaves the same trip where the schedule allows. We walk completed floors with your project manager before releasing the crew."
+        }
+      ],
+      contentSections: [
+        {
+          heading: "New fit-outs, refurbishments, and buyouts",
+          body: [
+            "On a new fit-out or a soft-goods refurbishment we take delivery at the dock, move sets up floor by floor, uncarton and assemble case goods, place them to the room plan, and remove the packaging so housekeeping is not working around cardboard.",
+            "On a buyout we do the reverse: clear guest room and restaurant furniture, fixtures, and equipment out of the property on a phased schedule, staged so the freight elevator is not tied up during peak hours."
+          ]
+        },
+        {
+          heading: "What the assembly work covers",
+          body: [
+            "Assembly on these projects means uncartoning, building case goods, joining modular and systems furniture, levelling, and positioning to the room plan.",
+            "On a buyout we detach wall-mounted items so they can be moved out safely."
+          ]
+        },
+        {
+          heading: "Working around an operating property",
+          body: [
+            "Occupied properties set the constraints: freight windows, shared service elevators, noise curfews on guest floors, and union or property access rules. We plan the sequence around those rather than against them, and we coordinate directly with your project manager, property manager, or general contractor.",
+            "Multi-truck and multi-crew scheduling lets us hold a delivery pace that matches your room turnover instead of flooding a dock you cannot clear."
+          ]
+        }
+      ],
+      faqs: [
+        {
+          question: "Do you assemble the FF&E or only deliver it?",
+          answer: "Both. We uncarton, assemble, join systems and modular furniture, level it, and place it to the room plan, then clear the packaging as each floor is completed."
+        },
+        {
+          question: "Can you work floor by floor while the hotel stays open?",
+          answer: "Yes. Phased, floor-by-floor scheduling is the normal approach on an operating property. We build the sequence around your freight windows, service elevator availability, and guest floor curfews so rooms come back online in the order your project plan needs them."
+        },
+        {
+          question: "Can you handle a full restaurant or hotel buyout move?",
+          answer: "Yes. We take furniture, fixtures, and equipment out of the property on a phased schedule and deliver it to the address or storage facility you designate, staged so the dock and freight elevator stay usable. Volume, access, and the hours we can work drive the crew and truck count."
+        },
+        {
+          question: "Do you clear the packaging as you go?",
+          answer: "Yes. Cartons, pallets, and packaging are moved off completed floors rather than left for housekeeping, and we take them to the dock or staging area your property designates."
+        },
+        {
+          question: "Who do you coordinate with on these projects?",
+          answer: "Whoever owns the schedule, typically the project manager, property manager, or general contractor. We confirm dock times, freight elevator reservations, access credentials, and floor sequencing before the first delivery rather than on the morning of it."
+        }
+      ],
+      additionalInfo: "Hospitality projects are quoted on the FF&E schedule, the floors and room count in scope, the access and freight windows at the property, and the hours crews can work. A walkthrough is the fastest way to get an accurate number."
+    },
+    relatedContent: {
+      services: [
+        { title: "Commercial Moving & Equipment Logistics", slug: "commercial-moving" },
+        { title: "Office Moving & FF&E Setup", slug: "office-movers-las-vegas" },
+        { title: "Restaurant Equipment & Furniture Moving", slug: "restaurant-equipment-movers-las-vegas" },
+        { title: "Loading & Unloading Labor", slug: "loading-unloading-labor-las-vegas" }
+      ],
+      locations: [
+        { title: "Las Vegas", slug: "las-vegas" },
         { title: "Henderson", slug: "henderson" },
         { title: "Summerlin", slug: "summerlin" }
       ]
@@ -398,6 +769,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/move1-stairmaster-loading.jpeg",
     metaTitle: "Loading & Unloading Help Las Vegas",
     metaDescription: "Loading and unloading help in Las Vegas. Labor-only crews unload semi trailers, containers, PODs & rental trucks. Hourly or per-trailer rates. Call today!",
+    h1: "Loading & Unloading Labor in Las Vegas",
     content: {
       intro: "Umbrella Movers provides labor-only loading and unloading help throughout Las Vegas, Henderson, and North Las Vegas. Our crews unload semi trailers, shipping containers, PODs, and rental trucks for businesses, warehouses, 3PLs, and homeowners. Book by the hour or per trailer, with on-call availability for freight that arrives on short notice.",
       contentSections: [
@@ -510,7 +882,10 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/long-distance-moving.jpeg",
     heroImage: "/images/long-distance-moving.jpeg",
     metaTitle: "Long Distance Moving Las Vegas | Interstate Movers",
-    metaDescription: "Affordable long distance moving from Las Vegas. Your items never leave our care. Scheduled delivery with no time windows. Woman-owned & fully licensed.",
+    metaDescription: "Affordable long distance moving from Las Vegas. Your items never leave our care. Woman-owned & licensed. Schedule a free video walkthrough.",
+    h1: "Long Distance Movers in Las Vegas",
+    ctaSupport: "Get a written route-specific estimate with scheduled delivery and no carrier handoffs.",
+    ctaLabel: "Schedule a Free Video Walkthrough",
     content: {
       intro: "Moving out of state doesn't have to break the bank or cause sleepless nights. Umbrella Movers offers a unique long-distance moving model that saves you money while ensuring your belongings are always in our care. Unlike other companies, we never hand off your items to third parties.",
       introLinks: [
@@ -1133,7 +1508,9 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/packing-services.png",
     heroImage: "/images/packing-services.png",
     metaTitle: "Professional Packing Services Las Vegas",
-    metaDescription: "Expert packing services in Las Vegas. Quality materials, trained packers, and special handling for fragile items. Woman-owned moving company.",
+    metaDescription: "Expert packing services in Las Vegas. Quality materials, trained packers, special handling for fragile items. Woman-owned. Estimate your packing service.",
+    h1: "Packing Services in Las Vegas",
+    ctaLabel: "Estimate My Packing Service",
     content: {
       intro: "Packing is often the most time-consuming and stressful part of any move. Let our professional packers handle it for you. We use high-quality materials and industry-best techniques to ensure your belongings arrive safely at your new home.",
       features: [
@@ -1174,6 +1551,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/storage-solutions.png",
     metaTitle: "Storage Solutions Las Vegas | Climate-Controlled Storage",
     metaDescription: "Secure, climate-controlled storage in Las Vegas. Short and long-term options with 24/7 monitoring. Woman-owned moving company with storage solutions.",
+    h1: "Storage Solutions in Las Vegas",
     content: {
       intro: "Sometimes your move doesn't happen all at once. Whether you need to store items during a home renovation, between moves, or for the long term, Umbrella Movers offers secure, climate-controlled storage solutions to keep your belongings safe.",
       features: [
@@ -1214,6 +1592,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/specialty-moving.jpg",
     metaTitle: "Specialty Moving Las Vegas | Piano & Antique Movers",
     metaDescription: "Expert specialty moving for pianos, antiques, artwork & fragile items in Las Vegas. Trained handlers with proper equipment. Woman-owned & insured.",
+    h1: "Specialty Movers in Las Vegas",
     content: {
       intro: "Some items require extra care, specialized equipment, and trained expertise. Umbrella Movers' specialty moving services are designed for pianos, antiques, fine art, and other valuable or delicate items that need more than standard moving procedures.",
       features: [
@@ -1253,7 +1632,10 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/piano-moving.jpg",
     heroImage: "/images/piano-moving.jpg",
     metaTitle: "Piano Moving Las Vegas | Expert Piano Movers",
-    metaDescription: "Professional piano moving services in Las Vegas. Specialized equipment for uprights and grands. Woman-owned, fully insured. Get your free quote!",
+    metaDescription: "Professional piano moving in Las Vegas. Specialized equipment for uprights and grands. Woman-owned, fully insured. Get your piano moving price.",
+    h1: "Piano Movers in Las Vegas",
+    quoteFormMode: "piano",
+    ctaLabel: "Get My Piano Moving Price",
     content: {
       intro: "Moving a piano requires specialized knowledge, equipment, and experience. At Umbrella Movers, our piano moving team has safely relocated hundreds of pianos throughout Las Vegas, from antique uprights to concert grands.",
       introLinks: [
@@ -1300,6 +1682,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/white-glove-moving.png",
     metaTitle: "White Glove Moving Las Vegas | Premium Movers",
     metaDescription: "Premium white glove moving services in Las Vegas. Extra care for luxury homes, antiques, and high-value items. Woman-owned & fully insured.",
+    h1: "White Glove Movers in Las Vegas",
     content: {
       intro: "Our white glove moving service provides the highest level of care and attention for your most valuable possessions. From luxury homes to priceless antiques, we treat every item as if it were our own.",
       introLinks: [
@@ -1312,14 +1695,14 @@ export const servicesData: Record<string, ServiceData> = {
         "Antique and artwork packing and transport expertise",
         "Full unpacking and setup service",
         "Furniture placement and arrangement",
-        "Debris removal and cleanup",
+        "Packing materials broken down and cleared",
         "Dedicated move coordinator"
       ],
       process: [
         { title: "Consultation", description: "A move coordinator visits your home to understand your specific needs and create a detailed plan." },
         { title: "Premium Packing", description: "Using the highest quality materials, we carefully pack every item with meticulous attention." },
         { title: "Careful Transport", description: "Our experienced team handles your belongings with the utmost care throughout the move." },
-        { title: "Full Setup", description: "We unpack, arrange furniture, and remove packing debris so your new home is ready to live in." }
+        { title: "Full Setup", description: "We unpack, arrange furniture, and take away the packing materials we brought so your new home is ready to live in." }
       ],
       additionalInfo: "White glove service is ideal for luxury properties, estate moves, and anyone who wants a completely hands-off moving experience.",
       additionalInfoLinks: [
@@ -1349,6 +1732,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/large-item-moving.jpg",
     metaTitle: "Large Item Moving Las Vegas | Heavy Item Movers",
     metaDescription: "Professional large item moving in Las Vegas. Safes, hot tubs, oversized furniture & more. Specialized equipment & trained crew. Free quotes!",
+    h1: "Large Item Movers in Las Vegas",
     content: {
       intro: "Some items are too large, heavy, or awkward for standard moving. Umbrella Movers has the specialized equipment and trained personnel to safely move your oversized possessions.",
       features: [
@@ -1369,6 +1753,119 @@ export const servicesData: Record<string, ServiceData> = {
       additionalInfo: "From 1,000-pound safes to awkward-shaped furniture, we have the experience and equipment to handle it safely."
     }
   },
+  "senior-moving": {
+    slug: "senior-moving",
+    title: "Senior Moving & Downsizing",
+    shortDescription: "Patient, respectful moves for seniors and families, built around 55+ community rules, downsizing decisions, and a pace that does not rush anyone.",
+    image: "/assets/blog-senior-downsizing.jpg",
+    heroImage: "/assets/blog-senior-downsizing.jpg",
+    metaTitle: "Senior Movers Las Vegas | 55+ Community & Downsizing",
+    metaDescription: "Senior movers in Las Vegas. Patient, respectful downsizing and 55+ community moves with storage coordination. Woman-owned and licensed. Get your estimate.",
+    h1: "Senior Movers in Las Vegas",
+    ctaLabel: "Get My Senior Moving Estimate",
+    ctaSupport: "We will walk the home at your pace and give you a written estimate with no pressure and no deposit to hold a date.",
+    content: {
+      intro: "A senior move is rarely just a move. It is often a house someone has lived in for thirty years, a family trying to help from out of state, and a new place that is a good deal smaller. Umbrella Movers has spent fifteen years doing this work across Las Vegas, Henderson, and the valley's 55+ communities, and the thing that matters most is pace. We are WBENC-certified and woman-owned, licensed under CPCN 3364 and fully insured, and the same crew that loads your home unloads it.",
+      introLinks: [
+        { text: "downsizing guide for seniors", url: "/blog/downsizing-tips-seniors", context: "Planning ahead? Read our" }
+      ],
+      features: [
+        "Patient, respectful handling with no rushing on move day",
+        "55+ community gate access, timing, and elevator coordination",
+        "Downsizing moves where only part of the home is coming",
+        "Storage coordination when the new place is not ready yet",
+        "Packing and unpacking, including full white-glove service",
+        "Furniture placement and arrangement in the new home",
+        "Medical equipment and hospital beds moved and set up",
+        "Same crew from start to finish, background-checked"
+      ],
+      process: [
+        {
+          title: "A Walkthrough With No Pressure",
+          description: "We walk the home with you and whoever is helping, room by room, at whatever pace suits. You get a written estimate afterward. There is no deposit required to hold a date."
+        },
+        {
+          title: "Tell Us What Is Coming",
+          description: "Downsizing means some things stay behind. You and your family decide what makes the trip, and we load and move exactly what you point us to."
+        },
+        {
+          title: "Packed and Moved at Your Pace",
+          description: "We pack whatever you have asked us to pack, from a few rooms to the whole house, then protect and load it. Fragile and sentimental items are handled separately. If the day needs to slow down, it slows down."
+        },
+        {
+          title: "Set Up, Not Just Delivered",
+          description: "We place the furniture where you want it, unpack as much as you would like, and take away the packing materials we brought so you are not living around a stack of boxes."
+        }
+      ],
+      contentSections: [
+        {
+          heading: "Moving into a 55+ community",
+          body: [
+            "Sun City Summerlin, Sun City Anthem, Siena, and the valley's other active adult communities each have their own rules: gate access lists, permitted move hours, elevator reservations, and where a truck is allowed to park. We handle that coordination with the community before move day rather than discovering it at the gate.",
+            "The same applies to independent and assisted living residences, which usually have tighter move windows and a loading entrance that is not the front door."
+          ]
+        },
+        {
+          heading: "Downsizing without the pressure",
+          body: [
+            "Most senior moves are downsizing moves, which means the hard part happens before the truck arrives. Once you and your family have settled what is coming, tell us and we handle it from there.",
+            "What we do not do is push. There is no upsell on move day and no deposit to hold your date. If you need a second walkthrough because a family member wants to be there, that is normal and it is free."
+          ]
+        },
+        {
+          heading: "When the new place is not ready",
+          body: [
+            "Timing rarely lines up cleanly. If the new residence is not available yet, we can coordinate storage and move your belongings in when it is, so you are not paying for a rushed close or a hotel stay full of boxes.",
+            "That coordination is part of the same job with the same crew, not a handoff to a third party."
+          ]
+        },
+        {
+          heading: "Packing as much or as little as you want",
+          body: [
+            "Some families pack everything themselves and just want the heavy work done. Others want us to walk in and handle all of it. Both are normal.",
+            "Tell us what you want packed and we will pack it, from a few rooms of fragile and sentimental items up to a full white-glove pack of the entire house. We bring the materials, and we take them away again once you are unpacked."
+          ]
+        }
+      ],
+      faqs: [
+        {
+          question: "Can you work with the rules at a 55+ community or assisted living residence?",
+          answer: "Yes, and we confirm them in advance. Gate access lists, permitted move hours, elevator reservations, and truck parking get sorted with the community before move day, so the crew is not held up at the entrance."
+        },
+        {
+          question: "What if the new place is not ready when I have to be out?",
+          answer: "We can coordinate storage and move you in when it is available. It stays one job with the same crew rather than a handoff, so nothing gets lost between two companies."
+        },
+        {
+          question: "Can you move a hospital bed or medical equipment?",
+          answer: "Yes. We move and set up hospital beds and durable medical equipment, and we can transport a bed back to the supplier or on to another address if one is being replaced."
+        },
+        {
+          question: "Is a family member able to handle this from out of state?",
+          answer: "Yes, that is common. We can do the walkthrough with an adult child on video, send the written estimate to whoever is coordinating, and keep a single point of contact updated through the day."
+        }
+      ],
+      additionalInfo: "Senior moves are quoted on the size of the move, the access at both ends, and how much packing you want us to do. A walkthrough is free and there is no deposit to hold a date."
+    },
+    relatedContent: {
+      services: [
+        { title: "White Glove Moving", slug: "white-glove-moving" },
+        { title: "Packing Services", slug: "packing-services" },
+        { title: "Storage Solutions", slug: "storage-solutions" },
+        { title: "Medical Equipment & Hospital Bed Moving", slug: "medical-equipment-movers-las-vegas" }
+      ],
+      locations: [
+        { title: "Sun City Summerlin", slug: "sun-city-summerlin" },
+        { title: "Anthem", slug: "anthem" },
+        { title: "Henderson", slug: "henderson" },
+        { title: "Summerlin", slug: "summerlin" }
+      ]
+    },
+    proofLinks: [
+      { text: "verified reviews", url: "/#testimonials", context: "Read our" },
+      { text: "licensed credentials", url: "/why-choose-us", context: "Verify our" }
+    ]
+  },
   "apartment-moving": {
     slug: "apartment-moving",
     title: "Apartment Moving",
@@ -1376,7 +1873,9 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/apartment-moving.jpeg",
     heroImage: "/images/apartment-moving.jpeg",
     metaTitle: "Apartment Moving Las Vegas | Apartment Movers",
-    metaDescription: "Professional apartment moving services in Las Vegas. Elevator coordination, tight spaces, building compliance. Woman-owned & insured.",
+    metaDescription: "Professional apartment moving in Las Vegas. Elevator coordination, tight spaces, building compliance. Woman-owned & insured. Get your apartment move price.",
+    h1: "Apartment Movers in Las Vegas",
+    ctaLabel: "Get My Apartment Move Price",
     content: {
       intro: "Apartment moves come with unique challenges – elevators, narrow hallways, parking restrictions, and building rules. Umbrella Movers knows how to navigate them all efficiently.",
       features: [
@@ -1405,6 +1904,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/high-rise-moving.jpg",
     metaTitle: "High Rise Moving Las Vegas | Condo Movers",
     metaDescription: "Expert high-rise moving in Las Vegas. COI handling, freight elevators, luxury building experience. Woman-owned & fully insured.",
+    h1: "High-Rise Movers in Las Vegas",
     content: {
       intro: "High-rise moves in Las Vegas require special expertise. From the Strip's luxury condos to downtown towers, Umbrella Movers understands the unique requirements of high-rise living.",
       introLinks: [
@@ -1448,7 +1948,9 @@ export const servicesData: Record<string, ServiceData> = {
     image: "/images/local-moving.jpg",
     heroImage: "/images/local-moving.jpg",
     metaTitle: "Local Moving Las Vegas | Same Day Movers",
-    metaDescription: "Fast, affordable local moving in Las Vegas. Transparent hourly rates, same-day availability. Woman-owned & fully licensed. Free quotes!",
+    metaDescription: "Fast, affordable local moving in Las Vegas. Transparent hourly rates, same-day availability. Woman-owned & licensed. Check your date and see local pricing.",
+    h1: "Local Movers in Las Vegas",
+    ctaLabel: "Check My Date & See Local Pricing",
     content: {
       intro: "Moving across town? Umbrella Movers offers fast, reliable local moving services throughout the Las Vegas Valley. Our transparent pricing and professional service make local moves easy.",
       introLinks: [
@@ -1498,6 +2000,7 @@ export const servicesData: Record<string, ServiceData> = {
     heroImage: "/images/storage-solutions.png",
     metaTitle: "Renovation Moving Services Las Vegas | Storage During Remodel",
     metaDescription: "Professional moving and storage during home renovations in Las Vegas. Protect your belongings while remodeling. Woman-owned, fully insured. Free quote!",
+    h1: "Renovation Moving Services in Las Vegas",
     content: {
       intro: "Home renovations can be exciting, but protecting your belongings during the process is essential. Umbrella Movers specializes in renovation moving services – we safely move your furniture and valuables out, store them securely, and return everything when your project is complete. Whether you're remodeling a kitchen, bathroom, or doing a whole-home renovation, we've got you covered.",
       features: [
@@ -1544,6 +2047,22 @@ export const servicesData: Record<string, ServiceData> = {
 };
 
 export const servicesList = Object.values(servicesData);
+
+// The commercial cluster gets its own top-level nav menu, so it is excluded from
+// the general Services dropdown to avoid listing the same page twice.
+export const commercialServiceSlugs = [
+  "commercial-moving",
+  "office-movers-las-vegas",
+  "retail-store-movers-las-vegas",
+  "restaurant-equipment-movers-las-vegas",
+  "hotel-ffe-movers-las-vegas",
+] as const;
+
+export const commercialServices = commercialServiceSlugs.map((slug) => servicesData[slug]);
+
+export const generalServices = servicesList.filter(
+  (service) => !commercialServiceSlugs.includes(service.slug as (typeof commercialServiceSlugs)[number])
+);
 
 export const areasServed = [
   { name: "Las Vegas, NV", slug: "las-vegas" },

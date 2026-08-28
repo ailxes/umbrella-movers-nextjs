@@ -68,10 +68,10 @@ const FAQ = () => {
                   <p>{faq.answer}</p>
                   {faq.showCTA && (
                     <Button 
-                      className="mt-4 bg-accent hover:bg-accent-dark text-accent-foreground text-xs tracking-widest uppercase rounded-sm"
+                      className="mt-4 bg-accent hover:bg-accent-dark text-accent-foreground text-xs tracking-widest uppercase rounded-sm h-auto py-3 whitespace-normal leading-relaxed"
                       onClick={() => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
                     >
-                      Get Free Quote
+                      Check Las Vegas Move Availability
                     </Button>
                   )}
                 </AccordionContent>
@@ -85,10 +85,10 @@ const FAQ = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button 
               size="lg"
-              className="bg-accent hover:bg-accent-dark text-accent-foreground text-xs tracking-widest uppercase rounded-sm px-8"
+              className="bg-accent hover:bg-accent-dark text-accent-foreground text-xs tracking-widest uppercase rounded-sm px-8 h-auto py-4 whitespace-normal leading-relaxed"
               onClick={() => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
             >
-              Get Your Free Quote
+              Check Las Vegas Move Availability
             </Button>
             <Button 
               size="lg"

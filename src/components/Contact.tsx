@@ -147,7 +147,7 @@ const Contact = () => {
               </div>
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-serif text-card-foreground">Get Your Free Quote</h3>
+                <h3 className="text-2xl font-serif text-card-foreground">Check Las Vegas Move Availability</h3>
                 <p className="text-muted-foreground text-sm mt-1">Fill out the form below and we'll get back to you</p>
               </div>
 
@@ -192,8 +192,8 @@ const Contact = () => {
                   <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
                 </span>
               </label>
-              <Button type="submit" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent-dark text-accent-foreground text-sm tracking-widest uppercase py-6 h-auto disabled:opacity-50 disabled:cursor-not-allowed rounded-sm font-medium">
-                {isSubmitting ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" />Submitting...</>) : ("Get My Free Quote")}
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent-dark text-accent-foreground text-sm tracking-widest uppercase py-6 h-auto disabled:opacity-50 disabled:cursor-not-allowed rounded-sm font-medium whitespace-normal leading-relaxed">
+                {isSubmitting ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" />Submitting...</>) : ("Check Las Vegas Move Availability")}
               </Button>
 
               <div className="flex flex-wrap justify-center gap-5 pt-5 border-t border-border">

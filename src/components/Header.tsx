@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-import { servicesList } from "@/data/services";
+import { generalServices, commercialServices } from "@/data/services";
 import { locationPagesData } from "@/data/locationPages";
 
 const areasList = Object.values(locationPagesData).slice(0, 8).map(loc => ({
@@ -23,6 +23,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileCommercialOpen, setMobileCommercialOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
 
   useEffect(() => {
@@ -70,16 +71,16 @@ const Header = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex">
+          <NavigationMenu className="hidden min-[1400px]:flex">
             <NavigationMenuList className="gap-1">
               <NavigationMenuItem>
-                <button onClick={() => scrollToSection("hero")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 tracking-wide">
+                <button onClick={() => scrollToSection("hero")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-2 py-2 tracking-wide">
                   Home
                 </button>
               </NavigationMenuItem>
               
               <NavigationMenuItem>
-                <button onClick={() => scrollToSection("about")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 tracking-wide">
+                <button onClick={() => scrollToSection("about")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-2 py-2 tracking-wide">
                   About
                 </button>
               </NavigationMenuItem>
@@ -96,7 +97,35 @@ const Header = () => {
                       </a>
                       <div className="border-t border-border my-1" />
                       <div className="grid grid-cols-2 gap-1">
-                        {servicesList.map((service) => (
+                        {generalServices.map((service) => (
+                          <NavigationMenuLink key={service.slug} asChild>
+                            <a
+                              href={`/services/${service.slug}`}
+                              className="block px-3 py-2 text-sm text-foreground/70 hover:text-foreground hover:bg-muted rounded-sm transition-colors"
+                            >
+                              {service.title}
+                            </a>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent text-sm font-medium text-foreground/70 hover:text-foreground">
+                  Commercial
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[360px] p-5 bg-background border border-border rounded-sm shadow-lifted">
+                    <div className="grid gap-2">
+                      <a href="/services/commercial-moving" className="block px-3 py-2 text-xs font-medium tracking-widest uppercase text-accent hover:text-accent-dark transition-colors">
+                        Commercial Services Overview →
+                      </a>
+                      <div className="border-t border-border my-1" />
+                      <div className="grid gap-1">
+                        {commercialServices.map((service) => (
                           <NavigationMenuLink key={service.slug} asChild>
                             <a
                               href={`/services/${service.slug}`}
@@ -153,27 +182,22 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 tracking-wide">
+                <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-2 py-2 tracking-wide">
                   Testimonials
                 </button>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <a href="/blog" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 tracking-wide">
+                <a href="/blog" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-2 py-2 tracking-wide">
                   Blog
                 </a>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <button onClick={() => scrollToSection("contact")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2 tracking-wide">
-                  Contact
-                </button>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden min-[1400px]:flex items-center">
             <Button onClick={() => scrollToSection("contact")} className="bg-accent hover:bg-accent-dark text-accent-foreground text-xs tracking-widest uppercase px-6 py-2 h-9 rounded-sm font-medium">
               Get a Quote
             </Button>
@@ -182,7 +206,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-foreground/70 transition-colors"
+            className="min-[1400px]:hidden p-2 text-foreground hover:text-foreground/70 transition-colors"
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -190,7 +214,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-border bg-background">
+          <div className="min-[1400px]:hidden py-6 border-t border-border bg-background">
             <nav className="flex flex-col gap-1">
               <button onClick={() => scrollToSection("hero")} className="text-left py-3 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors tracking-wide">
                 Home
@@ -212,7 +236,33 @@ const Header = () => {
                     <a href="/services" className="py-2 text-xs tracking-widest uppercase text-accent font-medium">
                       View All Services →
                     </a>
-                    {servicesList.map((service) => (
+                    {generalServices.map((service) => (
+                      <a 
+                        key={service.slug}
+                        href={`/services/${service.slug}`} 
+                        className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {service.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <button 
+                  onClick={() => setMobileCommercialOpen(!mobileCommercialOpen)}
+                  className="flex items-center justify-between w-full py-3 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors tracking-wide"
+                >
+                  Commercial
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileCommercialOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileCommercialOpen && (
+                  <div className="pl-4 flex flex-col gap-0.5 mt-1 border-l border-border ml-2">
+                    <a href="/services/commercial-moving" className="py-2 text-xs tracking-widest uppercase text-accent font-medium">
+                      Commercial Services Overview →
+                    </a>
+                    {commercialServices.map((service) => (
                       <a 
                         key={service.slug}
                         href={`/services/${service.slug}`} 

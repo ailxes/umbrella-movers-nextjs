@@ -14,7 +14,7 @@ import { siteUrl, socialImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Licensed Las Vegas Movers | Woman-Owned | Umbrella Movers",
-  description: "Umbrella Movers is Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews. Get a free quote today!",
+  description: "Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews. Check Las Vegas move availability.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

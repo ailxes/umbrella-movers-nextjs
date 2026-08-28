@@ -105,16 +105,24 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 <BreadcrumbItem><BreadcrumbPage className="text-white">{service.title}</BreadcrumbPage></BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">{service.title}</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">{service.h1 ?? service.title}</h1>
             <p className="text-white/80 text-lg max-w-2xl mb-6">{service.shortDescription}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href="tel:702-533-2853" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors">
                 <Phone className="h-4 w-4" /> Call 702-533-2853
               </a>
               <a href="#quote-form" className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-foreground transition-colors">
-                Get a Free Quote <ArrowRight className="h-4 w-4" />
+                {service.ctaLabel ?? "Get a Free Quote"} <ArrowRight className="h-4 w-4" />
               </a>
+              {service.ctaSecondary && (
+                <a href="#quote-form" className="inline-flex items-center justify-center gap-2 border border-white/60 text-white px-6 py-3 rounded-md font-medium hover:bg-white/10 transition-colors">
+                  {service.ctaSecondary}
+                </a>
+              )}
             </div>
+            {service.ctaSupport && (
+              <p className="text-white/75 text-sm mt-4 max-w-xl">{service.ctaSupport}</p>
+            )}
           </div>
         </section>
 
@@ -264,7 +272,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
               <div className="lg:col-span-1">
                 <div id="quote-form" className="sticky top-24 scroll-mt-24">
-                  <QuoteForm />
+                  <QuoteForm submitLabel={service.ctaLabel} mode={service.quoteFormMode} />
                   <div className="mt-6">
                     <Link href="/services" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                       <ArrowRight className="h-4 w-4" /> View All Services
@@ -280,11 +288,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <section className="py-16 bg-accent">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-accent-foreground mb-4">{service.ctaHeading ?? `Get Your Free ${service.title} Quote`}</h2>
-            <p className="text-lg text-accent-foreground/80 mb-8 max-w-2xl mx-auto">Licensed (CPCN 3364), insured, woman-owned. Serving Las Vegas, Henderson, North Las Vegas, and the surrounding valley. Same-week availability.</p>
+            {service.ctaSupport && (
+              <p className="text-lg text-accent-foreground/90 mb-3 max-w-2xl mx-auto">{service.ctaSupport}</p>
+            )}
+            <p className={`text-accent-foreground/80 mb-8 max-w-2xl mx-auto ${service.ctaSupport ? "text-base" : "text-lg"}`}>Licensed (CPCN 3364), insured, woman-owned. Serving Las Vegas, Henderson, North Las Vegas, and the surrounding valley. Same-week availability.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#quote-form" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors">
-                Get Free Quote <ArrowRight className="h-4 w-4" />
+                {service.ctaLabel ?? "Get Free Quote"} <ArrowRight className="h-4 w-4" />
               </a>
+              {service.ctaSecondary && (
+                <a href="#quote-form" className="inline-flex items-center justify-center gap-2 border-2 border-accent-foreground/40 text-accent-foreground px-8 py-3 rounded-md font-medium hover:border-accent-foreground transition-colors">
+                  {service.ctaSecondary}
+                </a>
+              )}
               <a href="tel:702-533-2853" className="inline-flex items-center justify-center gap-2 border-2 border-accent-foreground text-accent-foreground px-8 py-3 rounded-md font-semibold hover:bg-accent-foreground hover:text-accent transition-colors">
                 <Phone className="h-4 w-4" /> Call 702-533-2853
               </a>

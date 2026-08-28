@@ -238,8 +238,8 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
             <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
           </span>
         </label>
-        <Button type="submit" disabled={isSubmitting} className="w-full h-12 bg-accent hover:bg-accent-dark text-accent-foreground font-sans font-medium text-[11px] uppercase tracking-[0.25em] rounded-none">
-          {isSubmitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Sending...</> : "G E T   ·   A   ·   Q U O T E"}
+        <Button type="submit" disabled={isSubmitting} className="w-full h-auto min-h-12 py-3 bg-accent hover:bg-accent-dark text-accent-foreground font-sans font-medium text-[11px] uppercase tracking-[0.2em] rounded-none whitespace-normal leading-relaxed">
+          {isSubmitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Sending...</> : "Check Las Vegas Move Availability"}
         </Button>
       </form>
     );
@@ -376,7 +376,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-11 bg-accent hover:bg-accent-dark text-accent-foreground font-sans font-medium text-[11px] uppercase tracking-[0.25em] rounded-none"
+          className="w-full h-auto min-h-11 py-3 bg-accent hover:bg-accent-dark text-accent-foreground font-sans font-medium text-[11px] uppercase tracking-[0.2em] rounded-none whitespace-normal leading-relaxed"
         >
           {isSubmitting ? (
             <>
@@ -384,7 +384,7 @@ const HeroQuoteForm = ({ compact = false }: HeroQuoteFormProps) => {
               Sending...
             </>
           ) : (
-            "G E T   ·   A   ·   Q U O T E"
+            "Check Las Vegas Move Availability"
           )}
         </Button>
       </form>
