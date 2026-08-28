@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyQuoteRequest } from "@/lib/notifyQuote";
 import { Loader2, Shield, Star, Users, CheckCircle2, Clock, Phone, Mail, Gift } from "lucide-react";
 import { z } from "zod";
 import VegasMovingKit from "@/components/VegasMovingKit";
@@ -50,9 +51,7 @@ function WelcomeContent() {
       const { error } = await supabase.from("quote_requests").insert({ name: v.name, phone: v.phone, email, message });
       if (error) throw error;
       const payload = { name: v.name, phone: v.phone, email, message, honeypot: formData.honeypot };
-      supabase.functions.invoke("send-quote-email", { body: payload }).catch(() => {});
-      supabase.functions.invoke("notify-quote-request", { body: payload }).catch(() => {});
-      supabase.functions.invoke("send-smartmoving-lead", { body: payload }).catch(() => {});
+      notifyQuoteRequest(payload);
       setIsSubmitted(true);
       setTimeout(() => successRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
     } catch {

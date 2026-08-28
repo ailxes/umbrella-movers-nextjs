@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyQuoteRequest } from "@/lib/notifyQuote";
 import { z } from "zod";
 import {
   Select,
@@ -139,47 +140,7 @@ const QuoteForm = ({ variant = "default", title = "Get Quote", className = "" }:
         honeypot: formData.honeypot,
       };
 
-      // Send email notification in the background
-      supabase.functions
-        .invoke("send-quote-email", {
-          body: backendPayload,
-        })
-        .then(({ error: emailError }) => {
-          if (emailError) {
-            console.error("Email notification error:", emailError);
-          }
-        });
-
-      // Trigger Zapier notification in the background
-      supabase.functions
-        .invoke("notify-quote-request", {
-          body: backendPayload,
-        })
-        .then(({ error: notifyError }) => {
-          if (notifyError) {
-            console.error("Zapier notification error:", notifyError);
-          }
-        });
-
-      // Send lead to SmartMoving CRM in the background
-      supabase.functions
-        .invoke("send-smartmoving-lead", {
-          body: backendPayload,
-        })
-        .then(({ error: smError }) => {
-          if (smError) {
-            console.error("SmartMoving CRM error:", smError);
-          }
-        });
-
-      // Send SMS alert in the background
-      fetch("/api/notify-quote-sms", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(backendPayload),
-      }).catch((smsError) => {
-        console.error("SMS notification error:", smsError);
-      });
+      notifyQuoteRequest(backendPayload);
 
       toast({
         title: "You're all set — we got your request.",
