@@ -3,6 +3,7 @@ import { locationPagesData } from "@/data/locationPages";
 import { servicesData } from "@/data/services";
 import { blogPosts } from "@/data/blogPosts";
 import { destinationsData } from "@/data/destinations";
+import { recentMoves } from "@/data/recentMoves";
 
 const BASE_URL = "https://www.umbrellamovers.com";
 
@@ -49,5 +50,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...locationPages, ...servicePages, ...blogPages, ...destinationPages];
+  const recentMovePages = recentMoves.map((move) => ({
+    url: `${BASE_URL}/recent-moves/${move.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...locationPages, ...servicePages, ...blogPages, ...destinationPages, ...recentMovePages];
 }

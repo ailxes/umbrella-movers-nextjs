@@ -13,19 +13,19 @@ import Footer from "@/components/Footer";
 import { siteUrl, socialImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Licensed Las Vegas Movers | Woman-Owned | Umbrella Movers",
+  title: "Las Vegas Movers | Licensed & Woman-Owned | Umbrella Movers",
   description: "Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews. Check Las Vegas move availability.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Licensed Las Vegas Movers | Woman-Owned | Umbrella Movers",
+    title: "Las Vegas Movers | Licensed & Woman-Owned | Umbrella Movers",
     description: "Umbrella Movers is Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews.",
     images: [{ url: socialImage }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Licensed Las Vegas Movers | Woman-Owned | Umbrella Movers",
+    title: "Las Vegas Movers | Licensed & Woman-Owned | Umbrella Movers",
     description: "Umbrella Movers is Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews.",
     images: [socialImage],
   },

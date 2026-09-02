@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
 import { servicesData, areasServed } from "@/data/services";
+import { recentMoves } from "@/data/recentMoves";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
@@ -66,6 +67,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       ? service.schemaAreaServed.map((area) => ({ "@type": area.type, name: area.name }))
       : areasServed.map((area) => ({ "@type": "City", name: area.name })),
   };
+
+  const featuredMoves = (service.featuredMoves ?? [])
+    .map((slug) => recentMoves.find((m) => m.slug === slug))
+    .filter((m): m is NonNullable<typeof m> => Boolean(m));
 
   const faqSchema =
     service.content.faqs && service.content.faqs.length > 0
@@ -193,6 +198,45 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                             <p className="text-muted-foreground text-sm">{step.description}</p>
                           </div>
                         </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Featured case studies */}
+                {featuredMoves.length > 0 && (
+                  <div className="mb-10">
+                    <h2 className="text-2xl font-bold mb-2">Recent {service.title.replace(/ Movers$/, "")} Moves</h2>
+                    <p className="text-muted-foreground mb-6">Real jobs, real photos. Each case study shows the access requirements, crew, and how items were protected.</p>
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      {featuredMoves.map((move) => (
+                        <Link key={move.slug} href={`/recent-moves/${move.slug}`} className="group rounded-lg border border-border bg-card overflow-hidden hover:border-primary transition-colors">
+                          {move.photos[0] && (
+                            <img src={move.photos[0].src} alt={move.photos[0].alt} className="w-full h-44 object-cover" loading="lazy" />
+                          )}
+                          <div className="p-4">
+                            <p className="font-semibold text-foreground group-hover:text-primary transition-colors mb-1">{move.title}</p>
+                            <p className="text-sm text-muted-foreground mb-3">{move.summary}</p>
+                            <p className="text-xs uppercase tracking-wide text-muted-foreground">{move.crewSize}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Customer reviews */}
+                {service.reviews && service.reviews.length > 0 && (
+                  <div className="mb-10">
+                    <h2 className="text-2xl font-bold mb-6">What Customers Say About the Handling</h2>
+                    <div className="space-y-4">
+                      {service.reviews.map((review, i) => (
+                        <blockquote key={i} className="border-l-4 border-primary pl-5 py-1">
+                          <p className="text-muted-foreground italic mb-2">&ldquo;{review.text}&rdquo;</p>
+                          <footer className="text-sm font-medium text-foreground">
+                            {review.author}{review.location ? <span className="text-muted-foreground font-normal">, {review.location}</span> : null}
+                          </footer>
+                        </blockquote>
                       ))}
                     </div>
                   </div>

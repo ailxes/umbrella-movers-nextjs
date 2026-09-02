@@ -54,6 +54,10 @@ export interface LocationPageData {
   proofMovesCount: number;
   proofYears: number;
   
+  // SEO (title tag + meta description; kept separate from the on-page H1)
+  metaTitle: string;
+  metaDescription: string;
+
   // Hero content
   heroTitle: string;
   heroSubhead: string;
@@ -185,7 +189,9 @@ const hendersonData: LocationPageData = {
   proofMovesCount: 700,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Henderson, NV",
+  metaTitle: "Henderson Movers | White-Glove Moving Company",
+  metaDescription: "Licensed Henderson movers for Anthem, Green Valley and Seven Hills. Woman-owned, insured, 700+ Henderson moves with protection-first handling. Get a free quote.",
+  heroTitle: "Henderson Movers",
   heroSubhead: "700+ Henderson moves over the last 15 years — a hospitality-grade, protection-first experience for Anthem, Green Valley, and Seven Hills.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=80",
@@ -384,7 +390,9 @@ const summerlinData: LocationPageData = {
   proofMovesCount: 750,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Summerlin, NV",
+  metaTitle: "Summerlin Movers | White-Glove Moving Company",
+  metaDescription: "Licensed Summerlin movers for The Ridges, Tournament Hills and Summerlin South. Woman-owned, insured, 750+ Summerlin moves with protection-first handling.",
+  heroTitle: "Summerlin Movers",
   heroSubhead: "750+ Summerlin moves over the last 15 years — a hospitality-grade, protection-first experience for The Ridges, Tournament Hills, and Summerlin South.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
@@ -530,7 +538,9 @@ const anthemData: LocationPageData = {
   proofMovesCount: 400,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Anthem, NV",
+  metaTitle: "Anthem Movers | White-Glove Moving Services",
+  metaDescription: "Licensed Anthem movers for Anthem Country Club, Sun City Anthem and Madeira Canyon. Guard-gate and HOA coordination handled. Woman-owned and insured.",
+  heroTitle: "Anthem Movers",
   heroSubhead: "400+ Anthem moves over the last 15 years — a hospitality-grade, protection-first experience for Anthem Country Club, Sun City Anthem, and Madeira Canyon.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80",
@@ -669,7 +679,9 @@ const lasVegasData: LocationPageData = {
   proofMovesCount: 1500,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Las Vegas, NV",
+  metaTitle: "Las Vegas Moving Services | Local & White-Glove Movers",
+  metaDescription: "Local Las Vegas moving services from a licensed, woman-owned company. 1,500+ valley moves, high-rise and HOA coordination, protection-first crews. Free quotes.",
+  heroTitle: "Las Vegas Moving Services",
   heroSubhead: "1,500+ Las Vegas moves over the last 15 years — a hospitality-grade, protection-first experience across the valley.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?w=1920&q=80",
@@ -774,7 +786,9 @@ const southernHighlandsData: LocationPageData = {
   proofMovesCount: 350,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Southern Highlands, NV",
+  metaTitle: "Southern Highlands Movers",
+  metaDescription: "Licensed Southern Highlands movers for the golf club, Olympia Ridge and Roma Hills. Woman-owned, insured, 350+ community moves with protection-first handling.",
+  heroTitle: "Southern Highlands Movers",
   heroSubhead: "350+ Southern Highlands moves over the last 15 years — a hospitality-grade, protection-first experience for this premier master-planned community.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
@@ -871,7 +885,9 @@ const alianteData: LocationPageData = {
   proofMovesCount: 300,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Aliante, NV",
+  metaTitle: "Aliante Movers | North Las Vegas Moving Company",
+  metaDescription: "Licensed Aliante movers serving North Las Vegas. Woman-owned, insured, 300+ Aliante moves with protection-first handling and clear scheduling. Free quotes.",
+  heroTitle: "Aliante Movers",
   heroSubhead: "300+ Aliante moves over the last 15 years — a hospitality-grade, protection-first experience for North Las Vegas's premier community.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
@@ -968,7 +984,9 @@ const centennialHillsData: LocationPageData = {
   proofMovesCount: 400,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Centennial Hills, NV",
+  metaTitle: "Centennial Hills Movers | Northwest Las Vegas",
+  metaDescription: "Licensed Centennial Hills movers for Providence, Skye Canyon and Lone Mountain. Woman-owned, insured, 400+ northwest Las Vegas moves. Get a free quote.",
+  heroTitle: "Centennial Hills Movers",
   heroSubhead: "400+ Centennial Hills moves over the last 15 years — a hospitality-grade, protection-first experience for Northwest Las Vegas.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80",
@@ -1085,7 +1103,9 @@ const macdonaldHighlandsData: LocationPageData = {
   proofMovesCount: 150,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in MacDonald Highlands, NV",
+  metaTitle: "MacDonald Highlands Movers | Luxury Moving",
+  metaDescription: "Licensed MacDonald Highlands movers for DragonRidge and hillside estates. Guard-gate coordination, floor and wall protection, same crew start to finish.",
+  heroTitle: "MacDonald Highlands Movers",
   heroSubhead: "150+ MacDonald Highlands moves over the last 15 years — a hospitality-grade, protection-first experience for Henderson's most exclusive community.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80",
@@ -1195,7 +1215,9 @@ const greenValleyRanchData: LocationPageData = {
   proofMovesCount: 450,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Green Valley Ranch, NV",
+  metaTitle: "Green Valley Ranch Movers | Henderson Moving",
+  metaDescription: "Licensed Green Valley Ranch movers serving Henderson families. Woman-owned, insured, 450+ GVR moves with protection-first handling. Get a free quote.",
+  heroTitle: "Green Valley Ranch Movers",
   heroSubhead: "450+ Green Valley Ranch moves over the last 15 years — a hospitality-grade, protection-first experience for Henderson's family-friendly community.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80",
@@ -1298,7 +1320,9 @@ const sunriseManorData: LocationPageData = {
   proofMovesCount: 350,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Sunrise Manor, NV",
+  metaTitle: "Sunrise Manor Movers | East Las Vegas Moving",
+  metaDescription: "Licensed Sunrise Manor movers serving East Las Vegas. Woman-owned, insured, 350+ local moves with protection-first handling and clear scheduling.",
+  heroTitle: "Sunrise Manor Movers",
   heroSubhead: "350+ Sunrise Manor moves over the last 15 years — a hospitality-grade, protection-first experience for East Las Vegas.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=80",
@@ -1399,7 +1423,9 @@ const mountainsEdgeData: LocationPageData = {
   proofMovesCount: 400,
   proofYears: 12,
   
-  heroTitle: "White-Glove Movers in Mountains Edge, NV",
+  metaTitle: "Mountains Edge Movers | Southwest Las Vegas",
+  metaDescription: "Licensed Mountains Edge movers serving Southwest Las Vegas. Woman-owned, insured, 400+ local moves with protection-first handling. Get a free quote.",
+  heroTitle: "Mountains Edge Movers",
   heroSubhead: "400+ Mountains Edge moves over the last 12 years — a hospitality-grade, protection-first experience for Southwest Las Vegas.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=80",
@@ -1496,7 +1522,9 @@ const sunCitySummerlinData: LocationPageData = {
   proofMovesCount: 500,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in Sun City Summerlin, NV",
+  metaTitle: "Sun City Summerlin Movers | Senior Moving Specialists",
+  metaDescription: "Licensed Sun City Summerlin movers experienced with active-adult community moves and downsizing. Woman-owned, insured, 500+ Sun City moves.",
+  heroTitle: "Sun City Summerlin Movers",
   heroSubhead: "500+ Sun City Summerlin moves over the last 15 years — a hospitality-grade, protection-first experience for active adult living.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for 55+ communities, downsizing needs, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and patient execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80",
@@ -1610,7 +1638,9 @@ const theRidgesData: LocationPageData = {
   proofMovesCount: 120,
   proofYears: 15,
   
-  heroTitle: "White-Glove Movers in The Ridges, NV",
+  metaTitle: "The Ridges Movers | Luxury Moving in Summerlin",
+  metaDescription: "Licensed movers for The Ridges in Summerlin. Guard-gate coordination, floor and wall protection, art and specialty handling, same crew start to finish.",
+  heroTitle: "The Ridges Movers",
   heroSubhead: "120+ Ridges moves over the last 15 years — a hospitality-grade, protection-first experience for Summerlin's most exclusive guard-gated community.",
   introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
   heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80",

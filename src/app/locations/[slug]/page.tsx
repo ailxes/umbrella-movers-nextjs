@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const data = getLocationPageData(slug);
   if (!data) return {};
   return {
-    title: data.heroTitle,
-    description: data.heroSubhead,
+    title: data.metaTitle,
+    description: data.metaDescription,
     alternates: { canonical: `/locations/${data.slug}` },
     openGraph: {
-      title: data.heroTitle,
-      description: data.heroSubhead,
+      title: data.metaTitle,
+      description: data.metaDescription,
       url: `${siteUrl}/locations/${data.slug}`,
     },
   };

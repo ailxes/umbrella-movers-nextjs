@@ -195,10 +195,13 @@ const MoveCard = ({ move, variant = "full" }: MoveCardProps) => {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button asChild className="bg-accent hover:bg-accent-dark text-accent-foreground w-full sm:w-auto">
-                  <Link href="/#contact">
-                    Get a Quote
+                  <Link href={`/recent-moves/${move.slug}`}>
+                    Read the Full Case Study
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full sm:w-auto">
+                  <Link href="/#contact">Get a Quote</Link>
                 </Button>
               </div>
             </>
@@ -212,7 +215,7 @@ const MoveCard = ({ move, variant = "full" }: MoveCardProps) => {
               </p>
               <div className="flex justify-end">
                 <Link
-                  href="/recent-moves"
+                  href={`/recent-moves/${move.slug}`}
                   className="text-sm text-accent hover:text-accent-dark flex items-center gap-1 transition-colors"
                 >
                   View details

@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Phone, Star, Shield } from "lucide-react";
 
 import HeroQuoteForm from "@/components/HeroQuoteForm";
@@ -16,13 +15,17 @@ const Hero = () => {
           </div>
 
           <div className="relative z-10 px-6 pt-24 pb-10">
-            <p className="editorial-subheading text-white/70 mb-4">Las Vegas' Premier Moving Company</p>
+            <p className="editorial-subheading text-white/70 mb-4">{"Las Vegas' Premier Moving Company"}</p>
             
             <h1 className="text-3xl sm:text-4xl font-serif font-semibold mb-5 leading-tight text-white">
-              Las Vegas' Highest-Rated
+              Las Vegas Movers
               <br />
-              <span className="text-accent italic">Woman-Owned</span> Moving Company
+              <span className="text-accent italic">You Can Trust</span>
             </h1>
+
+            <p className="text-white/85 text-base leading-relaxed mb-5 max-w-md">
+              {"Las Vegas' highest-rated woman-owned moving company, specializing in white-glove residential, commercial and long-distance moves."}
+            </p>
 
             <div className="editorial-divider mb-6"></div>
 
@@ -74,15 +77,17 @@ const Hero = () => {
 
         <div className="relative z-10 flex items-center justify-center gap-16 xl:gap-24 h-full px-8 xl:px-16 pt-28 pb-20">
           <div className="text-left max-w-xl">
-            <p className="editorial-subheading text-white/60 mb-5">Las Vegas' Premier Moving Company</p>
+            <p className="editorial-subheading text-white/60 mb-5">{"Las Vegas' Premier Moving Company"}</p>
             
             <h1 className="text-5xl xl:text-6xl 2xl:text-7xl font-serif font-semibold leading-[1.1] text-white mb-6">
-              Las Vegas' Highest Rated
+              Las Vegas Movers
               <br />
-              <span className="text-accent italic">Woman-Owned</span>
-              <br />
-              Moving Company
+              <span className="text-accent italic">You Can Trust</span>
             </h1>
+
+            <p className="text-white/85 text-lg leading-relaxed mb-6 max-w-lg">
+              {"Las Vegas' highest-rated woman-owned moving company, specializing in white-glove residential, commercial and long-distance moves."}
+            </p>
 
             <div className="editorial-divider mb-8"></div>
 

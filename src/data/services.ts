@@ -49,6 +49,8 @@ export interface ServiceData {
   };
   relatedContent?: RelatedContent;
   proofLinks?: InternalLink[]; // E-E-A-T proof links
+  featuredMoves?: string[]; // Slugs from recentMoves.ts rendered as case-study cards on the page
+  reviews?: { text: string; author: string; location?: string }[]; // Real customer quotes shown on the page
 }
 
 export const servicesData: Record<string, ServiceData> = {
@@ -1602,7 +1604,7 @@ export const servicesData: Record<string, ServiceData> = {
         "Gun safe and vault moving",
         "Hot tub and spa relocation",
         "Pool table disassembly and setup",
-        "Custom crating available"
+        "Custom packing for fragile and high-value items"
       ],
       process: [
         {
@@ -1611,7 +1613,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           title: "Proper Equipment",
-          description: "We use specialized equipment including piano boards, art crates, and custom padding as needed."
+          description: "We use specialized equipment including piano boards, custom packing for art, and custom padding as needed."
         },
         {
           title: "Careful Execution",
@@ -1677,50 +1679,144 @@ export const servicesData: Record<string, ServiceData> = {
   "white-glove-moving": {
     slug: "white-glove-moving",
     title: "White Glove Movers",
-    shortDescription: "Premium moving service with extra care and attention. Perfect for high-value items, antiques, and luxury homes.",
+    shortDescription: "A defined, protection-first moving service for luxury homes, high-value furnishings, art, and specialty deliveries across Las Vegas. Full packing, floor and wall protection, room-by-room placement, and the same crew from load to unload.",
     image: "/images/white-glove-moving.png",
-    heroImage: "/images/white-glove-moving.png",
-    metaTitle: "White Glove Moving Las Vegas | Premium Movers",
-    metaDescription: "Premium white glove moving services in Las Vegas. Extra care for luxury homes, antiques, and high-value items. Woman-owned & fully insured.",
+    heroImage: "/images/move1-truck.jpeg",
+    metaTitle: "White Glove Movers Las Vegas",
+    metaDescription: "White glove movers in Las Vegas for luxury homes, fine art, antiques, designer cabinetry, and specialty deliveries. Full protection, packing, placement, and HOA and high-rise coordination. Woman-owned and insured.",
     h1: "White Glove Movers in Las Vegas",
+    ctaHeading: "Schedule a White-Glove Walkthrough",
+    ctaLabel: "Schedule a Walkthrough",
+    ctaSupport: "A move coordinator walks your home or project with you, notes every item that needs special handling, and builds a written plan before moving day.",
+    ctaSecondary: "Get a Free Quote",
     content: {
-      intro: "Our white glove moving service provides the highest level of care and attention for your most valuable possessions. From luxury homes to priceless antiques, we treat every item as if it were our own.",
+      intro: "White glove moving at Umbrella Movers is a defined service, not a label. It means every surface in your home is protected before the first item moves, every piece is packed and wrapped to match its value, and the same crew that loads your belongings is the crew that places them in your new home. It is the service we run for estates in The Ridges and Summerlin, for designer cabinetry deliveries into new builds, and for homes where the furniture, art, and electronics are worth doing right.",
       introLinks: [
-        { text: "protection-first standards", url: "/why-choose-us", context: "Learn about our" },
-        { text: "high-rise condo moving", url: "/services/high-rise-moving", context: "This service pairs perfectly with our" }
+        { text: "protection-first standards", url: "/why-choose-us", context: "Read about our" },
+        { text: "high-rise condo moving", url: "/services/high-rise-moving", context: "For tower moves with freight elevators and COIs, see our" }
+      ],
+      contentSections: [
+        {
+          heading: "What White Glove Moving Includes",
+          body: [
+            "Every white glove move starts with an in-home walkthrough. A move coordinator goes room by room with you, documents high-value and fragile items, checks doorways, stairs, elevators, and access points, and turns that into a written plan with crew size, truck count, and materials.",
+            "On moving day the crew protects the home before touching furniture. That means floor runners on hard surfaces, carpet shield, padded doorway and jamb protection, wall corner guards on tight turns, and elevator pads where a building requires them. The same protection goes down at the destination before the first item is carried in.",
+            "Items are wrapped and packed to match their value: custom packing and double-boxing for art and mirrors, blanket wrap and stretch wrap on every furniture piece, screen protection for TVs, and hardware bagged and labeled so reassembly is straightforward. Gym equipment, safes, and oversized pieces are disassembled where appropriate and moved with the right equipment."
+          ]
+        },
+        {
+          heading: "Specialty Items We Handle",
+          body: [
+            "Fine art, mirrors, and framed pieces are packed in custom or double-walled cartons with corner protection and carried flat or upright as the piece requires. Antiques and heirloom furniture are blanket-wrapped and padded at every contact point.",
+            "Televisions and monitors are dismounted from walls when needed, screen-protected, and boxed. Designer cabinetry, custom millwork, and specialty furniture are wrapped and moved as coordinated deliveries, including into active new-construction homes. Ellipticals, treadmills, StairMasters, and other heavy gym equipment are disassembled, padded, and moved with dollies and ramps built for the weight.",
+            "Pianos, safes, hot tubs, and other oversized items are handled under the same standard with the right crew size and equipment."
+          ]
+        },
+        {
+          heading: "Packing, Unpacking, and Room-by-Room Placement",
+          body: [
+            "White glove service can include full packing of the entire home, partial packing of kitchens and fragile rooms, or protection-only handling of furniture you have already packed. Boxes are labeled by room and by contents so nothing has to be opened to figure out where it belongs.",
+            "At the destination the crew places furniture where you want it, unpacks to the level you have chosen, and removes the packing materials we brought. You walk the home with the crew lead at the end and confirm every room before the truck leaves."
+          ]
+        },
+        {
+          heading: "Inventory, Labeling, and Staging",
+          body: [
+            "High-value moves get a written inventory of specialty items at the walkthrough, updated as the crew packs. Boxes and wrapped pieces are labeled and color-coded by room. Items are staged in the truck by destination room so unloading happens in the right order, and staging areas at the new home keep hallways and finished floors clear while rooms are set."
+          ]
+        },
+        {
+          heading: "HOA, Gated Community, High-Rise, and COI Coordination",
+          body: [
+            "Many white glove moves happen inside guard-gated communities and towers with their own rules. We coordinate gate access and crew arrival with the community, deliver certificates of insurance to HOAs and building management ahead of the move, reserve freight elevators and loading docks, and follow each building's protection requirements for hallways and elevators. If a community has its own safety procedures for new builds, the crew follows them."
+          ]
+        },
+        {
+          heading: "Same Crew From Load to Unload",
+          body: [
+            "The crew that packs and loads your home is the crew that unloads and places it. They know how each piece was wrapped, where the fragile boxes are, and which room everything belongs in. Customers tell us this is the single biggest difference they notice."
+          ]
+        }
       ],
       features: [
-        "Premium packing materials and techniques",
-        "Extra care for high-value items",
-        "Antique and artwork packing and transport expertise",
-        "Full unpacking and setup service",
-        "Furniture placement and arrangement",
-        "Packing materials broken down and cleared",
-        "Dedicated move coordinator"
+        "In-home walkthrough and written move plan",
+        "Floor runners, carpet shield, doorway, wall corner, and elevator protection at both homes",
+        "Custom packing and double-boxing for art, mirrors, and fragile pieces",
+        "Blanket wrap and stretch wrap on every furniture piece",
+        "TV and monitor dismounting with screen protection",
+        "Designer cabinetry and specialty furniture deliveries",
+        "Gym equipment, safe, and oversized item disassembly and handling",
+        "Full or partial packing, labeled by room and contents",
+        "Written inventory of high-value items",
+        "HOA, gated community, high-rise, and COI coordination",
+        "Room-by-room furniture placement and unpacking",
+        "Packing materials we brought removed at the end",
+        "Same crew from load to unload, with a final walkthrough"
       ],
       process: [
-        { title: "Consultation", description: "A move coordinator visits your home to understand your specific needs and create a detailed plan." },
-        { title: "Premium Packing", description: "Using the highest quality materials, we carefully pack every item with meticulous attention." },
-        { title: "Careful Transport", description: "Our experienced team handles your belongings with the utmost care throughout the move." },
-        { title: "Full Setup", description: "We unpack, arrange furniture, and take away the packing materials we brought so your new home is ready to live in." }
+        { title: "Walkthrough", description: "A move coordinator walks your home, documents specialty items, checks access at both ends, and delivers a written plan and quote." },
+        { title: "Coordination", description: "Gate access, COIs, elevator reservations, and building rules are handled with your HOA or building before moving day." },
+        { title: "Protect and Pack", description: "The crew protects floors, doorways, and walls, then wraps, packs, and labels everything to match its value." },
+        { title: "Place and Walk Through", description: "The same crew unloads room by room, places furniture, unpacks to your chosen level, clears our materials, and walks the home with you." }
       ],
-      additionalInfo: "White glove service is ideal for luxury properties, estate moves, and anyone who wants a completely hands-off moving experience.",
+      additionalInfo: "White glove service is the right fit for luxury homes and estates, designer and specialty deliveries, art and antique collections, and any move where you want a hands-off experience with a written plan behind it.",
       additionalInfoLinks: [
-        { text: "piano moving expertise", url: "/services/piano-moving", context: "Need specialized handling? See our" }
+        { text: "piano moving expertise", url: "/services/piano-moving", context: "For pianos, see our" },
+        { text: "large item moving", url: "/services/large-item-moving", context: "For safes, hot tubs, and oversized pieces, see" }
+      ],
+      faqs: [
+        {
+          question: "What is the difference between white glove moving and a standard move?",
+          answer: "A standard move loads, transports, and unloads your belongings. White glove moving adds an in-home walkthrough and written plan, full protection of floors, doorways, and walls at both homes, custom packing matched to the value of each item, a written inventory of specialty pieces, room-by-room placement and unpacking, and the same crew from load to unload."
+        },
+        {
+          question: "Do you handle fine art, antiques, and mirrors?",
+          answer: "Yes. Art, mirrors, and framed pieces are custom packed in double-walled cartons with corner protection. Antiques and heirloom furniture are blanket-wrapped and padded at every contact point and carried by hand where needed."
+        },
+        {
+          question: "Can you take TVs off the wall?",
+          answer: "Yes. We dismount TVs and monitors, protect the screens, and box them for transport."
+        },
+        {
+          question: "Do you coordinate with HOAs and high-rise buildings?",
+          answer: "Yes. We deliver certificates of insurance, arrange gate access, reserve freight elevators and loading docks, and follow each building's protection requirements. This is standard on white glove moves in Summerlin, Henderson, and the Strip corridor towers."
+        },
+        {
+          question: "Is the same crew there for the whole move?",
+          answer: "Yes. The crew that packs and loads is the crew that unloads and places. For multi-day or long-distance white glove moves we keep the crew lead consistent so nothing is lost in handoff."
+        },
+        {
+          question: "How do I get a white glove quote?",
+          answer: "Schedule a walkthrough. A move coordinator visits your home or project site, documents what needs special handling, and sends a written plan and quote. There is no charge for the walkthrough."
+        }
       ]
     },
+    featuredMoves: [
+      "ridges-to-southern-highlands-luxury-home-move",
+      "summit-summerlin-designer-cabinetry-delivery"
+    ],
+    reviews: [
+      { text: "Same crew from start to finish made all the difference. They knew exactly where everything was and how it was packed. Will definitely use Umbrella Movers again!", author: "Michael R.", location: "Summerlin, NV" },
+      { text: "Outstanding service! They handled our fragile items with extreme care and were incredibly efficient. Worth every penny.", author: "David L.", location: "North Las Vegas, NV" },
+      { text: "Best movers in Las Vegas! The team was professional, careful with our belongings, and made our move stress-free. So glad to support a woman-owned business!", author: "Sarah M.", location: "Henderson, NV" }
+    ],
     relatedContent: {
       services: [
-        { title: "Piano Moving", slug: "piano-moving" },
-        { title: "High Rise Moving", slug: "high-rise-moving" }
+        { title: "High Rise Moving", slug: "high-rise-moving" },
+        { title: "Specialty Moving", slug: "specialty-moving" },
+        { title: "Packing Services", slug: "packing-services" },
+        { title: "Piano Moving", slug: "piano-moving" }
       ],
       locations: [
+        { title: "Summerlin", slug: "summerlin" },
+        { title: "The Ridges", slug: "the-ridges" },
         { title: "Henderson", slug: "henderson" },
-        { title: "Summerlin", slug: "summerlin" }
+        { title: "MacDonald Highlands", slug: "macdonald-highlands" }
       ]
     },
     proofLinks: [
-      { text: "300+ verified reviews", url: "/#testimonials", context: "See what our customers say in our" },
+      { text: "recent white-glove moves", url: "/recent-moves", context: "See photos from" },
+      { text: "300+ verified reviews", url: "/#testimonials", context: "Read our" },
       { text: "woman-owned credentials", url: "/why-choose-us", context: "Verify our" }
     ]
   },
@@ -2031,7 +2127,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           question: "How do you protect my furniture from dust and damage?",
-          answer: "We use professional-grade moving blankets, shrink wrap, and custom crating for delicate items. In our climate-controlled storage facility, items are kept clean, dry, and away from any construction debris."
+          answer: "We use professional-grade moving blankets, shrink wrap, and custom packing for delicate items. In our climate-controlled storage facility, items are kept clean, dry, and away from any construction debris."
         },
         {
           question: "What if my renovation timeline changes unexpectedly?",

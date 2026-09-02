@@ -20,9 +20,12 @@ export interface QuoteNotificationPayload {
 
 /**
  * Fires every notification channel for a new quote request: the customer
- * confirmation email, the internal notification, the internal email alert
- * to both notification addresses, and the SMS alert. (SmartMoving CRM is no
- * longer used; leads are not sent there.)
+ * confirmation email, the internal notification email (sent by the
+ * notify-quote-request edge function from info@mail.umbrellamovers.com),
+ * and the SMS alert. (SmartMoving CRM is no longer used; leads are not sent
+ * there. A second internal alert from hello@umbrella-movers.com via
+ * /api/notify-quote-email was removed 2026-09-02 because it duplicated the
+ * edge function's email.)
  *
  * EVERY quote form on the site must call this after inserting the lead —
  * do not invoke the channels individually. They used to be copy-pasted into
@@ -45,12 +48,6 @@ export function notifyQuoteRequest(payload: QuoteNotificationPayload): void {
     .then(({ error }) => {
       if (error) console.error("[quote] internal notification failed:", error);
     });
-
-  fetch("/api/notify-quote-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  }).catch((error) => console.error("[quote] internal email alert failed:", error));
 
   fetch("/api/notify-quote-sms", {
     method: "POST",
