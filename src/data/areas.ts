@@ -48,7 +48,7 @@ const defaultFaqs = [
   },
   {
     question: "Are you licensed and insured?",
-    answer: "Yes! Umbrella Movers is fully licensed, insured, and bonded. Our CPCN license number is 3364. We're also a WBENC-certified woman-owned business, which means we meet the highest standards of professionalism and accountability."
+    answer: "Yes! Umbrella Movers is fully licensed, insured, and bonded. Our CPCN license number is 3364. We're also a woman-owned business, and we hold ourselves to the highest standards of professionalism and accountability."
   },
   {
     question: "Do the same movers load and unload?",
@@ -103,7 +103,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Summerlin, NV",
     heroImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80",
     metaTitle: "Movers Summerlin, NV | Professional Moving Services | Umbrella Movers",
-    metaDescription: "Trusted Summerlin movers with 15+ years experience. Woman-owned, WBENC certified. Same team from start to finish. Get your free moving quote today!",
+    metaDescription: "Trusted Summerlin movers with 15+ years experience. Woman-owned. Same team from start to finish. Get your free moving quote today!",
     intro: "When you are moving in Summerlin, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Summerlin isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -167,7 +167,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Southern Highlands, NV",
     heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
     metaTitle: "Movers Southern Highlands, NV | Professional Moving | Umbrella Movers",
-    metaDescription: "Southern Highlands premier moving company. Woman-owned, WBENC certified. Expert handling of luxury homes. Same team loads & unloads. Free quotes!",
+    metaDescription: "Southern Highlands premier moving company. Woman-owned. Expert handling of luxury homes. Same team loads & unloads. Free quotes!",
     intro: "When you are moving in Southern Highlands, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Southern Highlands isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -231,7 +231,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Mountains Edge, NV",
     heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
     metaTitle: "Movers Mountains Edge, NV | Professional Moving | Umbrella Movers",
-    metaDescription: "Mountains Edge professional movers. Woman-owned, WBENC certified. Same team from start to finish. Residential & commercial moving. Free quotes!",
+    metaDescription: "Mountains Edge professional movers. Woman-owned. Same team from start to finish. Residential & commercial moving. Free quotes!",
     intro: "When you are moving in Mountains Edge, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Mountains Edge isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -295,7 +295,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Anthem, NV",
     heroImage: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
     metaTitle: "Movers Anthem, NV | Professional Moving Services | Umbrella Movers",
-    metaDescription: "Anthem's premier moving company. Woman-owned, WBENC certified. Expert handling of luxury homes & gated communities. Same team. Free quotes!",
+    metaDescription: "Anthem's premier moving company. Woman-owned. Expert handling of luxury homes & gated communities. Same team. Free quotes!",
     intro: "When you are moving in Anthem, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Anthem isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -391,7 +391,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Lake Las Vegas, NV",
     heroImage: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
     metaTitle: "Movers Lake Las Vegas, NV | Luxury Moving | Umbrella Movers",
-    metaDescription: "Lake Las Vegas luxury moving specialists. Woman-owned, WBENC certified. White-glove service for waterfront homes. Same team. Free quotes!",
+    metaDescription: "Lake Las Vegas luxury moving specialists. Woman-owned. White-glove service for waterfront homes. Same team. Free quotes!",
     intro: "When you are moving in Lake Las Vegas, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Lake Las Vegas isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -455,7 +455,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Spring Valley, NV",
     heroImage: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=80",
     metaTitle: "Movers Spring Valley, NV | Professional Moving | Umbrella Movers",
-    metaDescription: "Spring Valley trusted moving company. Woman-owned, WBENC certified. Same team loads & unloads. Residential & commercial. Free quotes!",
+    metaDescription: "Spring Valley trusted moving company. Woman-owned. Same team loads & unloads. Residential & commercial. Free quotes!",
     intro: "When you are moving in Spring Valley, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Spring Valley isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -519,7 +519,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "North Las Vegas, NV",
     heroImage: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=1200&q=80",
     metaTitle: "Movers North Las Vegas, NV | Professional Moving | Umbrella Movers",
-    metaDescription: "North Las Vegas trusted movers. Woman-owned, WBENC certified. Same team from start to finish. Residential & commercial. Free quotes!",
+    metaDescription: "North Las Vegas trusted movers. Woman-owned. Same team from start to finish. Residential & commercial. Free quotes!",
     intro: "When you are moving in North Las Vegas, there are many stressful aspects to worry about. Luckily, finding top-quality movers in North Las Vegas isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -583,7 +583,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Sunrise Manor, NV",
     heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
     metaTitle: "Movers Sunrise Manor, NV | Professional Moving | Umbrella Movers",
-    metaDescription: "Sunrise Manor trusted movers. Woman-owned, WBENC certified. Same team handles your entire move. Residential & commercial. Free quotes!",
+    metaDescription: "Sunrise Manor trusted movers. Woman-owned. Same team handles your entire move. Residential & commercial. Free quotes!",
     intro: "When you are moving in Sunrise Manor, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Sunrise Manor isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -647,7 +647,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "Spring Mountain Ranch, NV",
     heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
     metaTitle: "Movers Spring Mountain Ranch, NV | Professional Moving | Umbrella Movers",
-    metaDescription: "Spring Mountain Ranch trusted movers. Woman-owned, WBENC certified. Same team loads & unloads. Get your free quote today!",
+    metaDescription: "Spring Mountain Ranch trusted movers. Woman-owned. Same team loads & unloads. Get your free quote today!",
     intro: "When you are moving in Spring Mountain Ranch, there are many stressful aspects to worry about. Luckily, finding top-quality movers in Spring Mountain Ranch isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",
@@ -679,7 +679,7 @@ export const areasData: Record<string, AreaData> = {
     fullName: "The Ridges, NV",
     heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
     metaTitle: "Movers The Ridges, NV | Luxury Moving Services | Umbrella Movers",
-    metaDescription: "The Ridges luxury moving specialists. Woman-owned, WBENC certified. White-glove service for exclusive homes. Same team. Free quotes!",
+    metaDescription: "The Ridges luxury moving specialists. Woman-owned. White-glove service for exclusive homes. Same team. Free quotes!",
     intro: "When you are moving in The Ridges, there are many stressful aspects to worry about. Luckily, finding top-quality movers in The Ridges isn't one of those. By moving with Umbrella Movers, you are choosing a stress-free move that will let you enjoy the process and feel the excitement of a fresh start. Contact us today, and let our professional team carry that weight for you.",
     fullServiceContent: [
       "A full-service move is when we sweep in and take care of every aspect of your move. You won't have to lift a single finger.",

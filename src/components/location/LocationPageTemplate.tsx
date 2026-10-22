@@ -159,7 +159,7 @@ const LocationPageTemplate = ({ data }: LocationPageTemplateProps) => {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
     "name": `Umbrella Movers - ${data.locationName} Moving Services`,
-    "description": `Professional white-glove moving services in ${data.locationName}, Nevada. Woman-owned, WBENC certified moving company with ${data.proofMovesCount}+ moves completed.`,
+    "description": `Professional white-glove moving services in ${data.locationName}, Nevada. Woman-owned moving company with ${data.proofMovesCount}+ moves completed.`,
     "image": data.heroImage,
     "telephone": "702-533-2853",
     "email": "umbrellamovers@gmail.com",
@@ -296,7 +296,7 @@ const LocationPageTemplate = ({ data }: LocationPageTemplateProps) => {
             </div>
             <div className="flex items-center gap-2 text-white">
               <Users className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Woman-Owned (WBENC)</span>
+              <span className="font-semibold">Woman-Owned</span>
             </div>
           </div>
           

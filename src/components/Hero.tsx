@@ -114,7 +114,7 @@ const Hero = () => {
           <div className="flex justify-start items-center gap-8 text-[10px] tracking-widest uppercase text-background/70 px-8 xl:px-16">
             <div className="flex items-center gap-2">
               <span className="text-accent">✦</span>
-              <span>Woman-Owned (WBENC)</span>
+              <span>Woman-Owned</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-accent">✦</span>

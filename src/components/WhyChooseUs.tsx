@@ -9,12 +9,12 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       icon: Award,
-      title: "Our Difference: WBENC Certified, Community Focused",
+      title: "Our Difference: Woman-Owned, Community Focused",
       description: "Lead with the Why: Support a Local Las Vegas Business",
       points: [
         "We are not a national chain. Your money stays in our community.",
         "We are corporate and government vendor approved—trust you can rely on.",
-        "WBENC Certified Woman-Owned Business since 2009.",
+        "Woman-Owned Business since 2009.",
       ],
     },
     {
