@@ -16,7 +16,7 @@ import { generateBreadcrumbSchema, siteUrl, socialImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Service Areas | Licensed Las Vegas Movers",
-  description: "Umbrella Movers serves all Las Vegas neighborhoods including Summerlin, Henderson, Anthem, and more. Woman-owned, fully licensed (CPCN 3364). 300+ 5-star reviews.",
+  description: "Umbrella Movers serves all Las Vegas neighborhoods including Summerlin, Henderson, Anthem, and more. Woman-owned, WBENC certified, fully licensed (CPCN 3364). 300+ 5-star reviews.",
   alternates: { canonical: "/locations" },
   openGraph: {
     type: "website",

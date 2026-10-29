@@ -130,6 +130,10 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+            <div className="border border-background/10 rounded-sm p-5 text-center">
+              <p className="font-serif text-accent text-lg mb-1">WBENC</p>
+              <p className="text-[10px] text-background/50 tracking-widest uppercase">Certified Woman-Owned Business</p>
+            </div>
           </div>
         </div>
 

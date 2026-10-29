@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>We don't just dump your belongings and leave. We understand the stress of leaving behind familiar neighborhoods, friends, and routines. Our licensed, insured team (CPCN 3364) provides personalized support throughout your move, ensuring your items never leave our care—the same professional team that loads your California home also unloads at your Las Vegas destination.</p>
 
-      <p>Whether you're relocating from Los Angeles, San Diego, San Francisco, or anywhere in California, Umbrella Movers provides transparent pricing, exceptional service, and the peace of mind that comes from working with a woman-owned business deeply rooted in the Las Vegas community.</p>
+      <p>Whether you're relocating from Los Angeles, San Diego, San Francisco, or anywhere in California, Umbrella Movers provides transparent pricing, exceptional service, and the peace of mind that comes from working with a WBENC-certified woman-owned business deeply rooted in the Las Vegas community.</p>
 
       <p><strong>Ready to start your new chapter in Las Vegas? Contact Umbrella Movers today for a free, no-obligation quote. Call 702-533-2853 or visit our website to schedule your California-to-Nevada move. We've got you covered!</strong></p>
     `,
@@ -479,7 +479,7 @@ export const blogPosts: BlogPost[] = [
       <p>Install blackout curtains, service your AC system before summer, budget $250-$400 for summer electric bills, and schedule outdoor activities before 10 AM or after 7 PM. Stay hydrated (gallon+ of water daily), apply sunscreen religiously, and keep your vehicle's AC maintained. Most locals retreat indoors mid-day June through August and embrace the pool lifestyle.</p>
 
       <h2>Make Your Las Vegas Move Seamless with Umbrella Movers</h2>
-      <p>Moving to Las Vegas is an exciting new chapter, but the logistics can be overwhelming. That's where Umbrella Movers comes in. As Las Vegas' top-rated, woman-owned moving company, we've been helping families relocate to the valley since 2009. We're fully licensed (CPCN 3364) and insured, with over 300 five-star reviews from satisfied customers.</p>
+      <p>Moving to Las Vegas is an exciting new chapter, but the logistics can be overwhelming. That's where Umbrella Movers comes in. As Las Vegas' top-rated, woman-owned moving company, we've been helping families relocate to the valley since 2009. We're fully licensed (CPCN 3364), insured, and WBENC-certified, with over 300 five-star reviews from satisfied customers.</p>
 
       <p>Unlike national chains, we're a local company that knows Las Vegas inside and out. We understand the best routes to avoid Strip traffic, which neighborhoods have restricted moving hours, and how to protect your belongings during extreme summer heat. Our professional team never subcontracts—the same careful crew that loads your belongings will be the ones to unload them at your new Las Vegas home.</p>
 
@@ -626,7 +626,7 @@ export const blogPosts: BlogPost[] = [
       <p>Luxury home prices in Las Vegas range from $700,000 in communities like Anthem Country Club to over $10 million for custom estates in The Ridges. The median price for homes in guard-gated luxury communities is approximately $1.5 million to $3 million as of 2025.</p>
 
       <h2>Trust Umbrella Movers for Your Luxury Las Vegas Move</h2>
-      <p>Moving to one of Las Vegas' premier neighborhoods requires a moving company that understands luxury service and has experience navigating these exclusive communities. As a woman-owned moving company with over 15 years serving Las Vegas, Umbrella Movers has earned the trust of residents throughout The Ridges, MacDonald Highlands, and every luxury community in the valley.</p>
+      <p>Moving to one of Las Vegas' premier neighborhoods requires a moving company that understands luxury service and has experience navigating these exclusive communities. As a woman-owned, WBENC-certified moving company with over 15 years serving Las Vegas, Umbrella Movers has earned the trust of residents throughout The Ridges, MacDonald Highlands, and every luxury community in the valley.</p>
 
       <p>Our professional team is fully licensed (CPCN 3364) and insured, and we maintain a 5-star reputation across hundreds of reviews. Unlike other companies, we never subcontract—the same careful team that loads your belongings at your current home will be the ones to unload them at your new luxury estate.</p>
 
@@ -885,7 +885,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Let Umbrella Movers Make Your Summerlin or Anthem Move Seamless</h2>
       <p>Whether you've chosen Summerlin's resort-style luxury or Anthem's family-friendly value, you need a moving company that knows these communities inside and out. As Las Vegas' top-rated, woman-owned moving company, Umbrella Movers has been helping families relocate to both Summerlin and Anthem since 2009.</p>
 
-      <p>We're fully licensed (CPCN 3364) and insured, with over 300 five-star reviews from satisfied Las Vegas residents. Unlike other movers, we never subcontract—the same professional team that carefully loads your belongings will be the ones to unload them at your new home, whether that's a villa in The Ridges or a family home in Anthem Hills.</p>
+      <p>We're fully licensed (CPCN 3364) and insured, with over 300 five-star reviews from satisfied Las Vegas residents. Our WBENC certification reflects our commitment to excellence and community service. Unlike other movers, we never subcontract—the same professional team that carefully loads your belongings will be the ones to unload them at your new home, whether that's a villa in The Ridges or a family home in Anthem Hills.</p>
 
       <p>Our local expertise means we know the best times to navigate Summerlin Parkway traffic, which guard gates require advance notification, and the most efficient routes through both communities. We've moved families into every neighborhood, from luxury estates to townhomes, and we treat every move with the same care and professionalism.</p>
 
@@ -951,14 +951,14 @@ export const blogPosts: BlogPost[] = [
       <p>Find out if the company uses their own employees or subcontractors. At Umbrella Movers, the same professional team that loads your items also unloads them—we never subcontract.</p>
       
       <h3>Consider Experience and Certifications</h3>
-      <p>Choose a company with years of experience and relevant certifications. As a woman-owned business, Umbrella Movers has been serving Las Vegas since 2009.</p>
+      <p>Choose a company with years of experience and relevant certifications. As a WBENC-certified woman-owned business, Umbrella Movers has been serving Las Vegas since 2009.</p>
     `,
     image: "/assets/blog-choosing-company.jpg",
     imageAlt: "Umbrella Movers truck and professional moving team",
     publishedDate: "2025-01-10",
     metaTitle: "How to Choose the Right Moving Company in Las Vegas | Expert Guide",
     metaDescription: "Learn what to look for when choosing a Las Vegas moving company. Tips on licensing, insurance, reviews, and more from Umbrella Movers.",
-    keywords: ["choosing moving company", "las vegas movers", "licensed movers", "moving company tips"]
+    keywords: ["choosing moving company", "las vegas movers", "licensed movers", "moving company tips", "wbenc certified"]
   },
   {
     slug: "moving-during-las-vegas-summer",
@@ -1380,7 +1380,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>But moving is about more than spreadsheets and tax savings. It's an emotional journey filled with excitement, stress, and uncertainty. Your belongings represent years of memories, investments, and hard work. You deserve a moving company that treats your furniture with the same care you would—not a company that views your possessions as cargo to be loaded and unloaded as quickly as possible.</p>
 
-      <p><strong>Umbrella Movers is Las Vegas' top-rated, woman-owned moving company with over 15 years of local expertise.</strong> We're fully licensed and insured (CPCN 3364), and backed by 300+ 5-star reviews from California families we've helped transition to Nevada. We understand the stress of leaving your lifelong California home, and we're here to support you through every step of your relocation—from professional packing services to careful unloading at your new Las Vegas address.</p>
+      <p><strong>Umbrella Movers is Las Vegas' top-rated, woman-owned moving company with over 15 years of local expertise.</strong> We're WBENC certified, fully licensed and insured (CPCN 3364), and backed by 300+ 5-star reviews from California families we've helped transition to Nevada. We understand the stress of leaving your lifelong California home, and we're here to support you through every step of your relocation—from professional packing services to careful unloading at your new Las Vegas address.</p>
 
       <p>You save money on taxes in Vegas—invest that savings in a mover who actually cares about your furniture. Get your free, no-obligation quote today and discover why thousands of California transplants trust Umbrella Movers for their life-changing relocation to Las Vegas.</p>
 
@@ -1754,7 +1754,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>Your grand piano represents far more than its dollar value—it's a musical instrument that produces the soundtrack to your life, a family heirloom passed down through generations, and often the aesthetic centerpiece of your home. When you're entrusting someone to move this irreplaceable treasure across Las Vegas, you need more than just strong arms and a truck. You need surgical precision, professional-grade equipment, and a moving company that treats your home and possessions with the same care they'd give their own.</p>
 
-      <p><strong>Umbrella Movers is Las Vegas' top-rated, woman-owned moving company with over 15 years of specialized piano moving experience.</strong> We're fully licensed and insured (CPCN 3364), and backed by 300+ 5-star reviews from Las Vegas families who trusted us with their most valuable possessions. We treat your home like our own—because we know a scratch on your Italian hardwood is unacceptable, and a crack in your Steinway's soundboard is devastating.</p>
+      <p><strong>Umbrella Movers is Las Vegas' top-rated, woman-owned moving company with over 15 years of specialized piano moving experience.</strong> We're WBENC certified, fully licensed and insured (CPCN 3364), and backed by 300+ 5-star reviews from Las Vegas families who trusted us with their most valuable possessions. We treat your home like our own—because we know a scratch on your Italian hardwood is unacceptable, and a crack in your Steinway's soundboard is devastating.</p>
 
       <p>We use double-layer floor runners, specialized piano padding, climate-controlled transport, and professional-grade piano dollies to ensure both your instrument and your home remain in pristine condition. Our same professional team loads and unloads your piano—we never subcontract to unknown handlers. Every member of our team is trained in proper piano handling techniques, and we carry comprehensive insurance that protects your investment from curb to final placement.</p>
 
@@ -1861,7 +1861,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Ready to Make Las Vegas Your Home?</h2>
       <p>Whether you're attracted by the tax savings, affordable housing, endless sunshine, or career opportunities, Las Vegas offers a quality of life that's hard to match. The city continues to grow and improve, with new restaurants, attractions, and communities emerging constantly.</p>
 
-      <p><strong>Umbrella Movers is Las Vegas' top-rated, woman-owned moving company</strong>, and we've helped thousands of families make the move to the Las Vegas Valley. We're fully licensed and insured (CPCN 3364) and backed by 300+ 5-star reviews. We don't just move your belongings—we help you transition to your new life with care and support.</p>
+      <p><strong>Umbrella Movers is Las Vegas' top-rated, woman-owned moving company</strong>, and we've helped thousands of families make the move to the Las Vegas Valley. We're fully licensed and insured (CPCN 3364), WBENC certified, and backed by 300+ 5-star reviews. We don't just move your belongings—we help you transition to your new life with care and support.</p>
 
       <p><a href="/#contact">Get your free moving quote today</a> and discover why so many people are choosing to call Las Vegas home.</p>
     `,
@@ -2005,7 +2005,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Transparent pricing:</strong> No hidden fees or surprise charges</li>
         <li><strong>Same team loads and unloads:</strong> We never use subcontractors</li>
         <li><strong>Fully licensed and insured:</strong> CPCN 3364 for your protection</li>
-        <li><strong>Woman-owned:</strong> Supporting diverse businesses matters</li>
+        <li><strong>Woman-owned and WBENC certified:</strong> Supporting diverse businesses matters</li>
         <li><strong>300+ 5-star reviews:</strong> Our reputation speaks for itself</li>
       </ul>
 
@@ -2055,7 +2055,7 @@ export const blogPosts: BlogPost[] = [
       <p>When you move with us, you get one person who knows your move and is reachable before, during, and after the truck rolls. No call-center roulette. No repeating your address and inventory to a different stranger every time you call. One contact who owns your move and answers your questions—especially valuable when your belongings are somewhere on the highway between Nevada and your new state.</p>
 
       <h2>Licensed, Insured, and Accountable</h2>
-      <p>Umbrella Movers is fully licensed (CPCN 3364) and insured. We're woman-owned. And our 300+ 5-star reviews come from the same kind of local and long-distance customers you'll be: people who needed their move done right.</p>
+      <p>Umbrella Movers is fully licensed (CPCN 3364) and insured. We're woman-owned and WBENC certified. And our 300+ 5-star reviews come from the same kind of local and long-distance customers you'll be: people who needed their move done right.</p>
 
       <ul>
         <li><strong>Licensed &amp; insured:</strong> CPCN 3364, for your protection</li>

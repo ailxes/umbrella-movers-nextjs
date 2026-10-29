@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const protectionFeatures = [
   { icon: Shield, title: "Fully Insured", desc: "Every move covered" },
-  { icon: Award, title: "Woman-Owned", desc: "Locally owned business" },
+  { icon: Award, title: "WBENC Certified", desc: "Woman-owned business" },
   { icon: FileCheck, title: "Licensed", desc: "CPCN 3364 • DOT 2474617" },
   { icon: Camera, title: "Documented", desc: "Photo documentation" },
 ];

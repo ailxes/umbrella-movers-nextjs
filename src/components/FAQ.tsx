@@ -113,7 +113,7 @@ const FAQ = () => {
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground tracking-wide">
               <Award className="h-4 w-4 text-accent" />
-              <span>Woman-Owned</span>
+              <span>Woman-Owned (WBENC)</span>
             </div>
           </div>
         </div>

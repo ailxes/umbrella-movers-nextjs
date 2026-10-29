@@ -67,6 +67,7 @@ const Header = () => {
               <span className="text-sm md:text-base font-serif font-semibold text-foreground whitespace-nowrap tracking-tight">Umbrella Movers</span>
               <span className="text-[9px] md:text-[10px] text-muted-foreground hidden sm:block tracking-widest uppercase">We've Got You Covered</span>
             </div>
+            <img src="/assets/wbenc-badge.png" alt="WBENC Certified Woman-Owned Business" className="h-8 md:h-10 lg:h-11 ml-1 md:ml-2 flex-shrink-0" />
           </button>
 
           {/* Desktop Navigation */}

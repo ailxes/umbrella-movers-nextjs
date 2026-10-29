@@ -65,7 +65,7 @@ export const servicesData: Record<string, ServiceData> = {
     h1: "Residential Movers in Las Vegas",
     ctaLabel: "Get My Home Moving Estimate",
     content: {
-      intro: "Moving to a new home should be exciting, not stressful. At Umbrella Movers, our residential moving services are designed to give you peace of mind from the moment we arrive until the last box is placed in your new home. As a woman-owned business with over 15 years of experience, we treat your belongings like our own.",
+      intro: "Moving to a new home should be exciting, not stressful. At Umbrella Movers, our residential moving services are designed to give you peace of mind from the moment we arrive until the last box is placed in your new home. As a WBENC-certified woman-owned business with over 15 years of experience, we treat your belongings like our own.",
       introLinks: [
         { text: "woman-owned credentials", url: "/why-choose-us", context: "Learn more about our" }
       ],
@@ -461,7 +461,7 @@ export const servicesData: Record<string, ServiceData> = {
     ctaSecondary: "Schedule a Site Walkthrough",
     ctaSupport: "Receive a move plan, crew recommendation and timeline built around your store hours.",
     content: {
-      intro: "A retail move is measured in hours the doors stay closed. Umbrella Movers relocates stores across the Las Vegas valley, moving displays, gondola shelving, racking, casework, and inventory between locations, out to storage, or from the warehouse to the sales floor. We are a woman-owned company, licensed under CPCN 3364 and fully insured, and we schedule around your trading hours so the floor is ready when you unlock.",
+      intro: "A retail move is measured in hours the doors stay closed. Umbrella Movers relocates stores across the Las Vegas valley, moving displays, gondola shelving, racking, casework, and inventory between locations, out to storage, or from the warehouse to the sales floor. We are a WBENC-certified woman-owned company, licensed under CPCN 3364 and fully insured, and we schedule around your trading hours so the floor is ready when you unlock.",
       introLinks: [
         { text: "commercial moving services", url: "/services/commercial-moving", context: "Part of our broader" }
       ],
@@ -666,7 +666,7 @@ export const servicesData: Record<string, ServiceData> = {
     ctaSecondary: "Schedule a Site Walkthrough",
     ctaSupport: "Receive a move plan, crew recommendation and phased timeline built around your occupancy.",
     content: {
-      intro: "Hospitality FF&E work is a logistics problem before it is a moving problem: freight arrives on a schedule, service elevators are shared, and rooms have to come back online floor by floor. Umbrella Movers delivers, places, and sets hotel and restaurant furniture, fixtures, and equipment across the Las Vegas valley, and clears the old inventory on buyouts. Woman-owned, licensed under CPCN 3364, and fully insured.",
+      intro: "Hospitality FF&E work is a logistics problem before it is a moving problem: freight arrives on a schedule, service elevators are shared, and rooms have to come back online floor by floor. Umbrella Movers delivers, places, and sets hotel and restaurant furniture, fixtures, and equipment across the Las Vegas valley, and clears the old inventory on buyouts. WBENC-certified, licensed under CPCN 3364, and fully insured.",
       introLinks: [
         { text: "commercial moving services", url: "/services/commercial-moving", context: "Part of our broader" }
       ],
@@ -1861,7 +1861,7 @@ export const servicesData: Record<string, ServiceData> = {
     ctaLabel: "Get My Senior Moving Estimate",
     ctaSupport: "We will walk the home at your pace and give you a written estimate with no pressure and no deposit to hold a date.",
     content: {
-      intro: "A senior move is rarely just a move. It is often a house someone has lived in for thirty years, a family trying to help from out of state, and a new place that is a good deal smaller. Umbrella Movers has spent fifteen years doing this work across Las Vegas, Henderson, and the valley's 55+ communities, and the thing that matters most is pace. We are woman-owned, licensed under CPCN 3364 and fully insured, and the same crew that loads your home unloads it.",
+      intro: "A senior move is rarely just a move. It is often a house someone has lived in for thirty years, a family trying to help from out of state, and a new place that is a good deal smaller. Umbrella Movers has spent fifteen years doing this work across Las Vegas, Henderson, and the valley's 55+ communities, and the thing that matters most is pace. We are WBENC-certified and woman-owned, licensed under CPCN 3364 and fully insured, and the same crew that loads your home unloads it.",
       introLinks: [
         { text: "downsizing guide for seniors", url: "/blog/downsizing-tips-seniors", context: "Planning ahead? Read our" }
       ],
