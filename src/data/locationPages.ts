@@ -193,38 +193,54 @@ const hendersonData: LocationPageData = {
   metaDescription: "Licensed Henderson movers for Anthem, Green Valley and Seven Hills. Woman-owned, insured, 700+ Henderson moves with protection-first handling. Get a free quote.",
   heroTitle: "Henderson Movers",
   heroSubhead: "700+ Henderson moves over the last 15 years — a hospitality-grade, protection-first experience for Anthem, Green Valley, and Seven Hills.",
-  introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
+  introParagraph: "Henderson is Nevada's second-largest city, and a move here usually means one of a few things: a guard-gated community with its own move rules, a new build in Inspirada or Cadence that just closed, a Lake Las Vegas condo with a reserved elevator, or a downsize into Sun City Anthem. Each one runs differently. We confirm gate access, HOA hours and truck limits before move day, protect new floors and fresh paint, and keep the same crew from the first box to the final walkthrough.",
+
   heroImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=80",
   
-  primaryNeighborhoods: ["Anthem", "Green Valley", "Green Valley Ranch", "Seven Hills"],
-  
+  primaryNeighborhoods: [
+    "Anthem",
+    "Seven Hills",
+    "Green Valley",
+    "Inspirada",
+    "Cadence",
+    "Lake Las Vegas"
+  ],
+
   neighborhoodsWithBehaviors: [
     {
-      name: "Anthem & Anthem Country Club",
-      behaviors: [
-        "Plan around gated entry and HOA timing rules",
-        "Longer carries, stairs, and steep driveways are handled with a protection-first approach",
-        "Clean, quiet execution with surfaces protected from start to finish"
+      "name": "Anthem, Seven Hills & MacDonald Highlands",
+      "behaviors": [
+        "Guard gates usually need your name list and move date ahead of time, so we send it early",
+        "Hillside lots and long driveways get a shuttle plan if the full truck can't reach the door",
+        "Sun City Anthem downsizes are paced around what's staying, what's going to storage and what family is taking"
       ]
     },
     {
-      name: "Green Valley & Green Valley Ranch",
-      behaviors: [
-        "Tighter residential corners and multi-story layouts",
-        "Protect high-traffic flooring and keep common areas clean",
-        "Staged loading for efficient, calm unloading"
+      "name": "Green Valley & Green Valley Ranch",
+      "behaviors": [
+        "Older Green Valley homes can have tighter halls and narrow side yards, so big pieces get measured before they move",
+        "Townhome and condo communities often limit move hours, which we confirm with the HOA",
+        "Shared walkways and stairs are padded before the first piece goes out"
       ]
     },
     {
-      name: "Seven Hills",
-      behaviors: [
-        "Protection-first handling for high-value furnishings and delicate pieces",
-        "Careful placement with clear communication",
-        "Finish with room-by-room placement and walkthrough"
+      "name": "Inspirada & Cadence",
+      "behaviors": [
+        "New-construction closings rarely hit an exact hour, so we schedule around the key handoff",
+        "Brand-new flooring, baseboards and paint get full surface protection",
+        "Garage and closet items go in last so the main rooms are usable the first night"
+      ]
+    },
+    {
+      "name": "Lake Las Vegas",
+      "behaviors": [
+        "Condo buildings often require a reserved elevator and loading area",
+        "We ask about certificate of insurance requirements when you book",
+        "Waterfront and resort homes get the same protection-first wrap as our white-glove moves"
       ]
     }
   ],
-  
+
   umbrellaStandard: [
     {
       title: "Hospitality-Grade Protection",
@@ -242,19 +258,23 @@ const hendersonData: LocationPageData = {
   
   moveHighlights: [
     {
-      neighborhood: "Anthem",
-      description: "Coordinated gated entry timing and staged the load so essentials were delivered first."
+      "neighborhood": "Gated communities (Anthem, Seven Hills, MacDonald Highlands)",
+      "description": "Gate list and HOA hours confirmed the week before, a shuttle truck planned if the street or driveway limits truck size, and essentials loaded last so they come off first."
     },
     {
-      neighborhood: "Green Valley",
-      description: "Managed a multi-story layout with surface protection and careful placement to keep high-traffic areas clean."
+      "neighborhood": "New construction (Inspirada, Cadence)",
+      "description": "Crew scheduled around the actual key handoff, new floors and paint protected before anything comes inside, garage and closet items placed last."
     },
     {
-      neighborhood: "Seven Hills",
-      description: "Protection-first handling for fragile furnishings with room-by-room placement and a final walkthrough."
+      "neighborhood": "Lake Las Vegas condos",
+      "description": "Elevator and loading area reserved through the building, insurance paperwork handled at booking if the building asks for it, hallways and elevator walls padded."
+    },
+    {
+      "neighborhood": "Sun City Anthem downsizes",
+      "description": "A plan for what fits the new floor plan, extra pieces moved to storage or set aside for family, and the new home set up so it's livable that night."
     }
   ],
-  
+
   whiteGloveIncludes: [
     "Protection-first wrapping",
     "Surface protection plan",
@@ -265,41 +285,50 @@ const hendersonData: LocationPageData = {
   
   faqItems: [
     {
-      question: "Do you handle HOA and gated-community access in Henderson?",
-      answer: "Yes — we plan access requirements ahead of time so move day runs smoothly."
+      "question": "Do you handle guard-gated communities like Anthem, Seven Hills and MacDonald Highlands?",
+      "answer": "Yes. Send us the gate or HOA contact when you book and we'll get on the access list and confirm any truck size or move-hour limits ahead of time."
     },
     {
-      question: "What makes your move \"white-glove\"?",
-      answer: "Protection-first handling, staged loading, careful placement, and a clean, managed process from start to finish."
+      "question": "Can you move us into a new build in Inspirada or Cadence on closing day?",
+      "answer": "Yes. Tell us the expected closing time and we'll plan the crew around when you actually have keys. If closing slips, we'll work with you on the new time."
     },
     {
-      question: "Can you help with packing?",
-      answer: "If you want full-service, we can pack and label by room, then stage the load for efficient unloading and setup."
+      "question": "Do you help with Sun City Anthem downsizing?",
+      "answer": "Yes. We can pack, move what fits the new home, and put the rest into storage until you decide what to keep."
     },
     {
-      question: "How do you reduce the risk of damage?",
-      answer: "We focus on prep: wrapping, surface protection, and tight-space planning before the heavy lifting starts."
+      "question": "Do you move Lake Las Vegas condos?",
+      "answer": "Yes. Many buildings require a reserved elevator and proof of insurance. Ask your building what it needs and tell us when you book, and we'll confirm what we can provide."
     },
     {
-      question: "Can you accommodate tight timelines?",
-      answer: "Often, yes. Tell us your constraints (closing time, HOA window, elevator reservation) and we'll confirm the best plan."
+      "question": "Can you help with packing?",
+      "answer": "Yes. We can pack and label by room, then stage the load so unloading and setup go quickly."
     },
     {
-      question: "Do you move fragile, high-value items?",
-      answer: "Yes — we offer protection-first handling and can discuss the best approach for delicate items during your quote."
+      "question": "Do you move pianos and other heavy pieces?",
+      "answer": "Yes. We move pianos and oversized furniture with the right equipment and protection for stairs, hillside driveways and tight turns."
     },
     {
-      question: "Do you provide documentation if a building/HOA requires it (like a COI)?",
-      answer: "If required, ask during booking and we'll confirm what your community needs and what we can provide."
+      "question": "How far ahead should I book a Henderson move?",
+      "answer": "Two to four weeks is a safe window. Month-end dates and weekends fill first, so book earlier if your date is fixed."
     },
     {
-      question: "What areas of Henderson do you serve?",
-      answer: "We serve Henderson broadly, with frequent moves in Anthem, Green Valley / Green Valley Ranch, and Seven Hills."
+      "question": "What areas of Henderson do you serve?",
+      "answer": "All of Henderson, including Anthem, Sun City Anthem, Seven Hills, MacDonald Highlands, Green Valley, Green Valley Ranch, Inspirada, Cadence, Lake Las Vegas and the Water Street District."
     }
   ],
-  
-  zipCodesServed: ["89002", "89011", "89012", "89014", "89015", "89052", "89074"],
-  
+
+  zipCodesServed: [
+    "89002",
+    "89011",
+    "89012",
+    "89014",
+    "89015",
+    "89044",
+    "89052",
+    "89074"
+  ],
+
   photoGallery: [
     { caption: "Anthem move — full furniture wrap before loading" },
     { caption: "Seven Hills — floor protection and careful staging" },
@@ -329,14 +358,14 @@ const hendersonData: LocationPageData = {
   
   // Unique local friction section for Henderson
   uniqueLocalFrictionSection: {
-    title: "Henderson Move Logistics We Handle",
-    bullets: [
-      "HOA move-in/move-out timing windows and documentation requirements",
-      "Hillside and steep driveway navigation with protection-first staging",
-      "Gated community access coordination with security personnel"
+    "title": "Henderson Move Logistics We Handle",
+    "bullets": [
+      "Guard-gate access lists and HOA move hours confirmed before move day",
+      "Shuttle plans for hillside lots and long driveways the full truck can't reach",
+      "Closing-day timing for new construction in Inspirada and Cadence"
     ]
   },
-  
+
   // Specialty neighborhoods that have their own pages
   specialtyNeighborhoods: [
     {
@@ -380,7 +409,7 @@ const hendersonData: LocationPageData = {
 };
 
 // ============================================================================
-// SUMMERLIN - WITH PLACEHOLDER CONTENT (TODO: Fill in specifics)
+// SUMMERLIN
 // ============================================================================
 const summerlinData: LocationPageData = {
   locationName: "Summerlin",
@@ -394,67 +423,112 @@ const summerlinData: LocationPageData = {
   metaDescription: "Licensed Summerlin movers for The Ridges, Tournament Hills and Summerlin South. Woman-owned, insured, 750+ Summerlin moves with protection-first handling.",
   heroTitle: "Summerlin Movers",
   heroSubhead: "750+ Summerlin moves over the last 15 years — a hospitality-grade, protection-first experience for The Ridges, Tournament Hills, and Summerlin South.",
-  introParagraph: "At Umbrella Movers, we don't \"just move boxes.\" We manage your transition with a calm, professional process built for high-standard homes, tight schedules, and detail-oriented clients. Our white-glove approach focuses on protection, planning, and clean execution — so move day feels controlled from start to finish.",
+  introParagraph: "Summerlin is a master-planned community on the valley's west edge, right up against Red Rock Canyon, and it moves differently than central Las Vegas. Many villages sit behind guard gates, the newer villages to the west keep closing new construction, and Sun City Summerlin brings a steady run of 55+ downsizes. We confirm gate access and HOA rules before move day, protect every surface, and keep the same crew from the first box to the final walkthrough.",
+
   heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
   
-  primaryNeighborhoods: ["The Ridges", "Tournament Hills", "The Mesa", "Summerlin South"],
-  
-  // TODO: Fill in specific neighborhood behaviors for Summerlin
+  primaryNeighborhoods: [
+    "The Ridges",
+    "Red Rock Country Club",
+    "Tournament Hills",
+    "Sun City Summerlin",
+    "Stonebridge",
+    "Summerlin South"
+  ],
+
   neighborhoodsWithBehaviors: [
     {
-      name: "The Ridges & Queensridge",
-      behaviors: [
-        "Plan around gated entry and HOA timing requirements",
-        "Navigate luxury home layouts with protection-first handling",
-        "Clean, quiet execution with surfaces protected throughout"
+      "name": "The Ridges, Red Rock Country Club & Tournament Hills",
+      "behaviors": [
+        "Guard-gated entry handled ahead of time with your gate list and move date",
+        "Large custom homes get a room-by-room plan so the truck unloads in placement order",
+        "Art, stone tables and oversized pieces are wrapped individually"
       ]
     },
     {
-      name: "Tournament Hills & The Mesa",
-      behaviors: [
-        "Handle multi-story custom homes with care",
-        "Protect hardwood and tile flooring in high-traffic areas",
-        "Staged loading for efficient, organized unloading"
+      "name": "Sun City Summerlin",
+      "behaviors": [
+        "Downsizing paced around what's staying, what's going to storage and what family is taking",
+        "Furniture often goes into smaller rooms, so we measure before move day",
+        "An unhurried crew and clear updates for family helping from out of town"
       ]
     },
     {
-      name: "Summerlin South & The Paseos",
-      behaviors: [
-        "Many communities have HOA timing windows — ask us and we'll confirm requirements",
-        "Careful placement with clear communication throughout",
-        "Finish with room-by-room placement and walkthrough"
+      "name": "Stonebridge, Redpoint & Kestrel",
+      "behaviors": [
+        "New-construction closings scheduled around when you actually get keys",
+        "New flooring, paint and stairs protected from the first trip",
+        "Truck parking planned around construction traffic on builder streets"
+      ]
+    },
+    {
+      "name": "The Trails, The Vistas & The Paseos",
+      "behaviors": [
+        "Many villages have sub-HOA rules on top of the master association, so we check both",
+        "Two-story family homes staged so bedrooms and the kitchen are ready the first night",
+        "Casitas and lofts planned as their own rooms on the load list"
       ]
     }
   ],
-  
+
   umbrellaStandard: defaultUmbrellaStandard,
   
-  // TODO: Fill in specific move highlights for Summerlin
   moveHighlights: [
     {
-      neighborhood: "The Ridges",
-      description: "Coordinated gated entry timing and staged the load so essentials were delivered first."
+      "neighborhood": "Guard-gated estates (The Ridges, Red Rock Country Club)",
+      "description": "Gate access arranged ahead, a room-by-room load plan for large custom homes, and art and oversized furniture wrapped piece by piece."
     },
     {
-      neighborhood: "Tournament Hills",
-      description: "Managed a multi-story custom home with surface protection and careful placement."
+      "neighborhood": "Sun City Summerlin",
+      "description": "Downsize planned around the new floor plan, storage for what doesn't fit, and a steady pace with plenty of check-ins."
     },
     {
-      neighborhood: "Summerlin South",
-      description: "Protection-first handling with room-by-room placement and a final walkthrough."
+      "neighborhood": "New builds in Stonebridge, Redpoint and Kestrel",
+      "description": "Scheduled around closing, truck parking planned around construction traffic, and new surfaces protected from the first trip."
+    },
+    {
+      "neighborhood": "Two-story family homes",
+      "description": "Beds, kids' rooms and the kitchen staged first so the house works on night one."
     }
   ],
-  
+
   whiteGloveIncludes: defaultWhiteGloveIncludes,
   
   faqItems: [
-    ...defaultFAQItems,
     {
-      question: "What areas of Summerlin do you serve?",
-      answer: "We serve all of Summerlin, with frequent moves in The Ridges, Tournament Hills, The Mesa, Queensridge, and Summerlin South."
+      "question": "Do you handle guard-gated Summerlin communities like The Ridges and Red Rock Country Club?",
+      "answer": "Yes. Send us the gate contact when you book and we'll get on the access list and confirm any truck or move-hour limits ahead of time."
+    },
+    {
+      "question": "My village HOA and the Summerlin master association both have rules. Which do you follow?",
+      "answer": "Both. Many villages have their own association with separate move hours or truck limits, so we check yours when you book."
+    },
+    {
+      "question": "Can you move us into new construction in Stonebridge, Redpoint or Kestrel?",
+      "answer": "Yes. Tell us your expected closing time and we'll plan the crew around the key handoff, then protect the new floors and paint before anything comes inside."
+    },
+    {
+      "question": "Do you help Sun City Summerlin residents downsize?",
+      "answer": "Yes. We can pack, move what fits the new home, and put the rest into storage until you decide what to keep."
+    },
+    {
+      "question": "Do you move pianos?",
+      "answer": "Yes. We move upright and grand pianos with the equipment and protection they need, including in multi-story custom homes."
+    },
+    {
+      "question": "Can you help with packing?",
+      "answer": "Yes. We can pack and label by room, then stage the load so unloading and setup go quickly."
+    },
+    {
+      "question": "How far ahead should I book a Summerlin move?",
+      "answer": "Two to four weeks is a safe window. Month-end dates and weekends fill first, so book earlier if your date is fixed."
+    },
+    {
+      "question": "What areas of Summerlin do you serve?",
+      "answer": "All of Summerlin, including The Ridges, Red Rock Country Club, Tournament Hills, The Mesa, Sun City Summerlin, Stonebridge, Redpoint, Kestrel, The Trails, The Vistas, The Paseos, Summerlin South and nearby Queensridge."
     }
   ],
-  
+
   zipCodesServed: ["89128", "89134", "89135", "89138", "89144", "89145"],
   
   photoGallery: defaultPhotoGallery.map((item, index) => ({
@@ -480,15 +554,6 @@ const summerlinData: LocationPageData = {
     }
   ],
   
-  // TODO: Add uniqueLocalFrictionSection for Summerlin
-  // uniqueLocalFrictionSection: {
-  //   title: "Summerlin Move Logistics We Handle",
-  //   bullets: [
-  //     "Specific Summerlin friction point 1",
-  //     "Specific Summerlin friction point 2",
-  //     "Specific Summerlin friction point 3"
-  //   ]
-  // },
   
   // Specialty neighborhoods that have their own pages
   specialtyNeighborhoods: [
@@ -524,6 +589,15 @@ const summerlinData: LocationPageData = {
     { text: "woman-owned credentials", url: "/why-choose-us", context: "Verify our" }
   ],
   
+  uniqueLocalFrictionSection: {
+    "title": "Summerlin Move Logistics We Handle",
+    "bullets": [
+      "Guard-gate lists plus master and village HOA move rules confirmed ahead of time",
+      "Closing-day timing for new construction in Summerlin's western villages",
+      "Sun City Summerlin downsizes paced around storage and family pickups"
+    ]
+  },
+
   coordinates: { lat: 36.1870, lng: -115.3360 }
 };
 
@@ -970,6 +1044,12 @@ const alianteData: LocationPageData = {
     }
   ],
   
+  parentLocation: {
+    "slug": "north-las-vegas",
+    "name": "North Las Vegas",
+    "description": "Aliante is one of North Las Vegas's master-planned communities."
+  },
+
   coordinates: { lat: 36.2819, lng: -115.1256 }
 };
 
@@ -1746,6 +1826,200 @@ const theRidgesData: LocationPageData = {
 // ============================================================================
 // EXPORT ALL LOCATION DATA
 // ============================================================================
+// ============================================================================
+// NORTH LAS VEGAS
+// ============================================================================
+const northLasVegasData: LocationPageData = {
+  locationName: "North Las Vegas",
+  state: "NV",
+  slug: "north-las-vegas",
+
+  // 300 matches the existing Aliante claim (Aliante is part of North Las Vegas)
+  proofMovesCount: 300,
+  proofYears: 15,
+
+  metaTitle: "North Las Vegas Movers | Local & Commercial Moving",
+  metaDescription: "Licensed North Las Vegas movers for Aliante, Eldorado, Tule Springs and Craig Ranch. Woman-owned, WBENC certified, insured. Homes, apartments and warehouses.",
+  heroTitle: "North Las Vegas Movers",
+  heroSubhead: "Home, apartment and commercial moves across North Las Vegas, from Aliante and Eldorado to the warehouses along I-15.",
+  introParagraph: "North Las Vegas is its own city, and it keeps growing: new subdivisions keep opening on the north side, established neighborhoods sit around Craig Ranch Regional Park, and the industrial areas along I-15 keep adding warehouse space. So our crews here do a bit of everything, from first homes and apartment moves to office and warehouse relocations. We confirm HOA rules, parking and dock access before move day, and the same crew stays with your move from start to finish.",
+  heroImage: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80",
+  primaryNeighborhoods: [
+    "Aliante",
+    "Eldorado",
+    "Tule Springs",
+    "Craig Ranch",
+    "Nellis area"
+  ],
+  neighborhoodsWithBehaviors: [
+    {
+      "name": "Aliante & Eldorado",
+      "behaviors": [
+        "HOA rules on truck parking and move hours confirmed ahead of time",
+        "Single and two-story family homes staged so beds and the kitchen come off first",
+        "Garages, side yards and patio furniture planned into the load list"
+      ]
+    },
+    {
+      "name": "Tule Springs & new north-side subdivisions",
+      "behaviors": [
+        "Closing-day moves scheduled around when you actually get keys",
+        "New flooring and fresh paint protected before anything comes inside",
+        "Truck parking planned around construction traffic and unfinished streets"
+      ]
+    },
+    {
+      "name": "Craig Ranch & central North Las Vegas",
+      "behaviors": [
+        "Established neighborhoods and apartment communities where parking is tighter",
+        "Apartment moves planned around stairs, elevators and leasing-office rules",
+        "Short moves across town or into Las Vegas handled in a single day when the size allows"
+      ]
+    },
+    {
+      "name": "Near Nellis Air Force Base",
+      "behaviors": [
+        "Moves scheduled around report dates and housing timelines",
+        "Storage when the dates between homes don't line up",
+        "Boxes labeled by room so unpacking starts right away"
+      ]
+    },
+    {
+      "name": "I-15 and Speedway industrial areas",
+      "behaviors": [
+        "Warehouse and office moves scheduled around shifts and dock times",
+        "Racking, inventory and office furniture moved and set up",
+        "Loading and unloading labor for freight and containers"
+      ]
+    }
+  ],
+  umbrellaStandard: defaultUmbrellaStandard,
+  moveHighlights: [
+    {
+      "neighborhood": "Aliante family homes",
+      "description": "HOA parking rules confirmed ahead, beds and kitchen boxes unloaded first, and a final walkthrough of every room."
+    },
+    {
+      "neighborhood": "New construction on the north side",
+      "description": "Crew scheduled around the key handoff, new floors protected, and garage items placed last."
+    },
+    {
+      "neighborhood": "Military families near Nellis",
+      "description": "Move timed around the report date, with storage in between if the new home isn't ready yet."
+    },
+    {
+      "neighborhood": "Warehouse and office moves along I-15",
+      "description": "Dock times and shift changes planned in advance, with racking and office furniture set up at the new space."
+    }
+  ],
+  whiteGloveIncludes: defaultWhiteGloveIncludes,
+  faqItems: [
+    {
+      "question": "Is North Las Vegas a different city from Las Vegas?",
+      "answer": "Yes. North Las Vegas is its own city with its own neighborhoods and HOAs. We move people within North Las Vegas, into and out of it, and anywhere else in the valley."
+    },
+    {
+      "question": "Do you move to and from Aliante, Eldorado and Tule Springs?",
+      "answer": "Yes. Tell us your HOA when you book and we'll confirm any truck parking or move-hour rules ahead of time."
+    },
+    {
+      "question": "Can you move us into a new build on closing day?",
+      "answer": "Yes. Tell us the expected closing time and we'll plan the crew around when you actually have keys. If closing slips, we'll work with you on the new time."
+    },
+    {
+      "question": "Do you work with military families at Nellis?",
+      "answer": "Yes. If you're arranging your own move, we can schedule around your report date and store your things if the timing between homes doesn't line up."
+    },
+    {
+      "question": "Do you do commercial and warehouse moves in North Las Vegas?",
+      "answer": "Yes. We move offices, warehouses and retail spaces, and we provide loading and unloading labor for freight and containers."
+    },
+    {
+      "question": "Do you offer storage?",
+      "answer": "Yes. If your move-out and move-in dates don't line up, we can store your belongings until the new place is ready."
+    },
+    {
+      "question": "How far ahead should I book a North Las Vegas move?",
+      "answer": "Two to four weeks is a safe window. Month-end dates and weekends fill first, so book earlier if your date is fixed."
+    },
+    {
+      "question": "What areas of North Las Vegas do you serve?",
+      "answer": "All of North Las Vegas, including Aliante, Eldorado, Tule Springs, Craig Ranch, the neighborhoods near Nellis, and the industrial areas along I-15."
+    }
+  ],
+  zipCodesServed: [
+    "89030",
+    "89031",
+    "89032",
+    "89081",
+    "89084",
+    "89085",
+    "89086"
+  ],
+  uniqueLocalFrictionSection: {
+    "title": "North Las Vegas Move Logistics We Handle",
+    "bullets": [
+      "HOA parking and move-hour rules in Aliante, Eldorado and the newer north-side communities",
+      "Closing-day timing for new construction across the north side",
+      "Dock times and shift schedules for warehouse moves along I-15"
+    ]
+  },
+  specialtyNeighborhoods: [
+    {
+      "slug": "aliante",
+      "name": "Aliante",
+      "teaser": "Master-planned community moves with HOA parking and timing handled ahead of time."
+    }
+  ],
+  introLinks: [
+    {
+      "text": "commercial moving",
+      "url": "/services/commercial-moving",
+      "context": "Moving a business? See our"
+    },
+    {
+      "text": "storage",
+      "url": "/services/storage-solutions",
+      "context": "Need time between homes? Ask about"
+    }
+  ],
+  relatedContent: {
+    "services": [
+      {
+        "title": "Commercial Moving",
+        "slug": "commercial-moving"
+      },
+      {
+        "title": "Local Moving",
+        "slug": "local-moving"
+      }
+    ],
+    "locations": [
+      {
+        "title": "Aliante",
+        "slug": "aliante"
+      },
+      {
+        "title": "Centennial Hills",
+        "slug": "centennial-hills"
+      }
+    ]
+  },
+  proofLinks: [
+    {
+      "text": "verified customer reviews",
+      "url": "/#testimonials",
+      "context": "Read"
+    },
+    {
+      "text": "licensed credentials",
+      "url": "/why-choose-us",
+      "context": "Verify our"
+    }
+  ],
+  coordinates: { lat: 36.1989, lng: -115.1175 }
+};
+
 export const locationPagesData: Record<string, LocationPageData> = {
   henderson: hendersonData,
   summerlin: summerlinData,
@@ -1760,6 +2034,7 @@ export const locationPagesData: Record<string, LocationPageData> = {
   "mountains-edge": mountainsEdgeData,
   "sun-city-summerlin": sunCitySummerlinData,
   "the-ridges": theRidgesData,
+  "north-las-vegas": northLasVegasData,
 };
 
 // Helper to get location data with fallback

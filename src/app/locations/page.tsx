@@ -40,6 +40,7 @@ const serviceAreas = [
   { name: "Sunrise Manor", slug: "sunrise-manor", description: "Reliable moving services for Sunrise Manor and East Las Vegas communities.", zipCodes: ["89110", "89115", "89142", "89156"], image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80" },
   { name: "Mountains Edge", slug: "mountains-edge", description: "Expert movers for Mountains Edge master-planned community in Southwest Las Vegas.", zipCodes: ["89141", "89178"], image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" },
   { name: "Sun City Summerlin", slug: "sun-city-summerlin", description: "Senior-friendly moving specialists for Sun City Summerlin 55+ community.", zipCodes: ["89134", "89144"], image: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80" },
+  { name: "North Las Vegas", slug: "north-las-vegas", description: "Home, apartment and commercial moves across North Las Vegas, from Aliante and Eldorado to the I-15 warehouses.", zipCodes: ["89030", "89031", "89032", "89081"], image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" },
   { name: "Aliante", slug: "aliante", description: "Trusted moving services for Aliante master-planned community in North Las Vegas.", zipCodes: ["89084", "89031"], image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" },
 ];
 
