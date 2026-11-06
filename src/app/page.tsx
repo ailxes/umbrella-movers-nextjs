@@ -13,20 +13,20 @@ import Footer from "@/components/Footer";
 import { siteUrl, socialImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Movers | Licensed & Woman-Owned | Umbrella Movers",
-  description: "Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews. Check Las Vegas move availability.",
+  title: "Las Vegas Movers | Woman-Owned, 300+ 5-Star Reviews",
+  description: "Woman-owned, WBENC-certified Las Vegas moving company with 300+ 5-star reviews. Licensed (CPCN 3364), insured. Local, commercial and long-distance moves.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Las Vegas Movers | Licensed & Woman-Owned | Umbrella Movers",
-    description: "Umbrella Movers is Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews.",
+    title: "Las Vegas Movers | Woman-Owned, 300+ 5-Star Reviews",
+    description: "Woman-owned, WBENC-certified Las Vegas moving company with 300+ 5-star reviews. Licensed (CPCN 3364), insured. Local, commercial and long-distance moves.",
     images: [{ url: socialImage }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Las Vegas Movers | Licensed & Woman-Owned | Umbrella Movers",
-    description: "Umbrella Movers is Las Vegas' highest-rated woman-owned moving company. CPCN 3364, US DOT 2474617. Licensed, insured, 300+ 5-star reviews.",
+    title: "Las Vegas Movers | Woman-Owned, 300+ 5-Star Reviews",
+    description: "Woman-owned, WBENC-certified Las Vegas moving company with 300+ 5-star reviews. Licensed (CPCN 3364), insured. Local, commercial and long-distance moves.",
     images: [socialImage],
   },
 };
