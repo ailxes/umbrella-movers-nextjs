@@ -786,7 +786,7 @@ const southernHighlandsData: LocationPageData = {
   proofMovesCount: 350,
   proofYears: 15,
   
-  metaTitle: "Southern Highlands Movers",
+  metaTitle: "Southern Highlands Movers | Luxury Home Moving",
   metaDescription: "Licensed Southern Highlands movers for the golf club, Olympia Ridge and Roma Hills. Woman-owned, insured, 350+ community moves with protection-first handling.",
   heroTitle: "Southern Highlands Movers",
   heroSubhead: "350+ Southern Highlands moves over the last 15 years — a hospitality-grade, protection-first experience for this premier master-planned community.",
