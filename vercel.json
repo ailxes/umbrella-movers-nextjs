@@ -31,6 +31,8 @@
     { "source": "/senior-moving-relocation", "destination": "/services/senior-moving", "statusCode": 301 },
     { "source": "/high-rise-moving-services/", "destination": "/services/high-rise-moving", "statusCode": 301 },
     { "source": "/apartment-moving-services/", "destination": "/services/apartment-moving", "statusCode": 301 },
+    { "source": "/get-quote", "destination": "https://umbrella-survey-rose.vercel.app/get-quote", "statusCode": 307 },
+    { "source": "/get-quote/", "destination": "https://umbrella-survey-rose.vercel.app/get-quote", "statusCode": 307 },
     { "source": "/contact", "destination": "/#contact", "statusCode": 301 },
     { "source": "/contact/", "destination": "/#contact", "statusCode": 301 }
   ]
